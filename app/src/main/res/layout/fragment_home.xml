@@ -13,24 +13,21 @@
             android:id="@+id/bricoliTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/poppins_bold"
-            android:shadowColor="@color/ash_gray"
-            android:shadowDx="-5"
-            android:shadowDy="15"
-            android:shadowRadius="25"
-            android:text="@string/bricoli"
+            android:layout_marginLeft="22dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/poppins_semibold"
+
+            android:text="@string/title_home"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="50dp" />
+            android:textSize="19dp" />
 
         <TextView
             android:id="@+id/chooseServiceTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="70dp"
             android:fontFamily="@font/poppins_bold"
             android:shadowColor="@color/ash_gray"
             android:shadowDx="10"
