@@ -5,16 +5,16 @@
     android:layout_height="match_parent"
 
 
-    tools:context=".search_and_notification">
+    tools:context=".fragment_settings">
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="250dp"
+        android:layout_marginEnd="240dp"
         android:layout_toStartOf="@+id/textView"
-        android:text="@string/bricoli"
+        android:text="Settings"
         android:textSize="30dp" />
 
     <TextView
