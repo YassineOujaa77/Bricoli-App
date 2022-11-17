@@ -63,7 +63,7 @@
                 android:background="@null"
                 android:dropDownSelector="@drawable/filter_spinner_dropdown_bg"
                 android:ellipsize="end"
-                android:fontFamily="@font/poppins_bold"
+                android:fontFamily="@font/poppins_semibold"
                 android:text="@string/choose_service_spinner"
                 android:inputType="none"
                 android:maxLines="1"
@@ -72,7 +72,7 @@
                 android:singleLine="true"
                 android:textAlignment="textStart"
                 android:textColor="@color/gray_hintText"
-                android:textSize="18dp"
+                android:textSize="15dp"
                 tools:ignore="LabelFor" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -83,7 +83,7 @@
             android:layout_marginTop="65dp"
             android:background="@drawable/rounded_corner_button"
             android:elevation="10dp"
-            android:fontFamily="@font/poppins_bold"
+            android:fontFamily="@font/poppins_semibold"
             android:gravity="top"
             android:hint="@string/add_description"
             android:inputType="textMultiLine"
@@ -95,11 +95,11 @@
             android:scrollbars="vertical"
             android:scrollHorizontally="false"
             android:textColorHint="@color/gray_hintText"
-            android:textSize="18dp" />
+            android:textSize="15dp" />
 
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/findButton"
+            android:id="@+id/addButton"
             android:layout_width="296dp"
             android:layout_height="73dp"
             android:layout_gravity="center"
@@ -109,7 +109,7 @@
             android:elevation="8dp"
             android:fontFamily="@font/poppins_bold"
             android:stateListAnimator="@null"
-            android:text="@string/find"
+            android:text="@string/add"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="18dp" />
