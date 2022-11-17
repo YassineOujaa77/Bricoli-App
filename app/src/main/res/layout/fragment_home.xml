@@ -106,7 +106,7 @@
             android:layout_marginTop="50dp"
             android:background="@drawable/rounded_corner_button"
             android:backgroundTint="@color/yellow"
-            android:elevation="10dp"
+            android:elevation="8dp"
             android:fontFamily="@font/poppins_bold"
             android:stateListAnimator="@null"
             android:text="@string/find"
