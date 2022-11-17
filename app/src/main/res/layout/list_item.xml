@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="16dp"
+    android:fontFamily="@font/poppins_semibold"
+    android:textSize="13dp"
     android:textColor="@color/black"
     android:text="textView">
 </TextView>
