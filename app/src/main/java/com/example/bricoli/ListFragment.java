@@ -1,12 +1,13 @@
 package com.example.bricoli;
-
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import java.util.ArrayList;
+import butterknife.BindView;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +15,10 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class ListFragment extends Fragment {
+
+    @BindView(R.id.annoucementList)
+    ListView announcementList;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -59,6 +64,13 @@ public class ListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+        ArrayList<Annoucement> annoucements = new ArrayList<>();
+        annoucements.add(new Annoucement("Full Name1","Rabat","2.5 (500)","300DH","2 jrs","900m","Je suis à la recherche d'un plombier...........",R.drawable.photo));
+        annoucements.add(new Annoucement("Full Name2","Rabat","2.5 (500)","300DH","2 jrs","900m","Je suis à la recherche d'un plombier...........",R.drawable.photo));
+        annoucements.add(new Annoucement("Full Name3","Rabat","2.5 (500)","300DH","2 jrs","900m","Je suis à la recherche d'un plombier...........",R.drawable.photo));
+        AnnoucementAdapter annoucementAdapter = new AnnoucementAdapter(getView().getContext(),R.layout.annoucement_cell_layout,annoucements);
+        announcementList.setAdapter(annoucementAdapter);
         return inflater.inflate(R.layout.fragment_list, container, false);
     }
 }
