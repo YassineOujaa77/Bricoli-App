@@ -10,7 +10,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
-public class Job_Information_plus_map extends AppCompatActivity {
+public class Job_Information_plus_maps extends AppCompatActivity {
 
 
     private ImageButton imageButton;

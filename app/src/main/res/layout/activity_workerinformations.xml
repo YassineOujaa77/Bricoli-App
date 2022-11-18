@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Job_Information_plus_map"
+    tools:context=".Job_Information_plus_maps"
     android:orientation="vertical">
 
     <FrameLayout

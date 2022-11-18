@@ -25,7 +25,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Job_Information_plus_map"
+            android:name=".Job_Information_plus_maps"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
