@@ -34,6 +34,15 @@
                 android:resource="@array/preloaded_fonts" />
         </activity>
 
+        <!-- Home bids for client -->
+        <activity
+            android:name=".HomeBidsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
         <!-- Worker Home activity -->
         <activity
             android:name=".WorkerHomeActivity"
