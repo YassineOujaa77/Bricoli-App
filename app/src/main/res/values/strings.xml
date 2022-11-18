@@ -1,5 +1,15 @@
 <resources>
     <string name="app_name">BRICOLI</string>
+
+    <string name="name_complet">Name Complet</string>
+    <string name="phone">Phone</string>
+    <string name="address">Address</string>
+    <string name="cin">CIN</string>
+    <string name="password">Password</string>
+    <string name="password_confirmation">Password Confirmation</string>
+    <string name="signup">Signup</string>
+    <string name="client">Client</string>
+    <string name="worker">Worker</string>
     <string name="bricoli">BRICOLI.</string>
     <string name="title_home">Home</string>
     <string name="title_list">List</string>
@@ -16,4 +26,5 @@
         <item>Organisateur de fetes</item>
         <item>Technicien</item>
     </string-array>
+
 </resources>
