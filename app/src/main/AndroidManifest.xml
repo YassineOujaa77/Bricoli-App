@@ -16,6 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BRICOLI"
         tools:targetApi="31">
+
         <activity
             android:name=".mapactivity"
             android:exported="false">
@@ -24,8 +25,12 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".workerinformations"
-            android:exported="false">
+            android:name=".Job_Information_plus_map"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
