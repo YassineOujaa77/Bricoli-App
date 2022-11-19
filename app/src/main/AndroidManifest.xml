@@ -16,7 +16,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BRICOLI"
         tools:targetApi="31">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBPrYbRRGBao520j0RKp8FZ8bq6qPrdmXQ" />
+        <activity
+            android:name=".Job_Information_plus_maps"
+            android:exported="false">
 
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".runfirst"
+            android:exported="false">
+
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".mapactivity"
             android:exported="false">
@@ -24,20 +43,16 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
-            android:name=".Job_Information_plus_maps"
+            android:name=".HomeBidsActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".HomeBidsActivity"
-            android:exported="false">
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

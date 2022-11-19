@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Job_Information_plus_maps"
     android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -32,16 +37,21 @@
 
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="150px"
-                    android:layout_height="150px"
+                    android:layout_width="125px"
+                    android:layout_height="125px"
                     app:cardCornerRadius="100dp"
                     android:layout_gravity="right"
                     android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginTop="10dp"
+
+                    >
                     <ImageButton
                         android:id="@+id/imageButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:scaleType="centerCrop"
+                        android:backgroundTint="@color/white"
+
 
                         app:srcCompat="@drawable/agrandir" />
 
@@ -71,7 +81,8 @@
                 android:layout_height="300dp"
                 android:clickable="true"
                 app:cardCornerRadius="20dp"
-                app:cardElevation="11dp">
+                app:cardElevation="11dp"
+                android:id="@+id/profilecardc">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -111,8 +122,10 @@
                         android:layout_gravity="center"
                         android:text="Nom Complet"
                         android:textColor="@color/black"
+
                         android:textSize="55px"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/poppins_regular"
+                        android:textStyle="bold"/>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -135,7 +148,8 @@
                             android:layout_height="wrap_content"
                             android:text="4.5 (520)"
                             android:textSize="20sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:fontFamily="@font/poppins_regular"/>
 
                     </LinearLayout>
 
@@ -154,7 +168,8 @@
                             android:layout_marginRight="30dp"
                             android:text="200 DH  "
                             android:textSize="45px"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:fontFamily="@font/poppins_regular"/>
 
                         <TextView
                             android:id="@+id/tv_time"
@@ -162,7 +177,8 @@
                             android:layout_height="wrap_content"
                             android:text="2 Jrs"
                             android:textStyle="bold"
-                            android:textSize="45px"/>
+                            android:textSize="45px"
+                            android:fontFamily="@font/poppins_regular"/>
 
                     </LinearLayout>
 
@@ -184,7 +200,7 @@
 
             <Button
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:visibility="invisible"
                 />
 
@@ -195,7 +211,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/buttonradius"
-
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="18dp"
 
                 android:text="Finish"
                 android:textAllCaps="false"
@@ -215,4 +232,6 @@
 
 
     </FrameLayout>
-</LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>
