@@ -9,4 +9,9 @@
     <string name="TitleHistory">History</string>
     <string name="TitleHome">Home</string>
     <string name="TitleSettings">Settings</string>
+    <string name="TitleChangeRole">Change Rôle</string>
+    <string name="DescriptionChangeRole">Welcome to the change role page where you can apply to be a worker</string>
+    <string name="NameClient">Client</string>
+    <string name="NameWorker">Worker</string>
+    <string name="SaveButton">Save</string>
 </resources>
