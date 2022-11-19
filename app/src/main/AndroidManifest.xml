@@ -28,15 +28,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".runfirst"
-            android:exported="false">
-
-
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".mapactivity"
             android:exported="false">
             <meta-data
