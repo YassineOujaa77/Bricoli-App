@@ -17,7 +17,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="200dp"
         android:layout_toStartOf="@+id/textView"
-        android:text="History"
+        android:text="@string/TitleHistory"
         android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold" />
