@@ -14,4 +14,7 @@
     <string name="NameClient">Client</string>
     <string name="NameWorker">Worker</string>
     <string name="SaveButton">Save</string>
+    <string name="TitleChangePassword">Change Password</string>
+    <string name="LabelPAssword">Password</string>
+    <string name="LabelReTapePassword">Re-tape Password</string>
 </resources>
