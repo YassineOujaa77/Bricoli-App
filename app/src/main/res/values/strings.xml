@@ -2,6 +2,22 @@
     <string name="app_name">BRICOLI</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bricoli"><b>Bricoli</b></string>
+    <string name="TitleBids">Bids</string>
+    <string name="TitleBricoli">Bricoli</string>
+    <string name="TitleCurrentJob">Current Job</string>
+    <string name="TitleHistory">History</string>
+    <string name="TitleHome">Home</string>
+    <string name="TitleSettings">Settings</string>
+    <string name="TitleChangeRole">Change Rôle</string>
+    <string name="DescriptionChangeRole">Welcome to the change role page where you can apply to be a worker</string>
+    <string name="NameClient">Client</string>
+    <string name="NameWorker">Worker</string>
+    <string name="SaveButton">Save</string>
+    <string name="TitleChangePassword">Change Password</string>
+    <string name="LabelPAssword">Password</string>
+    <string name="LabelReTapePassword">Re-tape Password</string>
+
 
     <string name="name_complet">Name Complet</string>
     <string name="phone">Phone</string>
