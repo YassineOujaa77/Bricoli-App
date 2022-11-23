@@ -1,4 +1,4 @@
-package com.example.bricoli;
+package com.example.bricoli.models;
 
 public class Annoucement {
 

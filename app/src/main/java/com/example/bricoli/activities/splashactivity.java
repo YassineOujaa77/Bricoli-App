@@ -1,12 +1,12 @@
-package com.example.bricoli;
+package com.example.bricoli.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.widget.VideoView;
+
+import com.example.bricoli.R;
 
 
 public class splashactivity extends AppCompatActivity {

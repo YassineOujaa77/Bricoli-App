@@ -1,4 +1,4 @@
-package com.example.bricoli;
+package com.example.bricoli.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,7 @@ import android.os.Bundle;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.example.bricoli.R;
 
 import java.util.ArrayList;
 import java.util.List;

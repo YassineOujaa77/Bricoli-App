@@ -1,4 +1,4 @@
-package com.example.bricoli;
+package com.example.bricoli.activities;
 
 import android.content.Intent;
 import android.graphics.Paint;
@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.bricoli.R;
 
 public class LoginActivity extends AppCompatActivity
 {
@@ -41,7 +43,7 @@ public class LoginActivity extends AppCompatActivity
             {
                 if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin"))
                 {
-                    Intent intent = new Intent(LoginActivity.this,ClientHomeActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, ClientHomeActivity.class);
                     startActivity(intent);
                 }
                 else
@@ -55,7 +57,7 @@ public class LoginActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                    Intent intent1 = new Intent(LoginActivity.this,SignupActivity.class);
+                    Intent intent1 = new Intent(LoginActivity.this, SignupActivity.class);
                     startActivity(intent1);
 
             }

@@ -1,4 +1,4 @@
-package com.example.bricoli;
+package com.example.bricoli.fragments;
 
 import android.os.Bundle;
 
@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.bricoli.R;
 import com.google.android.gms.common.internal.Constants;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;

@@ -1,4 +1,4 @@
-package com.example.bricoli;
+package com.example.bricoli.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ListView;
 
+import com.example.bricoli.models.Annoucement;
+import com.example.bricoli.adapters.AnnoucementAdapter;
+import com.example.bricoli.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;

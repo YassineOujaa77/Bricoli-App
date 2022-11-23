@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
 
 
-    tools:context=".CurrentJobFragment">
+    tools:context=".fragments.CurrentJobFragment">
 
     <TextView
         android:id="@+id/textView3"
