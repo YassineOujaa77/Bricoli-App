@@ -18,12 +18,12 @@
         android:theme="@style/Theme.BRICOLI"
         tools:targetApi="31">
         <activity
-            android:name=".ChangeRoleActivity"
+            android:name=".activities.ChangeRoleActivity"
             android:exported="false">
 
 
         <activity
-            android:name=".WorkerProfilForClientActivity"
+            android:name=".activities.WorkerProfilForClientActivity"
             android:exported="false">
 
 
@@ -32,11 +32,11 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ChangePasswordActivity"
+            android:name=".activities.ChangePasswordActivity"
 
         <!-- Login activity -->
         <activity
-            android:name=".LoginActivity"
+            android:name=".activities.LoginActivity"
 
             android:exported="true">
             <intent-filter>
@@ -50,7 +50,7 @@
 
         <!-- Signup Activity -->
         <activity
-            android:name=".SignupActivity"
+            android:name=".activities.SignupActivity"
             android:exported="false">
         </activity>
 
@@ -58,7 +58,7 @@
 
         <!-- Client Home activity -->
         <activity
-            android:name=".ClientHomeActivity"
+            android:name=".activities.ClientHomeActivity"
             android:exported="false">
 
             <meta-data
@@ -68,7 +68,7 @@
 
         <!-- Home bids for client -->
         <activity
-            android:name=".splashactivity"
+            android:name=".activities.splashactivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -85,21 +85,21 @@
             android:value="AIzaSyBPrYbRRGBao520j0RKp8FZ8bq6qPrdmXQ" />
 
         <activity
-            android:name=".Job_Information_plus_maps"
+            android:name=".activities.Job_Information_plus_maps"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".mapactivity"
+            android:name=".activities.mapactivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".HomeBidsActivity"
+            android:name=".activities.HomeBidsActivity"
             android:exported="false">
 
 
@@ -110,7 +110,7 @@
 
         <!-- Worker Home activity -->
         <activity
-            android:name=".WorkerHomeActivity"
+            android:name=".activities.WorkerHomeActivity"
 
             android:exported="false" >
 

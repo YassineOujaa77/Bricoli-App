@@ -9,7 +9,7 @@
     android:overScrollMode="ifContentScrolls"
     android:scrollbarStyle="insideOverlay"
     android:scrollbars="vertical"
-    tools:context=".SignupActivity">
+    tools:context=".activities.SignupActivity">
 
 
     <ScrollView

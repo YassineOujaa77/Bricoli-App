@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
 
 
-    tools:context=".BricoliFragment">
+    tools:context=".fragments.BricoliFragment">
 
     <TextView
         android:id="@+id/textView3"

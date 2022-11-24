@@ -1,4 +1,4 @@
-package com.example.bricoli;
+package com.example.bricoli.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +13,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.example.bricoli.R;
+import com.example.bricoli.fragments.MapFragment;
+
 public class Job_Information_plus_maps extends AppCompatActivity {
 
 

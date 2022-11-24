@@ -1,4 +1,4 @@
-package com.example.bricoli;
+package com.example.bricoli.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,8 +11,8 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.view.View;
 
+import com.example.bricoli.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.example.bricoli.databinding.ActivityClientHomeBinding;
 import com.google.android.material.textfield.TextInputLayout;
