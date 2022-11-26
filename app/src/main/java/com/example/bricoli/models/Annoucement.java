@@ -11,7 +11,7 @@ public class Annoucement {
     private String description;
     private int photo;
 
-    public Annoucement(String fullName, String city, String rating, String price, String duration, String distance, String description, int photo) {
+    public Annoucement(String fullName, String city, String rating, String price, String duration, String distance, String description , int photo) {
         this.fullName = fullName;
         this.city = city;
         this.rating = rating;
@@ -19,6 +19,16 @@ public class Annoucement {
         this.duration = duration;
         this.distance = distance;
         this.description = description;
+        this.photo = photo;
+    }
+
+    public Annoucement(String fullName, String city, String rating, String price, String duration, String distance, int photo) {
+        this.fullName = fullName;
+        this.city = city;
+        this.rating = rating;
+        this.price = price;
+        this.duration = duration;
+        this.distance = distance;
         this.photo = photo;
     }
 
