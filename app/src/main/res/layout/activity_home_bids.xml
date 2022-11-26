@@ -7,15 +7,14 @@
     tools:context=".activities.HomeBidsActivity">
 
 
-    <!--<ListView
+    <ListView
         android:id="@+id/list_view_for_home_bids"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:dividerHeight="2dp"
-        android:layout_below="@+id/logo"
         tools:listitem="@layout/list_item_for_home_bids"
         />
-        -->
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -25,126 +24,6 @@
         android:layout_alignParentBottom="true"
         />
 
-    <LinearLayout
-        android:id="@+id/information_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_margin="10dp"
-                android:src="@drawable/user_avatar" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical">
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nom Complet"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_baseline_star_24"
-                android:text="4.5 (520) "
-                android:textColor="@color/black"
-                android:textSize="12dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rabat"
-                android:textColor="@color/black"
-                android:textSize="12dp" />
-
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="200 DH"
-                android:textColor="@color/black"
-
-
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2 jrs "
-                android:textColor="@color/black"
-                android:textSize="12dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="900 m"
-                android:textColor="@color/black"
-                android:textSize="12dp" />
-
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="90dp"
-        android:orientation="horizontal"
-
-        >
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:backgroundTint="#DC3545"
-            android:text="Decline"
-            android:textAllCaps="false"
-
-
-            />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:backgroundTint="#218838"
-            android:shadowColor="#000000"
-            android:shadowDx="10"
-            android:shadowDy="7"
-            android:text="Accept" />
-
-
-    </LinearLayout>
 
 
 
