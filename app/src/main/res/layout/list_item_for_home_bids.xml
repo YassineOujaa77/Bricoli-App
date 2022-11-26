@@ -7,33 +7,29 @@
     app:cardBackgroundColor="#FFFFFF"
     app:cardCornerRadius="5dp"
     app:cardElevation="16dp"
-    app:cardUseCompatPadding="true">
+    app:cardUseCompatPadding="true"
+    >
 
-    <LinearLayout
-        android:id="@+id/information_layout"
-        android:layout_width="match_parent"
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/worker_image"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_margin="10dp"
-                android:src="@drawable/user_avatar" />
-
-        </LinearLayout>
+        <ImageView
+            android:id="@+id/worker_image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="7dp"
+            android:src="@drawable/userphoto" />
 
         <LinearLayout
+            android:id="@+id/layout1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:layout_marginTop="10dp"
-            android:orientation="vertical">
-
+            android:orientation="vertical"
+            android:layout_toRightOf="@+id/worker_image">
 
             <TextView
                 android:id="@+id/nom_complet"
@@ -41,8 +37,8 @@
                 android:layout_height="wrap_content"
                 android:text="Nom Complet"
                 android:textColor="@color/black"
-                android:textSize="20dp"
-
+                android:textSize="16dp"
+                android:fontFamily="@font/poppins_medium"
                 />
 
             <TextView
@@ -52,26 +48,40 @@
                 android:drawableLeft="@drawable/ic_baseline_star_24"
                 android:text="4.5 (520) "
                 android:textColor="@color/black"
-                android:textSize="12dp" />
+                android:textSize="12dp"
+                android:fontFamily="@font/poppins_medium"/>
 
-            <TextView
-                android:id="@+id/city_textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rabat"
-                android:textColor="@color/black"
-                android:textSize="12dp" />
 
 
         </LinearLayout>
 
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/city_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical">
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginBottom="60dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Rabat"
+            android:textColor="@color/black"
+            android:textSize="12dp"
+            android:drawableLeft="@drawable/location"
+            android:drawablePadding="5dp"
+            />
+
+
+        <LinearLayout
+            android:id="@+id/layout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_below="@+id/layout1"
+            >
 
             <TextView
                 android:id="@+id/price_textView"
@@ -79,7 +89,9 @@
                 android:layout_height="wrap_content"
                 android:text="200 DH"
                 android:textColor="@color/black"
-
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="16dp"
+                android:paddingRight="25dp"
 
                 />
 
@@ -89,7 +101,10 @@
                 android:layout_height="wrap_content"
                 android:text="2 jrs "
                 android:textColor="@color/black"
-                android:textSize="12dp" />
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="16dp"
+                android:paddingRight="25dp"/>
+
 
             <TextView
                 android:id="@+id/distance_textView"
@@ -97,48 +112,123 @@
                 android:layout_height="wrap_content"
                 android:text="900 m"
                 android:textColor="@color/black"
-                android:textSize="12dp" />
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="16dp"/>
 
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_below="@id/layout2"
+
+
+            >
+
+            <android.widget.Button
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_margin="20dp"
+                android:background="@drawable/custom_button"
+                android:backgroundTint="#DC3545"
+                android:text="Decline"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+
+
+                />
+
+            <android.widget.Button
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_margin="20dp"
+                android:background="@drawable/custom_button"
+                android:text="Accept"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+
+                />
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+    </RelativeLayout>
+
+
+
+    <!--<LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="90dp"
-        android:orientation="horizontal"
+        android:layout_margin="8dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
 
-        >
 
-        <android.widget.Button
+        <TextView
+            android:id="@+id/nom_complet"
             android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:layout_margin="20dp"
-            android:backgroundTint="#DC3545"
-            android:text="Decline"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:background="@drawable/custom_button"
-
-
+            android:layout_height="wrap_content"
+            android:text="Nom Complet"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:fontFamily="@font/poppins_medium"
             />
 
-        <android.widget.Button
+        <TextView
+            android:id="@+id/rate_textView"
             android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:layout_margin="20dp"
-            android:background="@drawable/custom_button"
-            android:text="Accept"
-            android:textColor="@color/white"
-            android:textAllCaps="false"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_baseline_star_24"
+            android:text="4.5 (520) "
+            android:textColor="@color/black"
+            android:textSize="12dp"
+            android:fontFamily="@font/poppins_medium"/>
+    </LinearLayout>
 
-            />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/city_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rabat"
+            android:textColor="@color/black"
+            android:textSize="12dp"
+            android:fontFamily="@font/poppins_medium"/>
 
     </LinearLayout>
+
+
+
+
+
+
+-->
 
 
 </androidx.cardview.widget.CardView>
