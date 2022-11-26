@@ -8,6 +8,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -21,7 +22,7 @@ public class ClientHomeActivity extends AppCompatActivity {
 
     private ActivityClientHomeBinding binding;
 
-    private Button button;
+    private Button addButton;
     Fragment fragment;
 
     @Override
@@ -52,6 +53,7 @@ public class ClientHomeActivity extends AppCompatActivity {
         TextInputLayout textInputLayout;
         AutoCompleteTextView autoCompleteTextView;
         ArrayAdapter<String> adapterItems;
+        addButton = findViewById(R.id.addButton);
 
         //spinner123
         textInputLayout=findViewById(R.id.textInputLayout);
@@ -60,6 +62,16 @@ public class ClientHomeActivity extends AppCompatActivity {
         String[] items = {"Tech","Organisateur de fêtes", "Plombier"};
         ArrayAdapter<String> itemAdapter=new ArrayAdapter<>(ClientHomeActivity.this, R.layout.list_item_for_home_client, items);
         autoCompleteTextView.setAdapter(itemAdapter);
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                openHomeBidsActivity();
+
+            }
+        });
+
     }
 
     public void openHomeBidsActivity() {
