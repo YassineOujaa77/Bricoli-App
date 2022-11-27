@@ -32,6 +32,15 @@ public class Annoucement {
         this.photo = photo;
     }
 
+    public Annoucement(String fullName, String city, String rating, String duration, String description, int photo) {
+        this.fullName = fullName;
+        this.city = city;
+        this.rating = rating;
+        this.duration = duration;
+        this.description = description;
+        this.photo = photo;
+    }
+
     public int getPhoto() {
         return photo;
     }
