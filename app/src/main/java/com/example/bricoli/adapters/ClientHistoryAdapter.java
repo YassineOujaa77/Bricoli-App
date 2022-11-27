@@ -18,7 +18,6 @@ import java.util.List;
 
 
 import com.example.bricoli.models.Annoucement;
-import com.example.bricoli.models.Offre;
 
 
 public class ClientHistoryAdapter extends ArrayAdapter<Annoucement> {
