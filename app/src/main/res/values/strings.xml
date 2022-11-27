@@ -42,5 +42,10 @@
         <item>Organisateur de fetes</item>
         <item>Technicien</item>
     </string-array>
+    <string name="work_finished">Finished in: </string>
+    <string name="description">Description : </string>
+    <string name="decline">Decline</string>
+    <string name="accept">Accept</string>
+
 
 </resources>
