@@ -20,9 +20,7 @@
 
         <activity
             android:name=".activities.ChangeRoleActivity"
-            android:exported="false">
-        </activity>
-
+            android:exported="false"></activity>
         <activity
             android:name=".activities.WorkerProfilForClientActivity"
             android:exported="false">
@@ -30,13 +28,9 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".activities.ChangePasswordActivity"
-            android:exported="false">
-        </activity>
-
-        <!-- Login activity -->
+            android:exported="false"></activity> <!-- Login activity -->
         <activity
             android:name=".activities.LoginActivity"
             android:exported="true">
@@ -45,15 +39,11 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
 
-        <!-- Signup Activity -->
+        </activity> <!-- Signup Activity -->
         <activity
             android:name=".activities.SignupActivity"
-            android:exported="false">
-        </activity>
-
-        <!-- Client Home activity -->
+            android:exported="false"></activity> <!-- Client Home activity -->
         <activity
             android:name=".activities.ClientHomeActivity"
             android:exported="false">
@@ -61,31 +51,33 @@
                 android:name="preloaded_fonts"
                 android:resource="@array/preloaded_fonts" />
         </activity>
-
-
         <activity
             android:name=".activities.splashactivity"
             android:exported="false"
             android:theme="@style/Theme.splashtheme">
-
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>
-
-        <!-- Home bids for client -->
+        </activity> <!-- Home bids for client -->
         <activity
             android:name=".activities.HomeBidsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>
-
-        <!-- History CLient activity -->
+        </activity> <!-- History Client activity -->
         <activity
             android:name=".activities.ClientHistoryActivity"
+            android:exported="false">
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <!-- HistoryPostDetailsn activity -->
+        <activity
+            android:name=".activities.HistoryPostDetailsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -103,21 +95,16 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".activities.mapactivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>
-
-
-        <!-- Worker Home activity -->
+        </activity> <!-- Worker Home activity -->
         <activity
             android:name=".activities.WorkerHomeActivity"
             android:exported="false">
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
