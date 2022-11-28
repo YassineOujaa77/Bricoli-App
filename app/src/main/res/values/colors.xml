@@ -27,5 +27,6 @@
     <color name="shadow">#F5F5F5</color>
     <color name="card_background">#FFFBFB</color>
     <color name="red_decline">#DC3545</color>
+    <color name="description_detail">#413B3B</color>
 
 </resources>
