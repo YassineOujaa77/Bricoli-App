@@ -42,5 +42,7 @@
         <item>Organisateur de fetes</item>
         <item>Technicien</item>
     </string-array>
+    <string name="Title_add_recent_job" >Add recent jobs</string>
+    <string name="add_picture_button" >Add Picture</string>
 
 </resources>
