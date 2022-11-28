@@ -42,5 +42,13 @@
         <item>Organisateur de fetes</item>
         <item>Technicien</item>
     </string-array>
+    <string name="description">Description</string>
+    <string name="apply">Apply</string>
+    <string name="price">Price</string>
+    <string name="duration">Duration</string>
+    <string name="full_name">Full Name</string>
+    <string name="dh">DH</string>
+    <string name="jrs">Jrs</string>
+
 
 </resources>

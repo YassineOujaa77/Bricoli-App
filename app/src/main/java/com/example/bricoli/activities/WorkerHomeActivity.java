@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ListView;
@@ -17,10 +18,25 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnItemClick;
 
 public class WorkerHomeActivity extends AppCompatActivity {
     @BindView(R.id.annoucementList)
     ListView announcementList;
+    @OnItemClick(R.id.annoucementList)
+    public void onListAnnoucementItemClicked(int position){
+        Annoucement annoucementClicked = (Annoucement) announcementList.getItemAtPosition(position);
+        Intent announcementIntent = new Intent(WorkerHomeActivity.this, AnnouncementDetailsActivity.class);
+        announcementIntent.putExtra("fullName", annoucementClicked.getFullName());
+        announcementIntent.putExtra("city", annoucementClicked.getCity());
+        announcementIntent.putExtra("rating", annoucementClicked.getRating());
+        announcementIntent.putExtra("description", annoucementClicked.getDescription());
+        announcementIntent.putExtra("distance", annoucementClicked.getDistance());
+        announcementIntent.putExtra("photo", annoucementClicked.getPhoto());
+        announcementIntent.putExtra("duration", annoucementClicked.getDuration());
+        announcementIntent.putExtra("price", annoucementClicked.getPrice());
+        startActivity(announcementIntent);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,11 +56,7 @@ public class WorkerHomeActivity extends AppCompatActivity {
                 {
                     case R.id.home:
                         return true;
-
-
                 }
-
-
                 return false;
             }
         });
