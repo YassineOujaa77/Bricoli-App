@@ -11,8 +11,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import java.util.ArrayList;
 
@@ -35,7 +38,7 @@ public class ClientHistoryActivity extends AppCompatActivity {
         // initialize
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-        // set Histpry Selected
+        // set History Selected
         bottomNavigationView.setSelectedItemId(R.id.history);
 
         // item from menu selected listener
@@ -63,6 +66,16 @@ public class ClientHistoryActivity extends AppCompatActivity {
         clientHistoryAdapter = new ClientHistoryAdapter(this, annoucementsList);
         listView.setAdapter(clientHistoryAdapter);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                openActivity();
+            }
+        });
 
+    }
+    public void openActivity() {
+        Intent intent = new Intent(this, HistoryPostDetailsActivity.class);
+        startActivity(intent);
     }
 }
