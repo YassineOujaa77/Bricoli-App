@@ -7,14 +7,14 @@ import android.widget.ListView;
 
 import com.example.bricoli.R;
 import com.example.bricoli.adapters.NotificationAdapter;
-import com.example.bricoli.databinding.ActivityNotificationBinding;
+//import com.example.bricoli.databinding.ActivityNotificationBinding;
 import com.example.bricoli.models.Notification;
 
 import java.util.ArrayList;
 
 public class NotificationActivity extends AppCompatActivity {
 
-    private ActivityNotificationBinding binding;
+    //private ActivityNotificationBinding binding;
 
     private ListView listView;
     private NotificationAdapter notificationAdapter;
@@ -22,7 +22,7 @@ public class NotificationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding=ActivityNotificationBinding.inflate(getLayoutInflater());
+        //binding=ActivityNotificationBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_notification);;
 
         listView = (ListView) findViewById(R.id.notifications_listview);
