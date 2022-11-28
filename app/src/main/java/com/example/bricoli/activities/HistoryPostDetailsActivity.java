@@ -48,7 +48,7 @@ public class HistoryPostDetailsActivity extends AppCompatActivity {
             }
         });
 
-        listView = (ListView) findViewById(R.id.history_listview);
+        listView = (ListView) findViewById(R.id.history_post_detail_listview);
         ArrayList<Annoucement> annoucementsList = new ArrayList<>();
         annoucementsList.add(new Annoucement("full name 1", "4.5 (520)", "2 days", "Lorem ipsum dolor sit amet, consectetur adipiscin g elit, sed do eiusmod tempor incididunt ut labor et dolore magna aliqua. Ut enim ad minim veniam",R.drawable.userphoto, "200 DH"));
         historyPostDetailsAdapter = new HistoryPostDetailsAdapter(this, annoucementsList);
