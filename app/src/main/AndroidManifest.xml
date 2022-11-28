@@ -41,7 +41,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <!-- Signup Activity -->
         <activity
             android:name=".activities.SignupActivity"
