@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue_light"
+    android:background="@color/white"
     tools:context=".PostDetailsWaitingActivity">
 
     <GridLayout
@@ -115,6 +115,7 @@
             android:layout_gravity="fill"
             android:layout_marginLeft="35dp"
             android:layout_marginTop="10dp"
+            android:elevation="15dp"
             android:outlineAmbientShadowColor="@color/black"
             app:cardCornerRadius="30dp">
 
@@ -174,7 +175,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="20dp"
-                    android:layout_marginBottom="80dp"
+                    android:layout_marginBottom="60dp"
                     android:orientation="horizontal">
 
                     <TextView
