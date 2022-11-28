@@ -144,9 +144,11 @@
             android:layoutDirection="rtl"
             android:orientation="horizontal">
             <Button
+                android:id="@+id/bid_button"
                 android:layout_width="120dp"
                 android:layout_height="38dp"
                 android:textSize="16sp"
+                android:focusable="false"
                 android:textColor="@color/white"
                 android:background="@drawable/apply_button_shape"
                 android:backgroundTint="@color/green"

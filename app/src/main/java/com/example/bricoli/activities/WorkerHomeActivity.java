@@ -7,6 +7,8 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.bricoli.models.Annoucement;
@@ -23,9 +25,11 @@ import butterknife.OnItemClick;
 public class WorkerHomeActivity extends AppCompatActivity {
     @BindView(R.id.annoucementList)
     ListView announcementList;
+    ArrayList<Annoucement> annoucements = new ArrayList<>();
     @OnItemClick(R.id.annoucementList)
-    public void onListAnnoucementItemClicked(int position){
-        Annoucement annoucementClicked = (Annoucement) announcementList.getItemAtPosition(position);
+            public void OnAnnouncementListItemClicked(int position){
+        System.out.println("gggggggggggggggggggggggggggggggggg");
+        Annoucement annoucementClicked = (Annoucement) annoucements.get(position);
         Intent announcementIntent = new Intent(WorkerHomeActivity.this, AnnouncementDetailsActivity.class);
         announcementIntent.putExtra("fullName", annoucementClicked.getFullName());
         announcementIntent.putExtra("city", annoucementClicked.getCity());
@@ -35,8 +39,12 @@ public class WorkerHomeActivity extends AppCompatActivity {
         announcementIntent.putExtra("photo", annoucementClicked.getPhoto());
         announcementIntent.putExtra("duration", annoucementClicked.getDuration());
         announcementIntent.putExtra("price", annoucementClicked.getPrice());
+        announcementIntent.putExtra("photo",annoucementClicked.getPhoto());
         startActivity(announcementIntent);
     }
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,10 +70,10 @@ public class WorkerHomeActivity extends AppCompatActivity {
         });
 
         ButterKnife.bind(this);
-        ArrayList<Annoucement> annoucements = new ArrayList<>();
         annoucements.add(new Annoucement("Full Name1","Rabat","2.5 (500)","300DH","2 jrs","900m","Je suis à la recherche d'un plombier...........",R.drawable.photo));
         annoucements.add(new Annoucement("Full Name2","Rabat","2.5 (500)","300DH","2 jrs","900m","Je suis à la recherche d'un plombier...........",R.drawable.photo));
         annoucements.add(new Annoucement("Full Name3","Rabat","2.5 (500)","300DH","2 jrs","900m","Je suis à la recherche d'un plombier...........",R.drawable.photo));
+
         AnnoucementAdapter annoucementAdapter = new AnnoucementAdapter(getApplicationContext(),R.layout.annoucement_cell_layout,annoucements);
         announcementList.setAdapter(annoucementAdapter);
     }
