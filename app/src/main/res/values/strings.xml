@@ -42,5 +42,14 @@
         <item>Organisateur de fetes</item>
         <item>Technicien</item>
     </string-array>
+    <string name="account">Account</string>
+    <string name="more">More</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="change_password">Change Password</string>
+    <string name="change_role">Change Role</string>
+    <string name="add_recent_job">Add Recent Job</string>
+    <string name="language">Language</string>
+    <string name="share_with_friends">Share With Friends</string>
+    <string name="log_out">Log Out</string>
 
 </resources>
