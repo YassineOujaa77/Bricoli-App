@@ -27,56 +27,71 @@ public class SettingActivity extends AppCompatActivity {
         ImageView shareWithFriends  = (ImageView) findViewById(R.id.share_with_friends_icon);
         Button logOut  = (Button) findViewById(R.id.log_out);
 
-        editProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Intent intent = new Intent(SettingActivity.this, EditProfileActivity.class);
-                //startActivity(intent);
-            }
-        });
-        changePasswd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SettingActivity.this, ChangePasswordActivity.class);
-                startActivity(intent);
-            }
-        });
-        changeRole.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SettingActivity.this, ChangeRoleActivity.class);
-                startActivity(intent);
-            }
-        });
-        addRecentJob.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Intent intent = new Intent(SettingActivity.this, AddRecentJobActivity.class);
-                //startActivity(intent);
-            }
-        });
-        language.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Intent intent = new Intent(SettingActivity.this, LanguageActivity.class);
-                //startActivity(intent);
-            }
-        });
-        shareWithFriends.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Intent intent = new Intent(SettingActivity.this, ShareWithFriendsActivity.class);
-                //startActivity(intent);
-            }
-        });
-        logOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SettingActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
-        });
+        editProfile.setOnClickListener(OnEditProfileClick());
+        changePasswd.setOnClickListener(OnChangePasswdClick());
+        changeRole.setOnClickListener(OnChangeRoleClick());
+        addRecentJob.setOnClickListener(OnAddRecentJobClick());
+        language.setOnClickListener(OnAddLanguageClick());
+        shareWithFriends.setOnClickListener(OnShareWithFriendsClick());
+        logOut.setOnClickListener(OnLogOutClick());
 
 
     }
+    private View.OnClickListener OnEditProfileClick(){
+        return new View.OnClickListener(){
+            public void onClick(View view){
+                //Intent intent = new Intent(SettingActivity.this, EditProfileActivity.class);
+                //startActivity(intent);
+            }
+        };
+    }
+    private View.OnClickListener OnChangePasswdClick(){
+        return new View.OnClickListener(){
+            public void onClick(View view){
+                Intent intent = new Intent(SettingActivity.this, ChangePasswordActivity.class);
+                startActivity(intent);
+            }
+        };
+    }
+    private View.OnClickListener OnChangeRoleClick(){
+        return new View.OnClickListener(){
+            public void onClick(View view){
+                Intent intent = new Intent(SettingActivity.this, ChangeRoleActivity.class);
+                startActivity(intent);
+            }
+        };
+    }
+    private View.OnClickListener OnAddRecentJobClick(){
+        return new View.OnClickListener(){
+            public void onClick(View view){
+                //Intent intent = new Intent(SettingActivity.this, AddRecentJobActivity.class);
+                //startActivity(intent);
+            }
+        };
+    }
+    private View.OnClickListener OnAddLanguageClick(){
+        return new View.OnClickListener(){
+            public void onClick(View view){
+                //Intent intent = new Intent(SettingActivity.this, LanguageActivity.class);
+                //startActivity(intent);
+            }
+        };
+    }
+    private View.OnClickListener OnShareWithFriendsClick(){
+        return new View.OnClickListener(){
+            public void onClick(View view){
+                //Intent intent = new Intent(SettingActivity.this, ShareWithFriendsActivity.class);
+                //startActivity(intent);
+            }
+        };
+    }
+    private View.OnClickListener OnLogOutClick(){
+        return new View.OnClickListener(){
+            public void onClick(View view){
+                Intent intent = new Intent(SettingActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        };
+    }
+
 }
