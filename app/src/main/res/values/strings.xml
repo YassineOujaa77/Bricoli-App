@@ -17,7 +17,7 @@
     <string name="LabelReTapePassword">Re-tape Password</string>
 
 
-    <string name="name_complet">Name Complet</string>
+    <string name="name_complet">Full name</string>
     <string name="phone">Phone</string>
     <string name="address">Address</string>
     <string name="cin">CIN</string>
