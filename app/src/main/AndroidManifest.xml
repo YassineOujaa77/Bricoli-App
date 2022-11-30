@@ -201,6 +201,20 @@
 
         </activity>
 
+        <!--History_offer_activity-->
+        <activity
+            android:name=".activities.HistoryOffreActivity"
+
+            android:exported="false" >
+
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+
+        </activity>
+           
+
 
           
         </activity> 
