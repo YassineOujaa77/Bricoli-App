@@ -120,6 +120,17 @@
                 android:value="" />
 
         </activity>
+
+        <!--Custumer can consult current posts or jobs activity-->
+        <activity
+            android:name=".activities.PostsActuelActivity"
+
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+
+        </activity>
            
 
      
