@@ -120,6 +120,16 @@
                 android:value="" />
 
         </activity>
+        <!--Worker can consult his current bids activity-->
+        <activity
+            android:name=".activities.CurrentBidsActivity"
+
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+
+        </activity>
            
 
      
