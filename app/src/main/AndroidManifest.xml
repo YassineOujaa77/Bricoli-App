@@ -22,10 +22,10 @@
 
         <activity
             android:name=".activities.ChangeRoleActivity"
-            android:exported="false"></activity>
+            android:exported="false">
+         </activity>
 
         <activity
-
             android:name=".activities.EditProfileActivity"
             android:exported="false">
             <meta-data
@@ -33,7 +33,9 @@
                 android:value="" />
         </activity>
         
-      
+        <activity
+            android:name=".activities.ChangeRoleActivity"
+            android:exported="false"></activity>
 
         <activity
             android:name=".activities.WorkerProfilForClientActivity"
@@ -42,6 +44,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
                
         <activity
             android:name=".activities.ChangePasswordActivity"
@@ -77,8 +80,9 @@
             <meta-data
                 android:name="preloaded_fonts"
                 android:resource="@array/preloaded_fonts" />
-
-        </activity> <!-- Home bids for client -->
+           </activity>
+           
+           <!-- Home bids for client -->
 
         <activity
             android:name=".activities.splashactivity"
@@ -132,7 +136,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        
+
         <activity
             android:name=".activities.HomeBidsActivity"
             android:exported="false">
@@ -146,6 +150,7 @@
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
+
 
         </activity> 
         
