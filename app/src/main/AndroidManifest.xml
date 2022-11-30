@@ -27,26 +27,24 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+
         <activity
             android:name=".activities.ChangeRoleActivity"
             android:exported="false"></activity>
+
         <activity
             android:name=".activities.WorkerProfilForClientActivity"
-            android:exported="false">
-            
-         </activity>
-        
+            android:exported="false"></activity>
+
         <activity
             android:name=".activities.AddRecentJobsPicturesActivity"
-            android:exported="false">
-            
-            </activity>
+            android:exported="false"></activity>
 
 
-         <activity
+        <activity
             android:name=".activities.AnnouncementDetailsActivity"
-            android:exported="false">
-         </activity>
+            android:exported="false"></activity>
 
         <activity
             android:name=".activities.EditProfileActivity"
@@ -55,27 +53,13 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        
 
-        <activity
-            android:name=".activities.ChangeRoleActivity"
-            android:exported="false"></activity>
 
-        <activity
-            android:name=".activities.WorkerProfilForClientActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-
-               
         <activity
             android:name=".activities.ChangePasswordActivity"
-            android:exported="false" >
-         </activity>
-         
-         
+            android:exported="false"></activity>
+
+
         <!-- Login activity -->
         <activity
             android:name=".activities.LoginActivity"
@@ -87,29 +71,25 @@
             </intent-filter>
 
         </activity>
-        
-        
+
+
         <!-- Signup Activity -->
         <activity
             android:name=".activities.SignupActivity"
-            android:exported="false" /> 
-            
-          </activity>
-          
-          
-       <!-- Client Home activity -->
+            android:exported="false">
+
+        </activity>
+
+
+        <!-- Client Home activity -->
         <activity
             android:name=".activities.ClientHomeActivity"
             android:exported="false">
             <meta-data
                 android:name="preloaded_fonts"
                 android:resource="@array/preloaded_fonts" />
+        </activity>
 
-
-
-           </activity>
-           
-           <!-- Home bids for client -->
 
         <activity
             android:name=".activities.splashactivity"
@@ -118,14 +98,19 @@
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity> <!-- Home bids for client -->
+        </activity>
+
+
+        <!-- Home bids for client -->
         <activity
             android:name=".activities.HomeBidsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity> <!-- History Client activity -->
+        </activity>
+
+        <!-- History Client activity -->
         <activity
             android:name=".activities.ClientHistoryActivity"
             android:exported="false">
@@ -156,6 +141,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+
         <activity
             android:name=".activities.mapactivity"
             android:exported="false">
@@ -163,14 +150,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity
-            android:name=".activities.HomeBidsActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity> <!-- Worker Home activity -->
 
+        <!-- Worker Home activity -->
         <activity
             android:name=".activities.WorkerHomeActivity"
             android:exported="false">
@@ -184,17 +165,18 @@
         <activity
             android:name=".activities.PostsActuelActivity"
 
-            android:exported="false" >
+            android:exported="false">
 
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <!--Worker can consult his current bids activity-->
         <activity
             android:name=".activities.CurrentBidsActivity"
 
-            android:exported="false" >
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -204,21 +186,13 @@
         <!--History_offer_activity-->
         <activity
             android:name=".activities.HistoryOffreActivity"
-
-            android:exported="false" >
-
-
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
 
         </activity>
-           
 
-
-          
-        </activity> 
-        
         <!-- Notifications activity -->
         <activity
             android:name=".activities.NotificationActivity"
