@@ -28,7 +28,6 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_alignParentTop="true"
-
                     android:layout_marginTop="19dp"
                     android:src="@drawable/photo">
 
@@ -47,14 +46,14 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
                         android:textSize="16sp"
-                        android:text="Full Name"></TextView>
+                        android:text="@string/full_name" />
 
                     <ImageView
                         android:id="@+id/star"
                         android:layout_width="17dp"
                         android:layout_height="17dp"
                         android:layout_below="@id/fullName"
-                        android:src="@drawable/star"></ImageView>
+                        android:src="@drawable/star" />
 
                     <TextView
                         android:id="@+id/rating"
@@ -64,7 +63,7 @@
                         android:layout_toRightOf="@id/star"
                         android:layout_marginLeft="5dp"
                         android:textSize="16sp"
-                        android:text="4.5 (250)"></TextView>
+                        android:text="4.5 (250)" />
 
                 </RelativeLayout>
 
@@ -75,7 +74,7 @@
                     android:layout_below="@+id/photo"
                     android:layout_marginTop="5dp"
                     android:textSize="16sp"
-                    android:text="Rabat"></TextView>
+                    android:text="Rabat" />
 
             </RelativeLayout>
             <LinearLayout
@@ -121,7 +120,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
-                android:text="Description">
+                android:text="@string/description">
 
             </TextView>
             <TextView
@@ -145,9 +144,11 @@
             android:layoutDirection="rtl"
             android:orientation="horizontal">
             <Button
+                android:id="@+id/bid_button"
                 android:layout_width="120dp"
                 android:layout_height="38dp"
                 android:textSize="16sp"
+                android:focusable="false"
                 android:textColor="@color/white"
                 android:background="@drawable/apply_button_shape"
                 android:backgroundTint="@color/green"
