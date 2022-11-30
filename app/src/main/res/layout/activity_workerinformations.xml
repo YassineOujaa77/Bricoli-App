@@ -122,7 +122,6 @@
                         android:layout_gravity="center"
                         android:text="Nom Complet"
                         android:textColor="@color/black"
-
                         android:textSize="55px"
                         android:fontFamily="@font/poppins_regular"
                         android:textStyle="bold"/>
