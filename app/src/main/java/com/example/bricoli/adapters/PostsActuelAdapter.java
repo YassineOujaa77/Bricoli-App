@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
+
 import com.example.bricoli.R;
 
 public class PostsActuelAdapter extends BaseAdapter
@@ -22,7 +24,8 @@ public class PostsActuelAdapter extends BaseAdapter
     String []Etats;
     LayoutInflater inflater;
 
-    public PostsActuelAdapter(Context context, String[] categories, String[] dates, String[] descriptions, String[] nbBids, String[] etats) {
+    public PostsActuelAdapter(Context context, String[] categories, String[] dates, String[] descriptions, String[] nbBids, String[] etats)
+    {
         this.context = context;
         Categories = categories;
         Dates = dates;
@@ -50,7 +53,8 @@ public class PostsActuelAdapter extends BaseAdapter
     @Override
     public View getView(int i, View view, ViewGroup viewGroup)
     {
-        view=inflater.inflate(R.layout.post_actuel_card,null);
+        view=inflater.inflate(R.layout.current_bid_card,null);
+        CardView card=view.findViewById(R.id.card2);
         TextView txtCategorie=view.findViewById(R.id.txtCategorie);
         TextView date=view.findViewById(R.id.txtDate);
         TextView description=view.findViewById(R.id.txtDescriptione);
@@ -60,21 +64,30 @@ public class PostsActuelAdapter extends BaseAdapter
 
         if(Etats[i]=="negociation")
         {
+            card.setCardBackgroundColor(Color.parseColor("#FFFBFB"));
             nbBids.setText(NbBids[i]);
             imgEclipse.setImageResource(R.drawable.ellipsevert);
             btn.setText("Encours Negociation");
             btn.setTextColor(Color.parseColor("#F26868"));
+            txtCategorie.setText(Categories[i]);
+            date.setText(Dates[i]);
+            description.setText(Descriptions[i]);
+
         }
-        else
+        else if(Etats[i]=="execution")
         {
+            card.setCardBackgroundColor(Color.parseColor("#FFFBFB"));
+            imgEclipse.setImageResource(R.drawable.ellipsevert);
+            nbBids.setText(NbBids[i]);
             imgEclipse.setVisibility(View.INVISIBLE);
             nbBids.setVisibility(View.INVISIBLE);
             btn.setText("Encours Execution");
             btn.setTextColor(Color.parseColor("#0BDB45"));
+            txtCategorie.setText(Categories[i]);
+            date.setText(Dates[i]);
+            description.setText(Descriptions[i]);
+
         }
-        txtCategorie.setText(Categories[i]);
-        date.setText(Dates[i]);
-        description.setText(Descriptions[i]);
         return view;
     }
 }
