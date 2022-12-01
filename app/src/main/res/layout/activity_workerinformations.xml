@@ -6,51 +6,53 @@
     android:layout_height="match_parent"
     tools:context=".activities.Job_Information_plus_maps"
     android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        android:layout_height="600dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:orientation="vertical">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-        <!-- beg of the map -->
-
-        <androidx.cardview.widget.CardView
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="257dp"
+            android:layout_height="wrap_content">
+            <!-- beg of the map -->
 
-            android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground"
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="275dp"
 
-            >
-            <FrameLayout
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
 
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/frame_layout"
                 >
 
-            </FrameLayout>
+                <FrameLayout
+
+                    android:id="@+id/frame_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </FrameLayout>
 
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="125px"
                     android:layout_height="125px"
-                    app:cardCornerRadius="100dp"
                     android:layout_gravity="right"
-                    android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    app:cardCornerRadius="100dp"
 
                     >
+
                     <ImageButton
                         android:id="@+id/imageButton"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:scaleType="centerCrop"
                         android:backgroundTint="@color/white"
+                        android:scaleType="centerCrop"
 
 
                         app:srcCompat="@drawable/agrandir" />
@@ -59,149 +61,148 @@
                 </androidx.cardview.widget.CardView>
 
 
+            </androidx.cardview.widget.CardView>
+            <!-- end of the map -->
 
-
-        </androidx.cardview.widget.CardView>
-        <!-- end of the map -->
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="472dp"
-
-            android:layout_marginTop="210dp"
-
-            android:elevation="10dp"
-            android:orientation="vertical">
-    <!-- beg of the card -->
-
-            <androidx.cardview.widget.CardView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_marginRight="25dp"
-                android:layout_marginLeft="25dp"
-                android:layout_height="300dp"
-                android:clickable="true"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="11dp"
-                android:id="@+id/profilecardc">
+                android:layout_height="375dp"
 
-                <LinearLayout
+                android:layout_marginTop="210dp"
+
+                android:elevation="10dp"
+                android:orientation="vertical">
+                <!-- beg of the card -->
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/profilecardc"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="10dp"
+                    android:layout_height="330dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:clickable="true"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="11dp">
 
-
-                    >
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="320px"
-                        android:layout_height="320px"
-                        android:layout_gravity="center_horizontal"
-                        android:elevation="10dp"
-                        app:cardCornerRadius="100dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="10dp"
 
 
                         >
 
-                        <ImageView
-                            android:id="@+id/roundedImageView"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/profil"
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="320px"
+                            android:layout_height="320px"
+                            android:layout_gravity="center_horizontal"
+                            android:elevation="10dp"
+                            app:cardCornerRadius="100dp"
 
 
-                            />
+                            >
 
-                    </androidx.cardview.widget.CardView>
+                            <ImageView
+                                android:id="@+id/roundedImageView"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/profil"
 
-                    <TextView
-                        android:id="@+id/textView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Nom Complet"
-                        android:textColor="@color/black"
-                        android:textSize="55px"
-                        android:fontFamily="@font/poppins_regular"
-                        android:textStyle="bold"/>
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                                />
+
+                        </androidx.cardview.widget.CardView>
 
                         <TextView
-                            android:id="@+id/tv_star"
+                            android:id="@+id/textView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="#00ffffff"
-                            android:text="★"
-                            android:textColor="#ffdf00"
-                            android:textSize="30sp" />
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="Nom Complet"
 
+                            android:textColor="@color/black"
+                            android:textSize="55px"
+                            android:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/rateplusnbr"
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="4.5 (520)"
-                            android:textSize="20sp"
-                            android:textStyle="bold"
-                            android:fontFamily="@font/poppins_regular"/>
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv_star"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="#00ffffff"
+                                android:text="★"
+                                android:textColor="#ffdf00"
+                                android:textSize="30sp" />
+
+
+                            <TextView
+                                android:id="@+id/rateplusnbr"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_regular"
+                                android:text="4.5 (520)"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingTop="32dp">
+
+                            <TextView
+                                android:id="@+id/tv_price"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+
+                                android:layout_marginRight="30dp"
+                                android:fontFamily="@font/poppins_regular"
+                                android:text="   200 DH   "
+                                android:textSize="45px"
+                                android:textStyle="bold" />
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_regular"
+                                android:text="   2 "
+                                android:textSize="45px"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_regular"
+                                android:text="@string/jours"
+                                android:textSize="45px"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingTop="32dp">
+                </androidx.cardview.widget.CardView>
 
-                        <TextView
-                            android:id="@+id/tv_price"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-
-                            android:layout_marginRight="30dp"
-                            android:text="200 DH  "
-                            android:textSize="45px"
-                            android:textStyle="bold"
-                            android:fontFamily="@font/poppins_regular"/>
-
-                        <TextView
-                            android:id="@+id/tv_time"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="2 Jrs"
-                            android:textStyle="bold"
-                            android:textSize="45px"
-                            android:fontFamily="@font/poppins_regular"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
+                <!-- end of the card -->
 
 
-            </androidx.cardview.widget.CardView>
+                <!--
 
-            <!-- end of the card -->
-            <RatingBar
-                android:id="@+id/ratingBar"
-                android:layout_width="240dp"
-                android:layout_height="wrap_content"
 
-                android:layout_gravity="center"
-                android:paddingTop="20dp"
-                android:progressTint="#ffdf00"
-                android:rating="1" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:visibility="invisible"
-                />
 
             <Button
                 android:id="@+id/finishbutton"
@@ -209,28 +210,73 @@
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:backgroundTint="@color/marron"
                 android:background="@drawable/buttonradius"
                 android:fontFamily="@font/poppins_regular"
-                android:textSize="18dp"
-
                 android:text="Finish"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
+                android:textSize="18dp"
 
 
                 />
+                -->
 
 
-        </LinearLayout>
+            </LinearLayout>
 
 
+        </FrameLayout>
 
 
-
-
-
-
-    </FrameLayout>
 
     </LinearLayout>
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="84dp"
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="170dp"
+        android:paddingTop="15dp"
+        android:progressTint="#ffdf00"
+        android:rating="1" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/finishbutton"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="155dp"
+        android:layout_marginEnd="155dp"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/buttonradius"
+        android:backgroundTint="@color/marron"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/finishbutton"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="18dp">
+
+    </androidx.appcompat.widget.AppCompatButton>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/bottom_navigation_menu"
+        android:layout_alignParentBottom="true"
+        />
 </RelativeLayout>
+
