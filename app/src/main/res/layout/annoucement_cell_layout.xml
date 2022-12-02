@@ -81,23 +81,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginStart="82dp"
+                android:gravity="center"
                 android:layout_gravity="end"
                 android:orientation="vertical">
-                <TextView
-                    android:id="@+id/price"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="19dp"
-                    android:textSize="16sp"
-                    android:text="200dh">
-                </TextView>
-                <TextView
-                    android:id="@+id/duration"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:text="2jrs">
-                </TextView>
                 <TextView
                     android:id="@+id/distance"
                     android:layout_width="wrap_content"
@@ -143,18 +129,18 @@
             android:layout_marginBottom="12dp"
             android:layoutDirection="rtl"
             android:orientation="horizontal">
-            <Button
+            <android.widget.Button
                 android:id="@+id/bid_button"
                 android:layout_width="120dp"
                 android:layout_height="38dp"
                 android:textSize="16sp"
                 android:focusable="false"
                 android:textColor="@color/white"
-                android:background="@drawable/apply_button_shape"
                 android:backgroundTint="@color/green"
+                android:background="@drawable/apply_button_shape"
                 android:text="Apply">
 
-            </Button>
+            </android.widget.Button>
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
