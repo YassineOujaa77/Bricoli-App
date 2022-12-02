@@ -167,6 +167,12 @@
                 android:name="android.app.lib_name"
                 android:value="" />
 
+        <!-- Setting Activity -->
+        <activity
+            android:name=".activities.SettingActivity"
+            android:exported="false">
+
+
         </activity>
     </application>
 

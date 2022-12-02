@@ -40,8 +40,8 @@ public class SettingActivity extends AppCompatActivity {
     private View.OnClickListener OnEditProfileClick(){
         return new View.OnClickListener(){
             public void onClick(View view){
-                //Intent intent = new Intent(SettingActivity.this, EditProfileActivity.class);
-                //startActivity(intent);
+                Intent intent = new Intent(SettingActivity.this, EditProfileActivity.class);
+                startActivity(intent);
             }
         };
     }
@@ -64,8 +64,8 @@ public class SettingActivity extends AppCompatActivity {
     private View.OnClickListener OnAddRecentJobClick(){
         return new View.OnClickListener(){
             public void onClick(View view){
-                //Intent intent = new Intent(SettingActivity.this, AddRecentJobActivity.class);
-                //startActivity(intent);
+                Intent intent = new Intent(SettingActivity.this, AddRecentJobsPicturesActivity.class);
+                startActivity(intent);
             }
         };
     }
@@ -80,8 +80,8 @@ public class SettingActivity extends AppCompatActivity {
     private View.OnClickListener OnShareWithFriendsClick(){
         return new View.OnClickListener(){
             public void onClick(View view){
-                //Intent intent = new Intent(SettingActivity.this, ShareWithFriendsActivity.class);
-                //startActivity(intent);
+                Intent intent = new Intent(SettingActivity.this, UserCanInviteFriendsActivity.class);
+                startActivity(intent);
             }
         };
     }
