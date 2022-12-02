@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" >BRICOLI</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="TitleBids" >Offres</string>
+    <string name="TitleBricoli" >Bricoli</string>
+    <string name="TitleCurrentJob" >Tâche courante</string>
+    <string name="TitleHistory" >Histoire</string>
+    <string name="TitleHome" >Accueil</string>
+    <string name="TitleSettings" >réglages</string>
+    <string name="TitleChangeRole" >Changer le Rôle</string>
+    <string name="DescriptionChangeRole" >Bienvenue sur la page de changement de rôle où vous pouvez postuler pour devenir travailleur</string>
+    <string name="NameClient" >Client</string>
+    <string name="NameWorker" >Ouvrier</string>
+    <string name="SaveButton" >Enregistrer</string>
+    <string name="TitleChangePassword" >Changer mot de pass</string>
+    <string name="LabelPAssword" >Mot de pass</string>
+    <string name="LabelReTapePassword" >Retaper le mot de pass</string>
+
+
+    <string name="name_complet" >Nom complet</string>
+    <string name="phone" >Téléphone</string>
+    <string name="address" >Adresse</string>
+    <string name="cin" >CIN</string>
+    <string name="password">Mot de pass</string>
+    <string name="password_confirmation" >Confirmation de mot de pass</string>
+    <string name="signup" >Sinscrire</string>
+    <string name="client" >Client</string>
+    <string name="worker" >Ouvrier</string>
+    <string name="bricoli" >BRICOLI.</string>
+    <string name="title_home" >Accueil</string>
+    <string name="title_list" >Liste</string>
+    <string name="title_history" >Historique</string>
+    <string name="title_user" >Profile</string>
+    <string name="add_description" >Ajouter description</string>
+    <string name="choose_service_text" >Choisissez votre service</string>
+    <string name="choose_service_spinner" >Choisissez le type de votre service</string>
+    <string name="add" >Ajouter</string>
+    <string name="finishbutton">terminer</string>
+    <string name="jours">Jrs</string>
+    <string name="forgotpassword">Vous avez oublié votre mot de pass ?</string>
+    <string name="find">Chercher</string>
+    <!--TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" >Hello blank fragment</string>
+    <string name="work_finished">Terminer à : </string>
+    <string name="description">Description : </string>
+    <string name="decline">Refuser</string>
+    <string name="accept">Accepter</string>
+    <string name="price">Prix :</string>
+    <string name="notif_text">Vous avez reçu une offre de...</string>
+
+    <string name="account">Profil</string>
+    <string name="more">Plus</string>
+    <string name="edit_profile">Editer le profil</string>
+    <string name="change_password">Changer le mot de pass</string>
+    <string name="change_role">Changer le Role</string>
+    <string name="add_recent_job">Ajouter des emplois récents</string>
+
+    <string name="share_with_friends">Partager avec des amis</string>
+    <string name="log_out">Se déconnecter</string>
+    <string name="Title_add_recent_job" >Ajouter des emplois récents</string>
+    <string name="add_picture_button" >Ajouter Photo</string>
+
+    <string name="apply">Postuler</string>
+    <string name="duration">Durée</string>
+    <string name="full_name">Nom Complet</string>
+    <string name="dh">DH</string>
+    <string name="jrs">Jrs</string>
+
+
+    <string name="invite_friends">Inviter des amies</string>
+    <string name="invite_your_friend_and_earn_nbonus_amount_in_wallet">Invite your Friends and earn \nbonus amount in wallet</string>
+    <string name="refer_friends">Parrainez des amis</string>
+
+    <string name="language">langue</string>
+    <string name="save">enregistrer</string>
+
+</resources>
