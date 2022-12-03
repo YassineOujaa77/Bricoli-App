@@ -1,0 +1,19 @@
+
+e
+java:S1192"JDefine a constant instead of duplicating this literal "4.5 (520)" 3 times.(êÛêÿÿÿÿÿ
+b
+java:S1192"LDefine a constant instead of duplicating this literal "Nom Complet" 3 times.(‘Ò¬÷
+\
+java:S1192"FDefine a constant instead of duplicating this literal "Rabat" 3 times.(ŞØÊÄ
+a
+java:S1192"FDefine a constant instead of duplicating this literal "2 jrs" 3 times.(¦¨İîøÿÿÿÿ
+]
+java:S1192"GDefine a constant instead of duplicating this literal "200 DH" 3 times.(åãÉ
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßˆå¤
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŞØÊÄ
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘Ò¬÷
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êÛêÿÿÿÿÿ
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(åãÉ
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦¨İîøÿÿÿÿ
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ó›Ä¯ıÿÿÿÿ
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÈÚİ©ûÿÿÿÿ

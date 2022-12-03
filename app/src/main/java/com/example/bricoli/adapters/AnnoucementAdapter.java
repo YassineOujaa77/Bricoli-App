@@ -35,11 +35,6 @@ public class AnnoucementAdapter extends ArrayAdapter<Annoucement> {
         TextView rating = (TextView) convertView.findViewById(R.id.rating);
         rating.setText(annoucements.get(position).getRating());
 
-        TextView price = (TextView) convertView.findViewById(R.id.price);
-        price.setText(annoucements.get(position).getPrice());
-
-        TextView duration = (TextView) convertView.findViewById(R.id.duration);
-        duration.setText(annoucements.get(position).getDuration());
 
         TextView distance = (TextView) convertView.findViewById(R.id.distance);
         distance.setText(annoucements.get(position).getDistance());

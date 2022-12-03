@@ -1,14 +1,18 @@
 package com.example.bricoli.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.bricoli.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import butterknife.BindView;
 
@@ -36,12 +40,44 @@ public class SettingActivity extends AppCompatActivity {
         logOut.setOnClickListener(OnLogOutClick());
 
 
+
+        // initialize
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        // set Home Selected
+        bottomNavigationView.setSelectedItemId(R.id.profile);
+
+
+        // item from menu selected listener
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext(), ClientHomeActivity.class));
+                        return true;
+                    case R.id.current:
+                        startActivity(new Intent(getApplicationContext(), PostsActuelActivity.class));
+                        return true;
+                    case R.id.history:
+                        startActivity(new Intent(getApplicationContext(), ClientHistoryActivity.class));
+                        return true;
+                    case R.id.profile:
+                        return true;
+                    default:
+                        return false;
+
+                }
+            }
+        });
+
+
     }
     private View.OnClickListener OnEditProfileClick(){
         return new View.OnClickListener(){
             public void onClick(View view){
-                //Intent intent = new Intent(SettingActivity.this, EditProfileActivity.class);
-                //startActivity(intent);
+                Intent intent = new Intent(SettingActivity.this, EditProfileActivity.class);
+                startActivity(intent);
             }
         };
     }
@@ -64,8 +100,8 @@ public class SettingActivity extends AppCompatActivity {
     private View.OnClickListener OnAddRecentJobClick(){
         return new View.OnClickListener(){
             public void onClick(View view){
-                //Intent intent = new Intent(SettingActivity.this, AddRecentJobActivity.class);
-                //startActivity(intent);
+                Intent intent = new Intent(SettingActivity.this, AddRecentJobsPicturesActivity.class);
+                startActivity(intent);
             }
         };
     }
@@ -80,8 +116,8 @@ public class SettingActivity extends AppCompatActivity {
     private View.OnClickListener OnShareWithFriendsClick(){
         return new View.OnClickListener(){
             public void onClick(View view){
-                //Intent intent = new Intent(SettingActivity.this, ShareWithFriendsActivity.class);
-                //startActivity(intent);
+                Intent intent = new Intent(SettingActivity.this, UserCanInviteFriendsActivity.class);
+                startActivity(intent);
             }
         };
     }

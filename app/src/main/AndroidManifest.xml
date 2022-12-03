@@ -3,10 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!-- Required only if your app needs to access images or photos that other apps created. -->
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
 
     <application
@@ -20,6 +18,10 @@
         android:theme="@style/Theme.Project"
         tools:targetApi="31">
 
+        <!-- the googlemap API -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBPrYbRRGBao520j0RKp8FZ8bq6qPrdmXQ" /> <!--  -->
         <activity
             android:name=".activities.UserCanInviteFriendsActivity"
             android:exported="false">
@@ -27,25 +29,18 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-
         <activity
             android:name=".activities.ChangeRoleActivity"
-            android:exported="false"></activity>
-
+            android:exported="false" />
         <activity
             android:name=".activities.WorkerProfilForClientActivity"
-            android:exported="false"></activity>
-
+            android:exported="false" />
         <activity
             android:name=".activities.AddRecentJobsPicturesActivity"
-            android:exported="false"></activity>
-
-
+            android:exported="false" />
         <activity
             android:name=".activities.AnnouncementDetailsActivity"
-            android:exported="false"></activity>
-
+            android:exported="false" />
         <activity
             android:name=".activities.EditProfileActivity"
             android:exported="false">
@@ -53,35 +48,20 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-
         <activity
             android:name=".activities.ChangePasswordActivity"
-            android:exported="false"></activity>
-
-
-        <!-- Login activity -->
+            android:exported="false" /> <!-- Login activity -->
         <activity
             android:name=".activities.LoginActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:exported="false">
 
         </activity>
-
-
         <!-- Signup Activity -->
         <activity
             android:name=".activities.SignupActivity"
             android:exported="false">
 
-        </activity>
-
-
-        <!-- Client Home activity -->
+        </activity> <!-- Client Home activity -->
         <activity
             android:name=".activities.ClientHomeActivity"
             android:exported="false">
@@ -89,51 +69,41 @@
                 android:name="preloaded_fonts"
                 android:resource="@array/preloaded_fonts" />
         </activity>
-
-
         <activity
             android:name=".activities.splashactivity"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/Theme.splashtheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>
-
-
-        <!-- Home bids for client -->
+        </activity> <!-- Home bids for client -->
         <activity
             android:name=".activities.HomeBidsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>
-
-        <!-- History Client activity -->
+        </activity> <!-- History Client activity -->
         <activity
             android:name=".activities.ClientHistoryActivity"
             android:exported="false">
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>
-
-        <!-- HistoryPostDetailsn activity -->
+        </activity> <!-- HistoryPostDetailsn activity -->
         <activity
             android:name=".activities.HistoryPostDetailsActivity"
             android:exported="false">
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBPrYbRRGBao520j0RKp8FZ8bq6qPrdmXQ" />
-
         <activity
             android:name=".activities.Job_Information_plus_maps"
             android:exported="false">
@@ -141,66 +111,67 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-
         <activity
             android:name=".activities.mapactivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>
-
-        <!-- Worker Home activity -->
+        </activity> <!-- Worker Home activity -->
         <activity
             android:name=".activities.WorkerHomeActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-
-        </activity>
-
-        <!--Custumer can consult current posts or jobs activity-->
+        </activity> <!-- Custumer can consult current posts or jobs activity -->
         <activity
             android:name=".activities.PostsActuelActivity"
-
             android:exported="false">
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>
-
-        <!--Worker can consult his current bids activity-->
+        </activity> <!-- Worker can consult his current bids activity -->
         <activity
             android:name=".activities.CurrentBidsActivity"
-
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-
-        </activity>
-
-        <!--History_offer_activity-->
+        </activity> <!-- History_offer_activity -->
         <activity
             android:name=".activities.HistoryOffreActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-
-        </activity>
-
-        <!-- Notifications activity -->
+        </activity> <!-- Notifications activity -->
         <activity
             android:name=".activities.NotificationActivity"
             android:exported="false">
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
+        </activity>
+        <activity
+            android:name=".activities.LanguageSetting"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activities.ForgotPasswordMainActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <!-- Setting Activity -->
+        <activity
+            android:name=".activities.SettingActivity"
+            android:exported="false">
         </activity>
     </application>
 
