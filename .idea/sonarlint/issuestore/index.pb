@@ -9,5 +9,3 @@ v
 Fapp/src/main/java/com/example/bricoli/activities/HomeBidsActivity.java,6\c\6c44f1ba3b3dee051b9cdf3aa6eb6ad40521d051
 t
 Dapp/src/main/java/com/example/bricoli/activities/splashactivity.java,a\f\af54acd5aceeea0a7c25e2facc8a5a37eaf86fc8
-
-Oapp/src/main/java/com/example/bricoli/activities/Job_Information_plus_maps.java,3\5\35be27fb6ba1588930f9f0b6687858fd08213dd2

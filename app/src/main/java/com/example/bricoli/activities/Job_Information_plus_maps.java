@@ -49,7 +49,7 @@ public class Job_Information_plus_maps extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_workerinformations);
+        setContentView(R.layout.activity_job_worker_informations_and_map);
 
 
 
