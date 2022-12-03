@@ -55,8 +55,8 @@
     <string name="language">Language</string>
     <string name="share_with_friends">Share With Friends</string>
     <string name="log_out">Log Out</string>
-    <string name="Title_add_recent_job" >Add recent jobs</string>
-    <string name="add_picture_button" >Add Picture</string>
+    <string name="Title_add_recent_job">Add recent jobs</string>
+    <string name="add_picture_button">Add Picture</string>
 
     <string name="apply">Apply</string>
     <string name="duration">Duration</string>
@@ -69,6 +69,12 @@
     <string name="decline">Decline</string>
     <string name="accept">Accept</string>
     <string name="price">Price :</string>
+
+    <string name="finishbutton">finish</string>
+    <string name="jours">Days</string>
+    <string name="forgotpassword">Forgot your password ?</string>
+    <string name="find">Find</string>
+    <string name="save">save</string>
 
 
 </resources>

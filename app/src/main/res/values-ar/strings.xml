@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="app_name" >BRICOLI</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="TitleBids" >العروض</string>
+    <string name="TitleBricoli" >بريكولي</string>
+    <string name="TitleCurrentJob" >المهمة الحالية</string>
+    <string name="TitleHistory" >السجل</string>
+    <string name="TitleHome" >الصفحة الرئيسية</string>
+    <string name="TitleSettings" >الإعدادات</string>
+    <string name="TitleChangeRole" >تغيير الدور</string>
+    <string name="DescriptionChangeRole" >مرحبًا بك في صفحة تغيير الدور حيث يمكنك التقدم للعمل</string>
+    <string name="NameClient" >عميل</string>
+    <string name="NameWorker" >عامل</string>
+    <string name="SaveButton" >حفظ</string>
+    <string name="TitleChangePassword" >غير كلمة السر</string>
+    <string name="LabelPAssword" >كلمة المرور</string>
+    <string name="LabelReTapePassword" >أعد تسجيل كلمة المرور</string>
+
+
+    <string name="name_complet" >الاسم الكامل</string>
+    <string name="phone" >الهاتف</string>
+    <string name="address" >العنوان</string>
+    <string name="cin" >CIN</string>
+    <string name="password">كلمة المرور</string>
+    <string name="password_confirmation" >تأكيد كلمة المرور</string>
+    <string name="signup" >اشتراك</string>
+    <string name="client" >عميل</string>
+    <string name="worker" >عامل</string>
+    <string name="bricoli" >بريكولي.</string>
+    <string name="title_home" >الصفحة الرئيسية</string>
+    <string name="title_list" >القائمة</string>
+
+    <string name="title_history" >السجل</string>
+    <string name="title_user" >الملف الشخصي</string>
+    <string name="add_description" >إضافة وصف</string>
+    <string name="choose_service_text" >اختر خدمتك</string>
+    <string name="choose_service_spinner" >اختر نوع الخدمة</string>
+    <string name="add" >أضف</string>
+    <string name="finishbutton">إنهاء</string>
+    <string name="jours">أيام</string>
+    <string name="forgotpassword">نسيت رقمك السري؟</string>
+    <string name="find">البحث</string>
+
+
+
+    <!--TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" >مرحبا جزء فارغ</string>
+    <string name="work_finished">انتهى في:</string>
+    <string name="description">وصف :</string>
+    <string name="decline">رفض</string>
+    <string name="accept">قبول</string>
+    <string name="price">سعر :</string>
+
+
+    <string name="language">اللغة</string>
+    <string name="save">حفظ</string>
+    <string name="notif_text">لقد تلقيت مزايدة من ...</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="invite_friends">ادعو أصدقاء</string>
+    <string name="invite_your_friend_and_earn_nbonus_amount_in_wallet">قم بدعوة أصدقائك واكسب مبلغًا إضافيًا في المحفظة</string>
+    <string name="refer_friends">إحالة الأصدقاء</string>
+    <string name="account">الحساب</string>
+    <string name="more">المزيد</string>
+    <string name="edit_profile">تعديل الملف الشخصي</string>
+    <string name="change_password">غير كلمة السر</string>
+    <string name="change_role">تغيير الدور</string>
+    <string name="add_recent_job">Add Recent Job</string>
+
+    <string name="share_with_friends">شارك مع الاصدقاء</string>
+    <string name="log_out">تسجيل خروج</string>
+    <string name="Title_add_recent_job" >أضف الوظائف الحديثة</string>
+    <string name="add_picture_button" >إضافة الصورة</string>
+
+    <string name="apply">Apply</string>
+    <string name="duration">المدة</string>
+    <string name="full_name">الاسم الكامل</string>
+    <string name="dh">DH</string>
+    <string name="jrs">أيام</string>
+
+</resources>

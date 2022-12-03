@@ -1,14 +1,18 @@
 package com.example.bricoli.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.bricoli.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import butterknife.BindView;
 
@@ -34,6 +38,38 @@ public class SettingActivity extends AppCompatActivity {
         language.setOnClickListener(OnAddLanguageClick());
         shareWithFriends.setOnClickListener(OnShareWithFriendsClick());
         logOut.setOnClickListener(OnLogOutClick());
+
+
+
+        // initialize
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        // set Home Selected
+        bottomNavigationView.setSelectedItemId(R.id.profile);
+
+
+        // item from menu selected listener
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext(), ClientHomeActivity.class));
+                        return true;
+                    case R.id.current:
+                        startActivity(new Intent(getApplicationContext(), PostsActuelActivity.class));
+                        return true;
+                    case R.id.history:
+                        startActivity(new Intent(getApplicationContext(), ClientHistoryActivity.class));
+                        return true;
+                    case R.id.profile:
+                        return true;
+                    default:
+                        return false;
+
+                }
+            }
+        });
 
 
     }
