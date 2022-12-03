@@ -44,7 +44,7 @@ public class CurrentBidsActivity extends AppCompatActivity {
                 }
                 else if(btn.getText()=="Accepted")
                 {
-                    Intent intent=new Intent(CurrentBidsActivity.this,Job_Information_plus_maps.class);
+                    Intent intent=new Intent(CurrentBidsActivity.this, JobDetailsForClientActivity.class);
                     startActivity(intent);
                 }
             }

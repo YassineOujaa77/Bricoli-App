@@ -105,8 +105,13 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.Job_Information_plus_maps"
-            android:exported="false">
+            android:name=".activities.JobDetailsForClientActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -127,7 +132,12 @@
         </activity> <!-- Custumer can consult current posts or jobs activity -->
         <activity
             android:name=".activities.PostsActuelActivity"
-            android:exported="false">
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

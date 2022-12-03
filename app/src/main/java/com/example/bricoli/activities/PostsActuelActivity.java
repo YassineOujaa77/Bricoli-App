@@ -2,7 +2,6 @@ package com.example.bricoli.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -47,7 +46,7 @@ public class PostsActuelActivity extends AppCompatActivity {
                 }
                 else if(btn.getText()=="Encours Execution")
                 {
-                    startActivity(new Intent(PostsActuelActivity.this,Job_Information_plus_maps.class));
+                    startActivity(new Intent(PostsActuelActivity.this, JobDetailsForClientActivity.class));
 
                 }
             }
@@ -61,7 +60,7 @@ public class PostsActuelActivity extends AppCompatActivity {
 
 
 
-        ListOfPostsActuel.setAdapter(adapter);
+        //ListPostsActuel.setAdapter(adapter);
 
 
 

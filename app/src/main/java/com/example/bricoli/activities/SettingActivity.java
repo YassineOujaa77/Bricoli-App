@@ -108,8 +108,8 @@ public class SettingActivity extends AppCompatActivity {
     private View.OnClickListener OnAddLanguageClick(){
         return new View.OnClickListener(){
             public void onClick(View view){
-                //Intent intent = new Intent(SettingActivity.this, LanguageActivity.class);
-                //startActivity(intent);
+                Intent intent = new Intent(SettingActivity.this, LanguageSetting.class);
+                startActivity(intent);
             }
         };
     }
