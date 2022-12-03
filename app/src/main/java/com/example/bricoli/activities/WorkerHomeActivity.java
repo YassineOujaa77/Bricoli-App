@@ -23,12 +23,12 @@ import butterknife.ButterKnife;
 import butterknife.OnItemClick;
 
 public class WorkerHomeActivity extends AppCompatActivity {
+
     @BindView(R.id.annoucementList)
     ListView announcementList;
     ArrayList<Annoucement> annoucements = new ArrayList<>();
     @OnItemClick(R.id.annoucementList)
-            public void OnAnnouncementListItemClicked(int position){
-        System.out.println("gggggggggggggggggggggggggggggggggg");
+    public void OnAnnouncementListItemClicked(int position){
         Annoucement annoucementClicked = (Annoucement) annoucements.get(position);
         Intent announcementIntent = new Intent(WorkerHomeActivity.this, AnnouncementDetailsActivity.class);
         announcementIntent.putExtra("fullName", annoucementClicked.getFullName());
@@ -64,8 +64,20 @@ public class WorkerHomeActivity extends AppCompatActivity {
                 {
                     case R.id.home:
                         return true;
+                    case R.id.current:
+                        startActivity(new Intent(getApplicationContext(),CurrentBidsActivity.class));
+                        return true;
+                    case R.id.history:
+                        startActivity(new Intent(getApplicationContext(),HistoryOffreActivity.class));
+                        return true;
+                    case R.id.profile:
+                        startActivity(new Intent(getApplicationContext(),SettingActivity.class));
+                        return true;
+                    default:
+                        return false;
+
                 }
-                return false;
+
             }
         });
 
