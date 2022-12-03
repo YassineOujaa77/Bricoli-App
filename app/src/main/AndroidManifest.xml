@@ -172,8 +172,6 @@
         <activity
             android:name=".activities.SettingActivity"
             android:exported="false">
-
-
         </activity>
     </application>
 

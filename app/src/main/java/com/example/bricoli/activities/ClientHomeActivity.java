@@ -45,8 +45,19 @@ public class ClientHomeActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.home:
                         return true;
+                    case R.id.current:
+                        startActivity(new Intent(getApplicationContext(), PostsActuelActivity.class));
+                        return true;
+                    case R.id.history:
+                        startActivity(new Intent(getApplicationContext(), ClientHistoryActivity.class));
+                        return true;
+                    case R.id.profile:
+                        startActivity(new Intent(getApplicationContext(), SettingActivity.class));
+                        return true;
+                    default:
+                        return false;
+
                 }
-                return false;
             }
         });
 
