@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:layout_marginLeft="26dp"
     android:layout_marginRight="26dp"
     android:gravity="center"
     tools:context=".activities.SettingActivity">
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
         android:layout_marginTop="8dp">
         <ImageView
+            android:id="@+id/account_icon"
             android:layout_width="34dp"
             android:layout_height="34dp"
+            android:layout_alignParentTop="true"
             android:src="@drawable/photo">
         </ImageView>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/account_icon"
             android:layout_marginLeft="6dp"
             android:text="@string/account"
             android:textColor="@color/black"
@@ -30,9 +33,11 @@
             android:textStyle="bold">
         </TextView>
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/account_section"
+        android:layout_below="@id/account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="4dp"
@@ -125,12 +130,15 @@
             android:src="@drawable/superior"></ImageView>
     </RelativeLayout>
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/more"
+        android:layout_below="@id/account_section"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginTop="20dp">
         <ImageView
+            android:id="@+id/more_icon"
+            android:layout_alignParentTop="true"
             android:layout_width="34dp"
             android:layout_height="34dp"
             android:src="@drawable/more">
@@ -139,6 +147,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/more_icon"
             android:layout_marginLeft="6dp"
             android:text="@string/more"
             android:textColor="@color/black"
@@ -148,8 +157,10 @@
 
         </TextView>
 
-    </LinearLayout>
+    </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/more_section"
+        android:layout_below="@id/more"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="4dp"
@@ -197,6 +208,8 @@
     </RelativeLayout>
     <android.widget.Button
         android:id="@+id/log_out"
+        android:layout_below="@id/more_section"
+        android:layout_centerHorizontal="true"
         android:layout_width="140dp"
         android:layout_height="42dp"
         android:layout_marginTop="28dp"
@@ -206,7 +219,7 @@
         android:backgroundTint="@color/burgundy"
         android:text="@string/log_out">
     </android.widget.Button>
-
+    
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
@@ -215,4 +228,5 @@
         android:layout_alignParentBottom="true"
         />
 
-</LinearLayout>
+</RelativeLayout>
+
