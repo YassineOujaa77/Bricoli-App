@@ -1,0 +1,16 @@
+
+C
+java:S16041"(Make this anonymous inner class a lambda(ŽËÍøÿÿÿÿÿ
+C
+java:S16049"(Make this anonymous inner class a lambda(ÿÑ‘¦ùÿÿÿÿ
+C
+java:S1604@"(Make this anonymous inner class a lambda(Åó¾Ëøÿÿÿÿ
+g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ÃéÇíýÿÿÿÿ
+v
+java:S4144#"[Update this method so that its implementation is not identical to "openprofile" on line 30.(ˆ‹¿Çûÿÿÿÿ
+q
+java:S1450"[Remove the "finishbutton" field and declare it as a local variable in the relevant methods.(Œô¨³
+u
+java:S1450"ZRemove the "imageButton" field and declare it as a local variable in the relevant methods.(óè×¡ýÿÿÿÿ
+u
+java:S1450"ZRemove the "profilecard" field and declare it as a local variable in the relevant methods.(÷¤„•ÿÿÿÿÿ
