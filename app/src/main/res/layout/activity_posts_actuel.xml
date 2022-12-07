@@ -4,55 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     tools:context=".activities.PostsActuelActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <ListView
+        android:id="@+id/PostsList"
+        android:layout_width="wrap_content"
+        android:layout_height="550dp"
+        android:layout_margin="15dp"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="10sp" />
 
-        <LinearLayout
-            android:id="@+id/layout1"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_weight="1"
-            android:orientation="vertical"></LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layout2"
-            android:layout_width="match_parent"
-            android:layout_height="570dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <ListView
-                android:id="@+id/listOfPosts"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:divider="@android:color/transparent"
-                android:dividerHeight="10sp"
-                android:paddingStart="10dp"
-                android:paddingLeft="10dp"
-                android:paddingEnd="10dp"
-                android:paddingRight="10dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layout3"
-
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_weight="1"
-            android:orientation="vertical"></LinearLayout>
-    </LinearLayout>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:menu="@menu/bottom_navigation_menu"
-        android:layout_alignParentBottom="true"
-        />
 
 </RelativeLayout>

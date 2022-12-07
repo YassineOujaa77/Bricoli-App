@@ -14,42 +14,30 @@ import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 
 import com.example.bricoli.R;
+import com.example.bricoli.models.Bid;
+
+import java.util.ArrayList;
 
 public class CurrentBidsAdapter extends BaseAdapter
 {
     Context context;
-    int []Photos;
-    String []Villes;
-    String []Noms;
-    String []Notes;
-    String []Prices;
-    String []Periodes;
-    String []Distances;
-    String []Etats;
+    ArrayList<Bid> Bids;
     LayoutInflater inflater;
 
-    public CurrentBidsAdapter(Context context, int[] photos, String[] villes, String[] noms, String[] notes, String[] prices, String[] periodes, String[] distances, String[] etats)
-    {
+    public CurrentBidsAdapter(Context context, ArrayList<Bid> bids) {
         this.context = context;
-        Photos = photos;
-        Villes = villes;
-        Noms = noms;
-        Notes = notes;
-        Prices = prices;
-        Periodes = periodes;
-        Distances = distances;
-        Etats = etats;
+        Bids = bids;
         inflater=LayoutInflater.from(context);
     }
 
     @Override
     public int getCount() {
-        return this.Photos.length;
+        return Bids.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return null;
+        return Bids.get(i);
     }
 
     @Override
@@ -58,68 +46,71 @@ public class CurrentBidsAdapter extends BaseAdapter
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup)
-    {
-        view=inflater.inflate(R.layout.current_bid_card,null);
-        CardView card=view.findViewById(R.id.card);
-        ImageView imgUser=view.findViewById(R.id.imgUser);
-        TextView txtVille=view.findViewById(R.id.txtVillo);
-        TextView txtNomComplet=view.findViewById(R.id.txtNomCompleto);
-        ImageView imgEtoile=view.findViewById(R.id.imgStar);
-        TextView txtNote=view.findViewById(R.id.txtNotee);
-        TextView txtPrix=view.findViewById(R.id.txtPricee);
-        TextView txtPeriod=view.findViewById(R.id.txtJour);
-        TextView txtDistance=view.findViewById(R.id.txtDistance);
-        Button btn =view.findViewById(R.id.btnTest);
+    public View getView(int i, View view, ViewGroup viewGroup) {
 
-        if(Etats[i]=="waiting")
+        view=inflater.inflate(R.layout.current_bid_card,null);
+        CardView card=view.findViewById(R.id.CardBid);
+        ImageView img=view.findViewById(R.id.imageUser);
+        TextView txtVille=view.findViewById(R.id.textVille);
+        TextView txtNomComplet=view.findViewById(R.id.textNom);
+        TextView txtNote=view.findViewById(R.id.textNote);
+        ImageView imgStar=view.findViewById(R.id.imageStar);
+        TextView txtPrix=view.findViewById(R.id.textPrix);
+        TextView txtPriod=view.findViewById(R.id.textJours);
+        TextView txtDistance=view.findViewById(R.id.textDistance);
+        Button btn =view.findViewById(R.id.btnState);
+
+        Bid bid=Bids.get(i);
+        if(bid.getEtat()=="Waiting")
         {
             card.setCardBackgroundColor(Color.parseColor("#FFFBFB"));
             btn.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#17688F")));
             btn.setBackgroundResource(R.drawable.button_reglage);
-            btn.setText("Waiting");
-            imgUser.setImageResource(Photos[i]);
-            txtVille.setText(Villes[i]);
-            txtNomComplet.setText(Noms[i]);
-            imgEtoile.setImageResource(R.drawable.star);
-            txtNote.setText(Notes[i]);
-            txtPrix.setText(Prices[i]);
-            txtPeriod.setText(Periodes[i]);
-            txtDistance.setText(Distances[i]);
+            btn.setText(bid.getEtat());
 
+            img.setImageResource(bid.getPhoto());
+            txtVille.setText(bid.getVille());
+            txtNomComplet.setText(bid.getNomComplet());
+            txtNote.setText(bid.getNote());
+            imgStar.setImageResource(R.drawable.star);
+            txtPrix.setText(bid.getPrix());
+            txtPriod.setText(bid.getPeriod());
+            txtDistance.setText(bid.getDistance());
         }
-        else if(Etats[i]=="declined")
+        else if(bid.getEtat()=="Declined")
         {
             card.setCardBackgroundColor(Color.parseColor("#F49BA4"));
             btn.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#DC3545")));
             btn.setBackgroundResource(R.drawable.button_reglage);
-            btn.setText("Declined");
-            imgUser.setImageResource(Photos[i]);
-            txtVille.setText(Villes[i]);
-            txtNomComplet.setText(Noms[i]);
-            imgEtoile.setImageResource(R.drawable.star);
-            txtNote.setText(Notes[i]);
-            txtPrix.setText(Prices[i]);
-            txtPeriod.setText(Periodes[i]);
-            txtDistance.setText(Distances[i]);
+            btn.setText(bid.getEtat());
 
+            img.setImageResource(bid.getPhoto());
+            txtVille.setText(bid.getVille());
+            txtNomComplet.setText(bid.getNomComplet());
+            txtNote.setText(bid.getNote());
+            imgStar.setImageResource(R.drawable.star);
+            txtPrix.setText(bid.getPrix());
+            txtPriod.setText(bid.getPeriod());
+            txtDistance.setText(bid.getDistance());
         }
-        else//Etats[i]==accepted
+        else//bid.getEtat()=="Accepted"
         {
             card.setCardBackgroundColor(Color.parseColor("#70B57F"));
             btn.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#218838")));
             btn.setBackgroundResource(R.drawable.button_reglage);
-            btn.setText("Accepted");
-            imgUser.setImageResource(Photos[i]);
-            txtVille.setText(Villes[i]);
-            txtNomComplet.setText(Noms[i]);
-            imgEtoile.setImageResource(R.drawable.star);
-            txtNote.setText(Notes[i]);
-            txtPrix.setText(Prices[i]);
-            txtPeriod.setText(Periodes[i]);
-            txtDistance.setText(Distances[i]);
+            btn.setText(bid.getEtat());
+
+            img.setImageResource(bid.getPhoto());
+            txtVille.setText(bid.getVille());
+            txtNomComplet.setText(bid.getNomComplet());
+            txtNote.setText(bid.getNote());
+            imgStar.setImageResource(R.drawable.star);
+            txtPrix.setText(bid.getPrix());
+            txtPriod.setText(bid.getPeriod());
+            txtDistance.setText(bid.getDistance());
         }
 
         return view;
     }
+
 }

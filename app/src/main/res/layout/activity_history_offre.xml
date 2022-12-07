@@ -4,58 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     tools:context=".activities.HistoryOffreActivity">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <LinearLayout
-                android:id="@+id/layout1"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:orientation="vertical"></LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/layout2"
-                android:layout_width="match_parent"
-                android:layout_height="570dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <ListView
-                    android:id="@+id/historylist"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_centerVertical="true"
-                    android:divider="@android:color/transparent"
-                    android:dividerHeight="10.0sp"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/layout3"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:orientation="vertical"></LinearLayout>
-        </LinearLayout>
-    </ScrollView>
-
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:menu="@menu/bottom_navigation_menu"
-        android:layout_alignParentBottom="true"
-        />
+    <ListView
+        android:id="@+id/historylist"
+        android:layout_width="wrap_content"
+        android:layout_height="550dp"
+        android:layout_margin="10dp"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="5sp" />
 
 </RelativeLayout>

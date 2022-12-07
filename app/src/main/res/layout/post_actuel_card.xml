@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/card2"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:elevation="12dp"
-    app:cardBackgroundColor="#FFFBFB"
+    app:cardBackgroundColor="@color/BeautyWhite"
     app:cardCornerRadius="12dp"
-    app:cardElevation="13dp"
-    app:cardUseCompatPadding="true">
+    app:cardUseCompatPadding="true"
+    android:elevation="12dp"
+    app:cardElevation="13dp">
 
     <RelativeLayout
-        android:layout_width="360dp"
-        android:layout_height="229dp">
+        android:layout_width="320dp"
+        android:layout_height="200dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,94 +19,85 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/Layout1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="horizontal">
 
                 <LinearLayout
-                    android:id="@+id/Layout1.1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/txtCategorie"
+                        android:id="@+id/textCategorie"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center|left"
+                        android:paddingStart="16dp"
                         android:text="CategorieX"
                         android:textColor="@color/black"
-                        android:textStyle="bold" />
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/Layout1.2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/txtDate"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="22dp"
+                        android:id="@+id/textPeriod"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center|right"
+                        android:paddingEnd="15dp"
                         android:text="2 days ago"
-                        android:textColor="#787575"
-                        android:textSize="12sp" />
+                        android:textColor="@color/GreyOfPeriod" />
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/Layout2"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="160dp"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textViewDesc"
+                    android:id="@+id/labelDescription"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:paddingStart="16dp"
                     android:text="Description:"
-                    android:textColor="#413B3B" />
+                    android:textColor="@color/BlackLabelDescription"
+                    android:textSize="15sp" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/Layout3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/textDescription"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/txtDescriptione"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="14dp"
-                        android:layout_marginEnd="5dp"
-                        android:text="Je suis entrain de chercher un plombier pour peparation d'une ..."
-                        android:textColor="#413B3B" />
-                </LinearLayout>
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:text="je suis entrain de chercher un plombier pour réparation d'une ..."
+                    android:textColor="@color/BlackTextDescription" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/Layout4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -115,57 +105,51 @@
                     android:layout_weight="1">
 
                     <LinearLayout
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center|left"
+                        android:orientation="vertical"
+                        android:paddingStart="15dp">
+
+                        <ImageView
+                            android:id="@+id/imgEllipse"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            app:srcCompat="@drawable/ellipse_green" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center|left">
-
-                        <ImageView
-                            android:id="@+id/imgEclipse"
-                            android:layout_width="10dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="14dp"
-                            app:srcCompat="@drawable/ellipsevert" />
+                        android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/txtNbBids"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:layout_weight="1"
+                            android:id="@+id/textNbBids"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center|left"
                             android:text="5 BIDS"
-                            android:textColor="#0BDB45"
-                            android:textSize="13sp" />
+                            android:textColor="@color/GreenOfBids" />
                     </LinearLayout>
-
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="340dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:orientation="vertical">
 
-                    <Button
-                        android:id="@+id/btnNegociation"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="#FFFBFB"
-                        android:focusable="false"
+                    <TextView
+                        android:id="@+id/textEtat"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:gravity="center"
-                        android:singleLine="true"
-                        android:stateListAnimator="@null"
                         android:text="Encours Negociation"
-                        android:textColor="#F26868"
-                        android:textSize="11sp" />
+                        android:textColor="@color/RedOfPostState" />
                 </LinearLayout>
-
-
             </LinearLayout>
         </LinearLayout>
-
     </RelativeLayout>
-
-
 </androidx.cardview.widget.CardView>

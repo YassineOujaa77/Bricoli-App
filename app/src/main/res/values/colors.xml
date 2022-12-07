@@ -31,5 +31,13 @@
     <color name="card_background">#FFFBFB</color>
     <color name="red_decline">#DC3545</color>
     <color name="description_detail">#413B3B</color>
+    <color name="RedOfBid">#DC3545</color>
+    <color name="RedOfCardBid">#F49BA4</color>
+    <color name="GreyOfPeriod">#787575</color>
+    <color name="BlackLabelDescription">#413B3B</color>
+    <color name="BlackTextDescription">#313639</color>
+    <color name="GreenOfBids">#0BDB45</color>
+    <color name="RedOfPostState">#F26868</color>
+    <color name="BeautyWhite">#FFFBFB</color>
 
 </resources>
