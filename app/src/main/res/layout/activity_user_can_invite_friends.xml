@@ -115,7 +115,7 @@
                     android:orientation="vertical">
 
                     <Button
-                        android:id="@+id/button"
+                        android:id="@+id/button_invite_friend"
                         android:layout_width="200dp"
                         android:layout_height="70dp"
                         android:backgroundTint="#E53950"
