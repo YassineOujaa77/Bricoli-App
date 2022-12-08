@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.example.bricoli.R;
 
@@ -19,12 +20,12 @@ public class SettingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
-        ImageView editProfile  = (ImageView) findViewById(R.id.edit_profile_icon);
-        ImageView changePasswd  = (ImageView) findViewById(R.id.change_passwd_icon);
-        ImageView changeRole  = (ImageView) findViewById(R.id.change_role_icon);
-        ImageView addRecentJob  = (ImageView) findViewById(R.id.add_recent_job_icon);
-        ImageView language  = (ImageView) findViewById(R.id.language_icon);
-        ImageView shareWithFriends  = (ImageView) findViewById(R.id.share_with_friends_icon);
+        LinearLayout editProfile  = (LinearLayout) findViewById(R.id.edit_profile);
+        LinearLayout changePasswd  = (LinearLayout) findViewById(R.id.change_passwd);
+        LinearLayout changeRole  = (LinearLayout) findViewById(R.id.change_role);
+        LinearLayout addRecentJob  = (LinearLayout) findViewById(R.id.add_recent_job);
+        LinearLayout language  = (LinearLayout) findViewById(R.id.language);
+        LinearLayout shareWithFriends  = (LinearLayout) findViewById(R.id.share_with_friends);
         Button logOut  = (Button) findViewById(R.id.log_out);
 
         editProfile.setOnClickListener(OnEditProfileClick());
