@@ -17,8 +17,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project"
         tools:targetApi="31">
-
-        <!-- the googlemap API -->
+        <activity
+            android:name=".ForgotPasswordChangePassword"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ForgotpasswordSmsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity> <!-- the googlemap API -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBPrYbRRGBao520j0RKp8FZ8bq6qPrdmXQ" /> <!--  -->
@@ -53,15 +65,10 @@
             android:exported="false" /> <!-- Login activity -->
         <activity
             android:name=".activities.LoginActivity"
-            android:exported="false">
-
-        </activity>
-        <!-- Signup Activity -->
+            android:exported="false" /> <!-- Signup Activity -->
         <activity
             android:name=".activities.SignupActivity"
-            android:exported="false">
-
-        </activity> <!-- Client Home activity -->
+            android:exported="false" /> <!-- Client Home activity -->
         <activity
             android:name=".activities.ClientHomeActivity"
             android:exported="false">
@@ -166,15 +173,10 @@
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>
-
-        <!-- Setting Activity -->
+        </activity> <!-- Setting Activity -->
         <activity
             android:name=".activities.SettingActivity"
-            android:exported="false">
-
-
-        </activity>
+            android:exported="false" />
     </application>
 
 </manifest>

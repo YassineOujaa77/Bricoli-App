@@ -76,5 +76,11 @@
 
     <string name="language">langue</string>
     <string name="save">enregistrer</string>
+    <string name="verification">Verification</string>
+    <string name="verificationmessage">You received an SMS message with your verfication code</string>
+    <string name="Submit">Submit</string>
+    <string name="changepassword">Change password</string>
+    <string name="newpassword">new password</string>
+    <string name="confirmpassword">confirm new password</string>
 
 </resources>
