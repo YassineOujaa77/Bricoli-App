@@ -60,6 +60,35 @@ public class PostsActuelActivity extends AppCompatActivity {
             }
         });
 
+        // initialize
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        // set Home Selected
+        bottomNavigationView.setSelectedItemId(R.id.current);
+
+        // item from menu selected listener
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.home:
+                        return true;
+                    case R.id.current:
+                        startActivity(new Intent(getApplicationContext(), PostsActuelActivity.class));
+                        return true;
+                    case R.id.history:
+                        startActivity(new Intent(getApplicationContext(), ClientHistoryActivity.class));
+                        return true;
+                    case R.id.profile:
+                        startActivity(new Intent(getApplicationContext(), SettingActivity.class));
+                        return true;
+                    default:
+                        return false;
+
+                }
+            }
+        });
+
 
     }
 }

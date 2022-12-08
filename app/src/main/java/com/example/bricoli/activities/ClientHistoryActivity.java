@@ -42,18 +42,26 @@ public class ClientHistoryActivity extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.history);
 
         // item from menu selected listener
+        // item from menu selected listener
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId())
-                {
-                    case R.id.history:
+                switch (item.getItemId()) {
+                    case R.id.home:
                         return true;
+                    case R.id.current:
+                        startActivity(new Intent(getApplicationContext(), PostsActuelActivity.class));
+                        return true;
+                    case R.id.history:
+                        startActivity(new Intent(getApplicationContext(), ClientHistoryActivity.class));
+                        return true;
+                    case R.id.profile:
+                        startActivity(new Intent(getApplicationContext(), SettingActivity.class));
+                        return true;
+                    default:
+                        return false;
 
                 }
-
-
-                return false;
             }
         });
 

@@ -20,7 +20,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class ClientHomeActivity extends AppCompatActivity {
 
-    private ActivityClientHomeBinding binding;
+    //private ActivityClientHomeBinding binding;
 
     private Button addButton;
     Fragment fragment;
@@ -28,7 +28,7 @@ public class ClientHomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityClientHomeBinding.inflate(getLayoutInflater());
+        //binding = ActivityClientHomeBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_client_home);
 
         // initialize
