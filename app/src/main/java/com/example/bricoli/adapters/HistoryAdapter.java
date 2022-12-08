@@ -9,40 +9,31 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.bricoli.R;
+import com.example.bricoli.models.History;
+
+import java.util.ArrayList;
 
 
 public class HistoryAdapter extends BaseAdapter
 {
     Context context;
-    int [] Images;
-    String [] NomComplets;
-    String [] Villes;
-    String [] Notes;
-    String [] Dates;
-    String [] Descriptions;
+    ArrayList<History> Histories;
     LayoutInflater inflater;
 
-    public HistoryAdapter(Context context, int[] images, String[] nomComplets, String[] villes, String[] notes, String[] dates, String[] descriptions) {
+    public HistoryAdapter(Context context, ArrayList<History> histories) {
         this.context = context;
-        Images = images;
-        NomComplets = nomComplets;
-        Villes = villes;
-        Notes = notes;
-        Dates = dates;
-        Descriptions = descriptions;
+        Histories = histories;
         inflater=LayoutInflater.from(context);
     }
 
-
-
     @Override
     public int getCount() {
-        return this.Images.length;
+        return Histories.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return null;
+        return Histories.get(i);
     }
 
     @Override
@@ -63,18 +54,21 @@ public class HistoryAdapter extends BaseAdapter
         ImageView imgi1=(ImageView) view.findViewById(R.id.imageView5);
         ImageView imgi2=(ImageView)view.findViewById(R.id.imageView6);
 
+        History history=Histories.get(i);
+
         imgi1.setImageResource(R.drawable.vector);
         imgi2.setImageResource(R.drawable.star);
-        img.setImageResource(Images[i]);
-        nom.setText(NomComplets[i]);
-        ville.setText(Villes[i]);
-        note.setText(Notes[i]);
-        date.setText(Dates[i]);
-        description.setText(Descriptions[i]);
+        img.setImageResource(history.getImage());
+        nom.setText(history.getNomComplet());
+        ville.setText(history.getVille());
+        note.setText(history.getNote());
+        date.setText(history.getDate());
+        description.setText(history.getDescription());
         return view;
 
 
 
 
     }
+
 }

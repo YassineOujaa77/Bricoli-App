@@ -13,36 +13,30 @@ import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 
 import com.example.bricoli.R;
+import com.example.bricoli.models.Post;
+
+import java.util.ArrayList;
 
 public class PostsActuelAdapter extends BaseAdapter
 {
     Context context;
-    String []Categories;
-    String []Dates;
-    String []Descriptions;
-    String []NbBids;
-    String []Etats;
+    ArrayList<Post> Posts;
     LayoutInflater inflater;
 
-    public PostsActuelAdapter(Context context, String[] categories, String[] dates, String[] descriptions, String[] nbBids, String[] etats)
-    {
+    public PostsActuelAdapter(Context context, ArrayList<Post> posts) {
         this.context = context;
-        Categories = categories;
-        Dates = dates;
-        Descriptions = descriptions;
-        NbBids = nbBids;
-        Etats = etats;
+        Posts = posts;
         inflater=LayoutInflater.from(context);
     }
 
     @Override
     public int getCount() {
-        return this.Categories.length;
+        return Posts.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return null;
+        return Posts.get(i);
     }
 
     @Override
@@ -51,42 +45,37 @@ public class PostsActuelAdapter extends BaseAdapter
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup)
-    {
-        view=inflater.inflate(R.layout.current_bid_card,null);
-        CardView card=view.findViewById(R.id.card2);
-        TextView txtCategorie=view.findViewById(R.id.txtCategorie);
-        TextView date=view.findViewById(R.id.txtDate);
-        TextView description=view.findViewById(R.id.txtDescriptione);
-        TextView nbBids=view.findViewById(R.id.txtNbBids);
-        ImageView imgEclipse=view.findViewById(R.id.imgEclipse);
-        Button btn =view.findViewById(R.id.btnNegociation);
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        view=inflater.inflate(R.layout.post_actuel_card,null);
+        TextView categorie=view.findViewById(R.id.textCategorie);
+        TextView period=view.findViewById(R.id.textPeriod);
+        TextView description=view.findViewById(R.id.textDescription);
+        ImageView ellipse=view.findViewById(R.id.imgEllipse);
+        TextView nbBids=view.findViewById(R.id.textNbBids);
+        TextView etat=view.findViewById(R.id.textEtat);
 
-        if(Etats[i]=="negociation")
+        Post post=Posts.get(i);
+        if(post.getEtat()=="Encours Negociation")
         {
-            card.setCardBackgroundColor(Color.parseColor("#FFFBFB"));
-            nbBids.setText(NbBids[i]);
-            imgEclipse.setImageResource(R.drawable.ellipsevert);
-            btn.setText("Encours Negociation");
-            btn.setTextColor(Color.parseColor("#F26868"));
-            txtCategorie.setText(Categories[i]);
-            date.setText(Dates[i]);
-            description.setText(Descriptions[i]);
-
+            categorie.setText(post.getCategorie());
+            period.setText(post.getPeriod());
+            description.setText(post.getDescription());
+            ellipse.setImageResource(R.drawable.ellipse_green);
+            nbBids.setText(post.getNbBids());
+            etat.setText(post.getEtat());
+            etat.setTextColor(Color.parseColor("#F26868"));
         }
-        else if(Etats[i]=="execution")
+        else
         {
-            card.setCardBackgroundColor(Color.parseColor("#FFFBFB"));
-            imgEclipse.setImageResource(R.drawable.ellipsevert);
-            nbBids.setText(NbBids[i]);
-            imgEclipse.setVisibility(View.INVISIBLE);
+            categorie.setText(post.getCategorie());
+            period.setText(post.getPeriod());
+            description.setText(post.getDescription());
+            ellipse.setImageResource(R.drawable.ellipse_green);
+            ellipse.setVisibility(View.INVISIBLE);
+            nbBids.setText(post.getNbBids());
             nbBids.setVisibility(View.INVISIBLE);
-            btn.setText("Encours Execution");
-            btn.setTextColor(Color.parseColor("#0BDB45"));
-            txtCategorie.setText(Categories[i]);
-            date.setText(Dates[i]);
-            description.setText(Descriptions[i]);
-
+            etat.setText(post.getEtat());
+            etat.setTextColor(Color.parseColor("#0BDB45"));
         }
         return view;
     }
