@@ -1,0 +1,15 @@
+
+e
+java:S1192"JDefine a constant instead of duplicating this literal "4.5 (250)" 5 times.(úÀšŞùÿÿÿÿ
+a
+java:S1192"FDefine a constant instead of duplicating this literal "Rabat" 5 times.(úÀšŞùÿÿÿÿ
+a
+java:S1192"FDefine a constant instead of duplicating this literal "2 jrs" 5 times.(úÀšŞùÿÿÿÿ
+e
+java:S1192"JDefine a constant instead of duplicating this literal "Full name" 5 times.(úÀšŞùÿÿÿÿ
+a
+java:S1192"FDefine a constant instead of duplicating this literal "900 m" 5 times.(úÀšŞùÿÿÿÿ
+y
+java:S1450"^Remove the "homeBidsAdapter" field and declare it as a local variable in the relevant methods.(²¥Æêşÿÿÿÿ
+r
+java:S1450"WRemove the "listView" field and declare it as a local variable in the relevant methods.(¯¤½ñûÿÿÿÿ

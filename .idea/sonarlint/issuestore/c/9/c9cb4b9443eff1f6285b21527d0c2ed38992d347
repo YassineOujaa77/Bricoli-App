@@ -1,0 +1,22 @@
+
+C
+java:S1604*"(Make this anonymous inner class a lambda(õßØµüÿÿÿÿ
+>
+java:S1604B"(Make this anonymous inner class a lambda(Ò„‡¬
+f
+java:S1301-"KReplace this "switch" statement by "if" statements to increase readability.(øå´¡ÿÿÿÿÿ
+s
+java:S1450"XRemove the "addButton" field and declare it as a local variable in the relevant methods.(™õù»ÿÿÿÿÿ
+q
+java:S1450"VRemove the "binding" field and declare it as a local variable in the relevant methods.(ŞÑ°ıÿÿÿÿ
+^
+java:S1854;"CRemove this useless assignment to local variable "textInputLayout".(Œ“¶úÿÿÿÿ
+f
+java:S1874*"KRemove this use of "setOnNavigationItemSelectedListener"; it is deprecated.(õßØµüÿÿÿÿ
+<	java:S131-""Add a default case to this switch.(øå´¡ÿÿÿÿÿ
+J
+java:S14815"4Remove this unused "textInputLayout" local variable.(Â‘ÏÉ
+G
+java:S14817"1Remove this unused "adapterItems" local variable.(ë¼çç
+F
+java:S1068"+Remove this unused "binding" private field.(ŞÑ°ıÿÿÿÿ
