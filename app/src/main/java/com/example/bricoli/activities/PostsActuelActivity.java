@@ -72,6 +72,7 @@ public class PostsActuelActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.home:
+                        startActivity(new Intent(getApplicationContext(),ClientHomeActivity.class));
                         return true;
                     case R.id.current:
                         startActivity(new Intent(getApplicationContext(), PostsActuelActivity.class));
