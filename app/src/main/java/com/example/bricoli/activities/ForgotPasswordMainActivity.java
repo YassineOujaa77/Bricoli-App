@@ -22,26 +22,6 @@ public class ForgotPasswordMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password_main);
 
-        // initialize
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-
-        // set Home Selected
-        bottomNavigationView.setSelectedItemId(R.id.home);
-
-        // item from menu selected listener
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId())
-                {
-                    case R.id.home:
-                        return true;
-
-
-                }
-                return false;
-            }
-        });
     }
 
 }

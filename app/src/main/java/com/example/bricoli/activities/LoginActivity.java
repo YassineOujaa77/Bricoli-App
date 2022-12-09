@@ -41,9 +41,14 @@ public class LoginActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin"))
+                if(username.getText().toString().equals("client") && password.getText().toString().equals("client"))
                 {
                     Intent intent = new Intent(LoginActivity.this, ClientHomeActivity.class);
+                    startActivity(intent);
+                }
+                else if (username.getText().toString().equals("worker") && password.getText().toString().equals("worker"))
+                {
+                    Intent intent = new Intent(LoginActivity.this, WorkerHomeActivity.class);
                     startActivity(intent);
                 }
                 else
@@ -59,6 +64,16 @@ public class LoginActivity extends AppCompatActivity
             {
                     Intent intent1 = new Intent(LoginActivity.this, SignupActivity.class);
                     startActivity(intent1);
+
+            }
+        });
+
+        forgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent1 = new Intent(LoginActivity.this, ForgotPasswordMainActivity.class);
+                startActivity(intent1);
 
             }
         });
