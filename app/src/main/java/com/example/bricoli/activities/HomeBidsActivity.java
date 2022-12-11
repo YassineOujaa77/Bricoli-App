@@ -2,10 +2,12 @@ package com.example.bricoli.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.bricoli.R;
@@ -26,6 +28,9 @@ public class HomeBidsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home_bids);
 
         listView = (ListView) findViewById(R.id.list_view_for_home_bids);
+
+
+
         ArrayList<Annoucement> annoucementsList = new ArrayList<>();
         annoucementsList.add(new Annoucement("Full name" ,"Rabat","4.5 (250)","250","2 jrs","900 m",R.drawable.userphoto));
         annoucementsList.add(new Annoucement("Full name" ,"Rabat","4.5 (250)","250","2 jrs","900 m",R.drawable.userphoto));
@@ -44,6 +49,7 @@ public class HomeBidsActivity extends AppCompatActivity {
             }
         });
 
+        
 
 
 
