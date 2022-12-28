@@ -77,10 +77,11 @@
     <string name="language">langue</string>
     <string name="save">enregistrer</string>
     <string name="verification">Verification</string>
-    <string name="verificationmessage">You received an SMS message with your verfication code</string>
-    <string name="Submit">Submit</string>
-    <string name="changepassword">Change password</string>
-    <string name="newpassword">new password</string>
-    <string name="confirmpassword">confirm new password</string>
+    <string name="verificationmessage">Vous avez reçu un SMS avec votre code de vérification</string>
+    <string name="Submit">Accepter</string>
+    <string name="changepassword">Changer le mot de passe</string>
+    <string name="newpassword">Nouveau mot de pass</string>
+    <string name="confirmpassword">Confirmer le nouveau mot de pass</string>
+    <string name="thewrongnumber">Ceci est un numéro non enregistré</string>
 
 </resources>
