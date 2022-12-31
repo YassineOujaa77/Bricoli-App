@@ -7,9 +7,12 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_SMS"/>
     <uses-permission android:name="android.permission.READ_RECIEVE"/>
     <uses-permission android:name="android.permission.SEND_SMS"/>
+
 
     <application
         android:allowBackup="true"
@@ -22,15 +25,16 @@
         android:theme="@style/Theme.Project"
         tools:targetApi="31">
         <activity
-            android:name=".activities.ForgotPasswordChangePassword"
+        android:name=".activities.MapForWorkerActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.ForgotpasswordSmsActivity"
+            android:name=".activities.JobDetailsForWorkerActivity"
             android:exported="false">
+          
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -89,6 +93,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -180,13 +185,10 @@
         </activity> <!-- Setting Activity -->
         <activity
             android:name=".activities.SettingActivity"
-            android:exported="false">
-        </activity>
-
-        <!-- post details Activity -->
+            android:exported="false" /> <!-- post details Activity -->
         <activity
             android:name=".activities.PostDetailsWaitingActivity"
-            android:exported="false">
+            android:exported="false" />
         </activity>
 
     </application>

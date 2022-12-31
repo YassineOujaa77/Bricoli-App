@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.JobDetailsForWorkerActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!-- beg of the map -->
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="275dp"
+
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+
+                >
+
+                <FrameLayout
+
+                    android:id="@+id/frame_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </FrameLayout>
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="125px"
+                    android:layout_height="125px"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    app:cardCornerRadius="100dp"
+
+                    >
+
+                    <ImageButton
+                        android:id="@+id/imageButton"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:backgroundTint="@color/white"
+                        android:scaleType="centerCrop"
+
+
+                        app:srcCompat="@drawable/agrandir" />
+
+
+                </androidx.cardview.widget.CardView>
+
+
+
+
+            </androidx.cardview.widget.CardView>
+            <!-- end of the map -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="375dp"
+
+                android:layout_marginTop="210dp"
+
+                android:elevation="10dp"
+                android:orientation="vertical">
+                <!-- beg of the card -->
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/profilecardc"
+                    android:layout_width="match_parent"
+                    android:layout_height="330dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:clickable="true"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="11dp">
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        >
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="320px"
+                            android:layout_height="320px"
+                            android:layout_gravity="center_horizontal"
+                            android:elevation="10dp"
+                            app:cardCornerRadius="100dp"
+
+
+                            >
+
+                            <ImageView
+                                android:id="@+id/roundedImageView"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/profil"
+
+
+                                />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="Nom Complet"
+
+                            android:textColor="@color/black"
+                            android:textSize="55px"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv_star"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="#00ffffff"
+                                android:text="★"
+                                android:textColor="#ffdf00"
+                                android:textSize="30sp" />
+
+
+                            <TextView
+                                android:id="@+id/rateplusnbr"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_regular"
+                                android:text="4.5 (520)"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingTop="32dp">
+
+
+                            <TextView
+                                android:id="@+id/tv_price"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+
+                                android:layout_marginRight="30dp"
+                                android:fontFamily="@font/poppins_regular"
+                                android:text="   200 DH   "
+                                android:textSize="45px"
+                                android:textStyle="bold" />
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_regular"
+                                android:text="   2 "
+                                android:textSize="45px"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_regular"
+                                android:text="@string/jours"
+                                android:textSize="45px"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+
+
+                <!-- end of the card -->
+
+
+                <!--
+
+
+
+
+            <Button
+                android:id="@+id/finishbutton"
+
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:backgroundTint="@color/marron"
+                android:background="@drawable/buttonradius"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Finish"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="18dp"
+
+
+                />
+                -->
+
+
+            </LinearLayout>
+
+
+        </FrameLayout>
+
+
+
+    </LinearLayout>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/callbutton"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/Ratinglinear"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="155dp"
+        android:layout_marginEnd="155dp"
+        android:layout_marginBottom="90dp"
+        android:background="@drawable/buttonradius"
+        android:backgroundTint="@color/green"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Call"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="18dp">
+
+
+
+    </androidx.appcompat.widget.AppCompatButton>
+    <LinearLayout
+        android:id="@+id/Ratinglinear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_marginStart="80dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="155dp"
+        android:paddingTop="15dp"
+        >
+
+    <RatingBar
+        android:layout_gravity="center"
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:progressTint="#ffdf00"
+        android:numStars="5"
+        android:rating="1"/>
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/finishbutton"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="155dp"
+        android:layout_marginEnd="155dp"
+        android:layout_marginBottom="110dp"
+        android:background="@drawable/buttonradius"
+        android:backgroundTint="@color/marron"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/finishbutton"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="18dp">
+
+    </androidx.appcompat.widget.AppCompatButton>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/bottom_navigation_menu"
+        android:layout_alignParentBottom="true"
+        />
+</RelativeLayout>
+
