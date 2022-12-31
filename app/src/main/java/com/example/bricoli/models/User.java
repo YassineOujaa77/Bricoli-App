@@ -11,6 +11,7 @@ public class User {
     private String fullName;
     private String workerField;
     private String phone;
+    private String token;
 
     public Long getUserId() {
         return userId;
@@ -92,6 +93,14 @@ public class User {
         this.phone = phone;
     }
 
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -101,9 +110,11 @@ public class User {
                 ", address='" + address + '\'' +
                 ", sommeRating=" + sommeRating +
                 ", numberOfRating=" + numberOfRating +
+                ", photo='" + photo + '\'' +
                 ", fullName='" + fullName + '\'' +
                 ", workerField='" + workerField + '\'' +
                 ", phone='" + phone + '\'' +
+                ", token='" + token + '\'' +
                 '}';
     }
 }
