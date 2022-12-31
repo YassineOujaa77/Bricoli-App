@@ -28,4 +28,12 @@ public class Job {
     public void setPicture(String picture) {
         this.picture = picture;
     }
+
+    @Override
+    public String toString() {
+        return "Job{" +
+                "jobId=" + jobId +
+                ", worker=" + worker + '\'' +
+                '}';
+    }
 }

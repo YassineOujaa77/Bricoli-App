@@ -67,4 +67,17 @@ public class Postulation {
     public void setOffer(Offer offer) {
         this.offer = offer;
     }
+
+    @Override
+    public String toString() {
+        return "Postulation{" +
+                "postulationId=" + postulationId +
+                ", price=" + price +
+                ", duration=" + duration +
+                ", state='" + state + '\'' +
+                ", createdAt=" + createdAt +
+                ", worker=" + worker +
+                ", offer=" + offer +
+                '}';
+    }
 }

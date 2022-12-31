@@ -25,4 +25,11 @@ public class Client extends User{
     public void setOffers(Set<Offer> offers) {
         this.offers = offers;
     }
+
+    @Override
+    public String toString() {
+        return "Client{" + super.toString() +
+                "offers=" + offers +
+                '}';
+    }
 }

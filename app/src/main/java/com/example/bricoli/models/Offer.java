@@ -71,4 +71,17 @@ public class Offer {
     public void setPostulations(Set<Postulation> postulations) {
         this.postulations = postulations;
     }
+
+    @Override
+    public String toString() {
+        return "Offer{" +
+                "offerId=" + offerId +
+                ", category='" + category + '\'' +
+                ", client=" + client +
+                ", description='" + description + '\'' +
+                ", state='" + state + '\'' +
+                ", createdAt=" + createdAt +
+                ", postulations=" + postulations +
+                '}';
+    }
 }

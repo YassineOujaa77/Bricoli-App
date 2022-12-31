@@ -91,4 +91,19 @@ public class User {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", cin='" + cin + '\'' +
+                ", password='" + password + '\'' +
+                ", address='" + address + '\'' +
+                ", sommeRating=" + sommeRating +
+                ", numberOfRating=" + numberOfRating +
+                ", fullName='" + fullName + '\'' +
+                ", workerField='" + workerField + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
+    }
 }

@@ -34,4 +34,12 @@ public class Worker extends User{
     public void setPostulations(Set<Postulation> postulations) {
         this.postulations = postulations;
     }
+
+    @Override
+    public String toString() {
+        return "Worker{" + super.toString() +
+                "jobs=" + jobs +
+                ", postulations=" + postulations +
+                '}';
+    }
 }
