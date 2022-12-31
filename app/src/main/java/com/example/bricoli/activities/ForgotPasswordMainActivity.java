@@ -64,6 +64,7 @@ public class ForgotPasswordMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password_main);
+
         ActivityCompat.requestPermissions(ForgotPasswordMainActivity.this, new String[]{Manifest.permission.SEND_SMS, Manifest.permission.READ_SMS}, PackageManager.PERMISSION_GRANTED);
         phone   = (EditText) findViewById(R.id.Phone);
 
@@ -79,6 +80,7 @@ public class ForgotPasswordMainActivity extends AppCompatActivity {
                 System.out.println(theusernumbertocheck);
             }
         });
+
 
 
     }

@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/list_view_for_home_bids"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:cardBackgroundColor="#FFFFFF"
-    app:cardCornerRadius="5dp"
-    app:cardElevation="16dp"
-    app:cardUseCompatPadding="true"
-    >
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/list_view_for_home_bids"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="12dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="16dp"
+        app:cardUseCompatPadding="true">
 
 
     <RelativeLayout
@@ -129,6 +131,7 @@
             >
 
             <android.widget.Button
+                android:id="@+id/decline"
                 android:layout_width="wrap_content"
                 android:layout_height="45dp"
                 android:layout_margin="20dp"
@@ -137,11 +140,13 @@
                 android:text="Decline"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
+                android:focusable="false"
 
 
                 />
 
             <android.widget.Button
+                android:id="@+id/accept"
                 android:layout_width="wrap_content"
                 android:layout_height="45dp"
                 android:layout_margin="20dp"
@@ -149,6 +154,7 @@
                 android:text="Accept"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
+                android:focusable="false"
 
                 />
 

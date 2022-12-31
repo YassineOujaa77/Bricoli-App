@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:layout_marginLeft="26dp"
     android:layout_marginRight="26dp"
     android:gravity="center"
     tools:context=".activities.SettingActivity">
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="8dp">
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="80dp">
         <ImageView
+            android:id="@+id/account_icon"
             android:layout_width="34dp"
             android:layout_height="34dp"
+            android:layout_alignParentTop="true"
             android:src="@drawable/photo">
         </ImageView>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/account_icon"
             android:layout_marginLeft="6dp"
             android:text="@string/account"
             android:textColor="@color/black"
@@ -30,107 +33,125 @@
             android:textStyle="bold">
         </TextView>
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/account_section"
+        android:layout_below="@id/account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="4dp"
         android:layout_marginTop="24dp">
-
-        <TextView
+        <LinearLayout
             android:id="@+id/edit_profile"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:fontFamily="@font/poppins_regular"
-            android:text="@string/edit_profile"
-            android:textColor="@color/black"
-            android:textSize="20dp">
+            android:orientation="horizontal">
 
-        </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="40"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/edit_profile"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
 
-        <ImageView
-            android:id="@+id/edit_profile_icon"
-            android:layout_width="15dp"
-            android:layout_height="18dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="9.5dp"
-            android:src="@drawable/superior"></ImageView>
-
-        <TextView
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="6.4dp"
+                android:src="@drawable/superior" />
+        </LinearLayout>
+        <LinearLayout
             android:id="@+id/change_passwd"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/edit_profile"
-            android:layout_marginTop="4dp"
-            android:fontFamily="@font/poppins_regular"
-            android:text="@string/change_password"
-            android:textColor="@color/black"
-            android:textSize="20dp">
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="40"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/change_password"
+                android:textColor="@color/black"
+                android:textSize="20dp">
 
-        </TextView>
+            </TextView>
 
-        <ImageView
-            android:id="@+id/change_passwd_icon"
-            android:layout_width="15dp"
-            android:layout_height="18dp"
-            android:layout_below="@id/edit_profile"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="9.5dp"
-            android:src="@drawable/superior"></ImageView>
-
-        <TextView
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="6.4dp"
+                android:src="@drawable/superior" />
+        </LinearLayout>
+        <LinearLayout
             android:id="@+id/change_role"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/change_passwd"
-            android:layout_marginTop="4dp"
-            android:fontFamily="@font/poppins_regular"
-            android:text="@string/change_role"
-            android:textColor="@color/black"
-            android:textSize="20dp">
+            android:orientation="horizontal"
+            android:layout_below="@id/change_passwd">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/change_passwd"
+                android:layout_weight="40"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/change_role"
+                android:textColor="@color/black"
+                android:textSize="20dp">
 
-        </TextView>
+            </TextView>
 
-        <ImageView
-            android:id="@+id/change_role_icon"
-            android:layout_width="15dp"
-            android:layout_height="18dp"
-            android:layout_below="@id/change_passwd"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="9.5dp"
-            android:src="@drawable/superior"></ImageView>
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="6.4dp"
+                android:src="@drawable/superior" />
+        </LinearLayout>
 
-        <TextView
+        <LinearLayout
             android:id="@+id/add_recent_job"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/change_role"
-            android:layout_marginTop="4dp"
-            android:fontFamily="@font/poppins_regular"
-            android:text="@string/add_recent_job"
-            android:textColor="@color/black"
-            android:textSize="20dp">
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_weight="40"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/add_recent_job"
+                android:textColor="@color/black"
+                android:textSize="20dp">
 
-        </TextView>
+            </TextView>
 
-        <ImageView
-            android:id="@+id/add_recent_job_icon"
-            android:layout_width="15dp"
-            android:layout_height="18dp"
-            android:layout_below="@id/change_role"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="9.5dp"
-            android:src="@drawable/superior"></ImageView>
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="6.4dp"
+                android:src="@drawable/superior" />
+        </LinearLayout>
+
+
+
+
     </RelativeLayout>
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/more"
+        android:layout_below="@id/account_section"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginTop="20dp">
         <ImageView
+            android:id="@+id/more_icon"
+            android:layout_alignParentTop="true"
             android:layout_width="34dp"
             android:layout_height="34dp"
             android:src="@drawable/more">
@@ -139,6 +160,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/more_icon"
             android:layout_marginLeft="6dp"
             android:text="@string/more"
             android:textColor="@color/black"
@@ -148,56 +170,69 @@
 
         </TextView>
 
-    </LinearLayout>
+    </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/more_section"
+        android:layout_below="@id/more"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="4dp"
         android:layout_marginTop="24dp">
-    <TextView
-        android:id="@+id/language"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:text="@string/language"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:fontFamily="@font/poppins_regular">
-
-    </TextView>
-    <ImageView
-        android:id="@+id/language_icon"
-        android:layout_width="15dp"
-        android:layout_height="18dp"
-        android:layout_marginTop="9.5dp"
-        android:layout_alignParentRight="true"
-        android:src="@drawable/superior">
-    </ImageView>
-        <TextView
-            android:id="@+id/share_with_friends"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/language"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="@string/share_with_friends"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:fontFamily="@font/poppins_regular"
-            android:layout_below="@id/language">
+            android:orientation="horizontal"
+            android:layout_alignParentTop="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="40"
+                android:text="@string/language"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:fontFamily="@font/poppins_regular">
 
-        </TextView>
-        <ImageView
-            android:id="@+id/share_with_friends_icon"
-            android:layout_width="15dp"
-            android:layout_height="18dp"
-            android:layout_marginTop="9.5dp"
-            android:src="@drawable/superior"
-            android:layout_below="@id/language"
-            android:layout_alignParentRight="true">
-        </ImageView>
+            </TextView>
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="6.4dp"
+                android:src="@drawable/superior">
+            </ImageView>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/share_with_friends"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/language">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="40"
+                android:layout_marginTop="4dp"
+                android:text="@string/share_with_friends"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:fontFamily="@font/poppins_regular">
+
+            </TextView>
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="6.4dp"
+                android:src="@drawable/superior">
+            </ImageView>
+        </LinearLayout>
+
+
     </RelativeLayout>
     <android.widget.Button
         android:id="@+id/log_out"
-        android:layout_width="140dp"
+        android:layout_below="@id/more_section"
+        android:layout_centerHorizontal="true"
+        android:layout_width="200dp"
         android:layout_height="42dp"
         android:layout_marginTop="28dp"
         android:textSize="18sp"
@@ -206,5 +241,13 @@
         android:backgroundTint="@color/burgundy"
         android:text="@string/log_out">
     </android.widget.Button>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/bottom_navigation_menu"
+        android:layout_alignParentBottom="true"
+        />
 
-</LinearLayout>
+</RelativeLayout>
+

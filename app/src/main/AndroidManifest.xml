@@ -115,7 +115,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.Job_Information_plus_maps"
+            android:name=".activities.JobDetailsForClientActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -180,7 +180,15 @@
         </activity> <!-- Setting Activity -->
         <activity
             android:name=".activities.SettingActivity"
-            android:exported="false" />
+            android:exported="false">
+        </activity>
+
+        <!-- post details Activity -->
+        <activity
+            android:name=".activities.PostDetailsWaitingActivity"
+            android:exported="false">
+        </activity>
+
     </application>
 
 </manifest>

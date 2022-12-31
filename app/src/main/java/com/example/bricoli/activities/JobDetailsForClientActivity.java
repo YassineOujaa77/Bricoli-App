@@ -23,7 +23,7 @@ import com.example.bricoli.R;
 import com.example.bricoli.fragments.MapFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Job_Information_plus_maps extends AppCompatActivity {
+public class JobDetailsForClientActivity extends AppCompatActivity {
 
 
     private ImageButton imageButton;

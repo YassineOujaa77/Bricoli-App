@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.Job_Information_plus_maps"
+    tools:context=".activities.JobDetailsForClientActivity"
     android:orientation="vertical">
 
     <LinearLayout
@@ -61,6 +61,8 @@
                 </androidx.cardview.widget.CardView>
 
 
+
+
             </androidx.cardview.widget.CardView>
             <!-- end of the map -->
 
@@ -84,14 +86,14 @@
                     app:cardCornerRadius="20dp"
                     app:cardElevation="11dp">
 
+
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:orientation="vertical"
                         android:padding="10dp"
-
-
                         >
 
                         <androidx.cardview.widget.CardView
@@ -160,6 +162,7 @@
                             android:orientation="horizontal"
                             android:paddingTop="32dp">
 
+
                             <TextView
                                 android:id="@+id/tv_price"
                                 android:layout_width="wrap_content"
@@ -195,6 +198,8 @@
 
 
                 </androidx.cardview.widget.CardView>
+
+
 
                 <!-- end of the card -->
 
@@ -234,19 +239,19 @@
 
     <RatingBar
         android:id="@+id/ratingBar"
-        android:layout_width="240dp"
+        android:layout_width="260dp"
         android:layout_height="wrap_content"
 
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="center"
-        android:layout_marginStart="84dp"
-        android:layout_marginEnd="84dp"
-        android:layout_marginBottom="170dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="155dp"
         android:paddingTop="15dp"
         android:progressTint="#ffdf00"
-        android:rating="1" />
+        android:rating="1"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/finishbutton"
@@ -260,7 +265,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="155dp"
         android:layout_marginEnd="155dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="110dp"
         android:background="@drawable/buttonradius"
         android:backgroundTint="@color/marron"
         android:fontFamily="@font/poppins_regular"

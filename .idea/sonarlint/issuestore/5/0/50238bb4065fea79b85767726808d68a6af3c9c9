@@ -1,0 +1,12 @@
+
+C
+java:S1604A"(Make this anonymous inner class a lambda(ÃÕËØþÿÿÿÿ
+g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(›ð„§üÿÿÿÿ
+M
+java:S2589&"7Remove this expression which always evaluates to "true"(ñö§¿
+V	java:S1253"<This block of commented-out lines of code should be removed.(››ú×ùÿÿÿÿ
+V	java:S1258"<This block of commented-out lines of code should be removed.(Ú¸ Åøÿÿÿÿ
+—
+java:S1186C"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(™³¸Ë
+G
+java:S1144""1Remove this unused private "isGPSEnabled" method.(½§ù†
