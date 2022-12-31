@@ -81,5 +81,14 @@
     <string name="full_name">الاسم الكامل</string>
     <string name="dh">DH</string>
     <string name="jrs">أيام</string>
+    <string name="verification">تَحَقّق</string>
+    <string name="verificationmessage">لقد تلقيت رسالة نصية قصيرة تحتوي على رمز التحقق الخاص بك</string>
+    <string name="Submit">قبول</string>
+    <string name="changepassword">تغيير كلمة المرور</string>
+    <string name="newpassword">كلمة مرور جديدة</string>
+    <string name="confirmpassword">تأكيد كلمة المرور الجديدة</string>
+    <string name="thewrongnumber">هذا رقم غير مسجل</string>
+    <string name="thewrongcode">رمز التحقق خاطئ</string>
+
 
 </resources>
