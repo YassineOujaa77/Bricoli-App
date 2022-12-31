@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -14,6 +15,18 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bricoli.R;
+import com.example.bricoli.models.Client;
+import com.example.bricoli.retrofit.RetrofitService;
+import com.example.bricoli.retrofit.UserApi;
+import com.google.gson.Gson;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -63,6 +76,52 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                /*Retrofit retrofit = new Retrofit.Builder()
+                        .baseUrl("http://10.0.2.2:8080/api/vo/client/")
+                        .addConverterFactory(GsonConverterFactory.create(new Gson()))
+                        .build();
+
+                UserApi userApi=retrofit.create(UserApi.class);
+
+                Call<Client> client=userApi.getClientByPhoneNumber("1998");
+
+                client.enqueue(new Callback<Client>() {
+                    @Override
+                    public void onResponse(Call<Client> call, Response<Client> response) {
+                        Client ziyad = response.body();
+                        Log.d("client","***********************"+ziyad.toString());
+                    }
+
+                    @Override
+                    public void onFailure(Call<Client> call, Throwable t) {
+
+                    }
+                });*/
+
+                RetrofitService retrofit = new RetrofitService();
+                UserApi ziyad = retrofit.getRetrofit().create(UserApi.class);
+                Call<Client> client=ziyad.getClientByPhoneNumber("1998");
+
+                client.enqueue(new Callback<Client>() {
+                    @Override
+                    public void onResponse(Call<Client> call, Response<Client> response) {
+                        Client saad = response.body();
+                        Log.d("client","***********************"+saad.toString());
+                    }
+
+                    @Override
+                    public void onFailure(Call<Client> call, Throwable t) {
+
+                    }
+                });
+
+
+
+
+
+
+
                 if (username.getText().toString().equals("client") && password.getText().toString().equals("client")) {
                     editor.putString("role", "client");
                     editor.apply();
