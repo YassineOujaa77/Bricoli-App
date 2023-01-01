@@ -10,6 +10,6 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 public interface OfferApi {
-    @GET("getOfferByCategoryAndState/{category}/{state}")
-    Call<List<Offer>> getClientByPhoneNumber(@Path("category") String category,@Path("state") String state);
+    @GET("offer/byCategoryAndState/{category}/{state}")
+    Call<List<Offer>> getOffersbyCategoryAndState(@Path("category") String category,@Path("state") String state);
 }

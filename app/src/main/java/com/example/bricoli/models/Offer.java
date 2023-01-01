@@ -10,7 +10,7 @@ public class Offer {
 
     private Long offerId;
     private String category;
-    private Api.Client client;
+    private Client client;
     private String description;
     private String state;
     private Date createdAt;
@@ -32,11 +32,11 @@ public class Offer {
         this.category = category;
     }
 
-    public Api.Client getClient() {
+    public Client getClient() {
         return client;
     }
 
-    public void setClient(Api.Client client) {
+    public void setClient(Client client) {
         this.client = client;
     }
 
