@@ -16,6 +16,7 @@ public class Client extends User{
         setFullName(fullName);
         setWorkerField(workerField);
         setPhone(phone);
+
     }
 
     public Set<Offer> getOffers() {
