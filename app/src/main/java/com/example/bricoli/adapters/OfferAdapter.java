@@ -9,12 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.bricoli.R;
 import com.example.bricoli.activities.AnnouncementDetailsActivity;
-import com.example.bricoli.activities.WorkerHomeActivity;
 import com.example.bricoli.models.Offer;
 
 import java.util.ArrayList;
@@ -60,12 +56,7 @@ public class OfferAdapter extends ArrayAdapter<Offer> {
             public void onClick(View view) {
                 Offer offerClicked = (Offer) offers.get(position);
                 Intent announcementIntent = new Intent(currentContext, AnnouncementDetailsActivity.class);
-                announcementIntent.putExtra("fullName", offerClicked.getClient().getFullName());
-                announcementIntent.putExtra("city", "city");
-                announcementIntent.putExtra("rating", offerClicked.getClient().getSommeRating());
-                announcementIntent.putExtra("description", offerClicked.getDescription());
-                announcementIntent.putExtra("distance", "1km");
-                announcementIntent.putExtra("photo", R.drawable.profil);
+                announcementIntent.putExtra("offer", offerClicked);
                 currentContext.startActivity(announcementIntent);
             }
         });

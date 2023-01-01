@@ -1,12 +1,11 @@
 package com.example.bricoli.models;
 
-import com.google.android.gms.common.api.Api;
-
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Offer {
+public class Offer implements Serializable {
 
     private Long offerId;
     private String category;
