@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activities.LoginActivity">
+    tools:context=".activities.LoginActivity"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,12 +33,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                >
 
                 <TextView
                     android:id="@+id/textView2"
@@ -52,7 +55,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                >
 
                 <EditText
                     android:id="@+id/phone"
@@ -68,7 +72,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                >
 
                 <TextView
                     android:id="@+id/textView4"
@@ -84,7 +89,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                >
 
                 <EditText
                     android:id="@+id/password"
@@ -101,7 +107,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                >
 
                 <CheckBox
                     android:id="@+id/rememberMe"
@@ -117,7 +124,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                >
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/login"
@@ -134,13 +142,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                >
 
                 <LinearLayout
                     android:layout_width="250dp"
                     android:layout_height="match_parent"
                     android:gravity="center|top"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    >
 
                     <Button
                         android:id="@+id/forgotPassword"
@@ -157,7 +167,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="top|left"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    >
 
                     <Button
                         android:id="@+id/signUp"
