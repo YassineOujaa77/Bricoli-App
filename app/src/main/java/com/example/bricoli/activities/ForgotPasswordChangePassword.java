@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.bricoli.R;
+import com.example.bricoli.util.CryptingMethod;
 import com.example.bricoli.util.FcmNotificationsSender;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -23,6 +24,8 @@ public class ForgotPasswordChangePassword extends AppCompatActivity {
     private Button submitpassword;
     EditText firstpass,verificationpass;
     String token;
+    String passwordtoinserttodatabase;
+
     public void openlogin(){
         Intent intent=new Intent(this, LoginActivity.class);
         startActivity(intent);
@@ -32,6 +35,8 @@ public class ForgotPasswordChangePassword extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password_change_password);
+
+
         FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(new OnCompleteListener<String>() {
                     @Override
@@ -54,6 +59,11 @@ public class ForgotPasswordChangePassword extends AppCompatActivity {
                 if(!firstpass.getText().toString().isEmpty() && !verificationpass.getText().toString().isEmpty()) {
                     if (firstpass.getText().toString().equals(verificationpass.getText().toString())) {
                         openlogin();
+                        try {
+                            passwordtoinserttodatabase= CryptingMethod.encrypt(firstpass.getText().toString());
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                         FcmNotificationsSender notificationsSender = new FcmNotificationsSender(token, "Operation Accomplie", "Vous avez changé avec succès votre mot de pass", getApplicationContext(), ForgotPasswordChangePassword.this);
                         notificationsSender.SendNotifications();
                     } else {// les deux mots de pass sont pas egaux

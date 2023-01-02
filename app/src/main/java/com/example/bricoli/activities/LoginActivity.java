@@ -18,9 +18,16 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bricoli.R;
+import com.example.bricoli.models.Client;
+import com.example.bricoli.retrofit.RetrofitService;
+import com.example.bricoli.retrofit.UserApi;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.messaging.FirebaseMessaging;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
     //to update in database in every login
@@ -149,4 +156,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
+
+
+
 }
