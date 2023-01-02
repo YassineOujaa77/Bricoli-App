@@ -37,31 +37,38 @@ public class PostulationAdapter extends ArrayAdapter<Postulation> {
             listItem = LayoutInflater.from(aContext).inflate(R.layout.history_offre_cell,parent,false);
         }
 
-       // Offer currentOffer = offersList.get(position);
         Postulation currentPostulation = postulationsList.get(position);
 
         ImageView avatar=(ImageView) listItem.findViewById(R.id.worker_image);
         avatar.setImageResource(R.drawable.userphoto);
         //avatar.setImageResource(currentOffer.getPhoto());
 
-        TextView fullname , rate , city , duration , description ;
+        TextView fullName , sommeRating , numberOfRating, city , duration , description ;
 
 
-        fullname = (TextView) listItem.findViewById(R.id.nom_complet);
-        fullname.setText(currentPostulation.getWorker().getFullName());
+        fullName = (TextView) listItem.findViewById(R.id.nom_complet);
+        fullName.setText(currentPostulation.getWorker().getFullName());
 
-        rate = (TextView) listItem.findViewById(R.id.rate_textView);
-        rate.setText("404");
+        sommeRating = (TextView) listItem.findViewById(R.id.sommeRating_textView);
+        sommeRating.setText(""+round((double)currentPostulation.getWorker().getSommeRating()/currentPostulation.getWorker().getNumberOfRating(), 1));
+
+        numberOfRating = (TextView) listItem.findViewById(R.id.numberOfRating_textView);
+        numberOfRating.setText(" ("+currentPostulation.getWorker().getNumberOfRating()+") ");
 
         city = (TextView) listItem.findViewById(R.id.city_textView);
         city.setText("Rabat");
 
         duration = (TextView) listItem.findViewById(R.id.work_duration_textView);
-        duration.setText(""+currentPostulation.getDuration());
+        duration.setText(""+currentPostulation.getDuration()+" days");
 
         description=(TextView) listItem.findViewById(R.id.work_description);
         description.setText(currentPostulation.getOffer().getDescription());
 
         return listItem;
+
+    }
+    private static double round (double value, int precision) {
+        int scale = (int) Math.pow(10, precision);
+        return (double) Math.round(value * scale) / scale;
     }
 }

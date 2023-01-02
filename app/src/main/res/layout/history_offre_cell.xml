@@ -29,10 +29,12 @@
             android:id="@+id/layout1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical"
-            android:layout_toRightOf="@+id/worker_image">
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_toRightOf="@+id/worker_image"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/nom_complet"
@@ -45,15 +47,28 @@
                 android:textSize="16dp" />
 
             <TextView
-                android:id="@+id/rate_textView"
+                android:id="@+id/sommeRating_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="bottom"
                 android:drawableLeft="@drawable/ic_baseline_star_24"
-                android:text=" 4.5 (520) "
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="bottom"
+                android:text=" 4.5"
                 android:textColor="@color/black"
-                android:textSize="12dp"
-                android:fontFamily="@font/poppins_medium"/>
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/numberOfRating_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="44dp"
+                android:layout_marginTop="-21dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="bottom"
+                android:text=" (520) "
+                android:textColor="@color/black"
+                android:textSize="12dp" />
+
         </LinearLayout>
 
 

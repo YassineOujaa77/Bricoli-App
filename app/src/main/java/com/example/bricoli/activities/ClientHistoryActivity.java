@@ -127,7 +127,6 @@ public class ClientHistoryActivity extends AppCompatActivity {
         postulation.enqueue(new Callback<ArrayList<Postulation>>() {
             @Override
             public void onResponse(Call<ArrayList<Postulation>> call, Response<ArrayList<Postulation>> response) {
-                Toast.makeText(ClientHistoryActivity.this, "done", Toast.LENGTH_SHORT).show();
                 populateListView_postulation(response.body());
             }
 
