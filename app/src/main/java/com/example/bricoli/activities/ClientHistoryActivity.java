@@ -3,16 +3,16 @@ package com.example.bricoli.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.bricoli.R;
 import com.example.bricoli.adapters.ClientHistoryAdapter;
-import com.example.bricoli.adapters.HomeBidsAdapter;
-import com.example.bricoli.models.Annoucement;
+import com.example.bricoli.adapters.PostulationAdapter;
 import com.example.bricoli.models.Client;
 import com.example.bricoli.models.Offer;
+import com.example.bricoli.models.Postulation;
 import com.example.bricoli.retrofit.OfferApi;
+import com.example.bricoli.retrofit.PostulationApi;
 import com.example.bricoli.retrofit.RetrofitService;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -21,23 +21,21 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.http.Path;
-
-
-import android.os.Bundle;
 
 public class ClientHistoryActivity extends AppCompatActivity {
 
     private ListView listView;
     private ClientHistoryAdapter clientHistoryAdapter;
+    private PostulationAdapter postulationAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +43,8 @@ public class ClientHistoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_client_history);
 
         listView = (ListView) findViewById(R.id.history_listview);
-
+        //loadOffers();
+        loadPostulations();
 
 //        ArrayList<Annoucement> annoucementsList = new ArrayList<>();
 //        annoucementsList.add(new Annoucement("full Name1", "Rabat", "2.5 (500)", "2 days", "je suis entrain de chercher un plombier pour réparation d'une ...", R.drawable.userphoto));
@@ -91,30 +90,65 @@ public class ClientHistoryActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
-    private void loadEmployees() {
+
+
+   /* private void loadOffers() {
         RetrofitService retrofitService = new RetrofitService();
         OfferApi offerApi = retrofitService.getRetrofit().create(OfferApi.class);
-        offerApi.getOfferByClientIdAndState(2L, 3L)
-                .enqueue(new Callback<Client>() {
-                    @Override
-                    public void onResponse(Call<Client> call, Response<Client> response) {
+        Call<ArrayList<Offer>> offer = offerApi.getOfferByClientIdAndState(2L, "3");
+        offer.enqueue(new Callback<ArrayList<Offer>>() {
+            @Override
+            public void onResponse(Call<ArrayList<Offer>> call, Response<ArrayList<Offer>> response) {
+                populateListView_offer(response.body());
+                if (response.isSuccessful()) {
 
+                    ArrayList<Offer> list_elements = response.body();
+                    //Long offerId = list_elements.get(0).getText();
+                    for (Offer item : list_elements) {
+                        String offerId = item.getText(); // print every text item in list
                     }
+                }
 
-                    @Override
-                    public void onFailure(Call<Client> call, Throwable t) {
+            }
 
-                    }
-                });
+            @Override
+            public void onFailure(Call<ArrayList<Offer>> call, Throwable t) {
+                Toast.makeText(ClientHistoryActivity.this, "Failed to load offers", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }*/
+
+    private void loadPostulations() {
+        RetrofitService retrofitService2 = new RetrofitService();
+        PostulationApi postulationApi = retrofitService2.getRetrofit().create(PostulationApi.class);
+        Call<ArrayList<Postulation>> postulation = postulationApi.getPostulationByClientIdAndState(4L, "0");
+        postulation.enqueue(new Callback<ArrayList<Postulation>>() {
+            @Override
+            public void onResponse(Call<ArrayList<Postulation>> call, Response<ArrayList<Postulation>> response) {
+                Toast.makeText(ClientHistoryActivity.this, "done", Toast.LENGTH_SHORT).show();
+                populateListView_postulation(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<Postulation>> call, Throwable t) {
+                Toast.makeText(ClientHistoryActivity.this, "Failed to load postulations", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
-    private void populateListView(ArrayList<Offer> offersList) {
+
+    private void populateListView_postulation(ArrayList<Postulation> postulationsList) {
+        postulationAdapter = new PostulationAdapter(this, postulationsList);
+        listView.setAdapter(postulationAdapter);
+    }
+
+   /* private void populateListView_offer(ArrayList<Offer> offersList) {
         clientHistoryAdapter = new ClientHistoryAdapter(this, offersList);
         listView.setAdapter(clientHistoryAdapter);
-    }
+    }*/
+
 
     public void openActivity() {
         Intent intent = new Intent(this, HistoryPostDetailsActivity.class);
