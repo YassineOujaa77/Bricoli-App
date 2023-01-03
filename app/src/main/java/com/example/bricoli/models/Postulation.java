@@ -1,8 +1,9 @@
 package com.example.bricoli.models;
 
 import java.util.Date;
+import java.io.Serializable;
 
-public class Postulation {
+public class Postulation implements Serializable{
 
     private Long postulationId;
     private float price;

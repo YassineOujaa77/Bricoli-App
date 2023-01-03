@@ -19,19 +19,20 @@ import com.example.bricoli.activities.HistoryPostDetailsActivity;
 import com.example.bricoli.models.Offer;
 import com.example.bricoli.models.Postulation;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 public class PostulationAdapter extends ArrayAdapter<Postulation> {
 
     private Context aContext ;
-    private List<Postulation> postulationsList;
-    private ListView listView;
+    //private List<Postulation> postulationsList;
+    private ArrayList<Postulation> postulations;
 
-    public PostulationAdapter(@NonNull Context context, @NonNull ArrayList<Postulation> list) {
-        super(context, 0, list);
-        aContext = context ;
-        postulationsList = list;
+    public PostulationAdapter(@NonNull Context context, @NonNull ArrayList<Postulation> postulations) {
+        super(context, 0, postulations);
+        this.aContext = context ;
+        this.postulations = postulations;
     }
 
     @NonNull
@@ -42,7 +43,7 @@ public class PostulationAdapter extends ArrayAdapter<Postulation> {
             listItem = LayoutInflater.from(aContext).inflate(R.layout.history_offre_cell,parent,false);
         }
 
-        Postulation currentPostulation = postulationsList.get(position);
+        //Postulation currentPostulation = postulationsList.get(position);
 
         ImageView avatar=(ImageView) listItem.findViewById(R.id.worker_image);
         avatar.setImageResource(R.drawable.userphoto);
@@ -53,36 +54,36 @@ public class PostulationAdapter extends ArrayAdapter<Postulation> {
         //Float price = currentPostulation.getPrice();
 
         fullName = (TextView) listItem.findViewById(R.id.nom_complet);
-        fullName.setText(currentPostulation.getWorker().getFullName());
+        fullName.setText(postulations.get(position).getWorker().getFullName());
 
         sommeRating = (TextView) listItem.findViewById(R.id.sommeRating_textView);
-        sommeRating.setText(""+round((double)currentPostulation.getWorker().getSommeRating()/currentPostulation.getWorker().getNumberOfRating(), 1));
+        sommeRating.setText(""+round((double)postulations.get(position).getWorker().getSommeRating()/postulations.get(position).getWorker().getNumberOfRating(), 1));
 
         numberOfRating = (TextView) listItem.findViewById(R.id.numberOfRating_textView);
-        numberOfRating.setText(" ("+currentPostulation.getWorker().getNumberOfRating()+") ");
+        numberOfRating.setText(" ("+postulations.get(position).getWorker().getNumberOfRating()+") ");
 
         city = (TextView) listItem.findViewById(R.id.city_textView);
-        city.setText("Rabat");
+        city.setText("city");
 
         duration = (TextView) listItem.findViewById(R.id.work_duration_textView);
-        duration.setText(""+currentPostulation.getDuration()+" days");
+        duration.setText(""+postulations.get(position).getDuration()+" days");
 
         description=(TextView) listItem.findViewById(R.id.work_description);
-        description.setText(currentPostulation.getOffer().getDescription());
+        description.setText(postulations.get(position).getOffer().getDescription());
 
-        listView = (ListView) convertView.findViewById(R.id.history_listview);
+        //listView = (ListView) convertView.findViewById(R.id.history_listview);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listItem.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Postulation postulationClicked = (Postulation) postulationsList.get(position);
-                Intent announcementIntent = new Intent(aContext, HistoryPostDetailsActivity.class);
-                announcementIntent.putExtra("postulation", (CharSequence) postulationClicked);
+            public void onClick(View view) {
+                //Postulation postulationCli = postulations.get(position);
+                Postulation postulationClicked =  (Postulation) postulations.get(position);
+                Intent postulationIntent = new Intent(aContext, HistoryPostDetailsActivity.class);
+                postulationIntent.putExtra("postulation", postulationClicked);
                 //announcementIntent.putExtra("postulationPrice", price);
-                aContext.startActivity(announcementIntent);
+                aContext.startActivity(postulationIntent);
             }
         });
-
         return listItem;
 
     }

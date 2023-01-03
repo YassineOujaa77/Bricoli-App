@@ -46,11 +46,10 @@ public class HistoryPostDetailsActivity extends AppCompatActivity {
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         // set History Selected
-        bottomNavigationView.setSelectedItemId(R.id.history);
+        //bottomNavigationView.setSelectedItemId(R.id.history);
 
         // item from menu selected listener
-        // item from menu selected listener
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        /*bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
@@ -70,13 +69,8 @@ public class HistoryPostDetailsActivity extends AppCompatActivity {
                         return false;
                 }
             }
-        });
+        });*/
 
-        /*listView = (ListView) findViewById(R.id.history_post_detail_listview);
-        ArrayList<Annoucement> annoucementsList = new ArrayList<>();
-        annoucementsList.add(new Annoucement("full name 1", "4.5 (520)", "2 days", "Lorem ipsum dolor sit amet, consectetur adipiscin g elit, sed do eiusmod tempor incididunt ut labor et dolore magna aliqua. Ut enim ad minim veniam",R.drawable.userphoto, "200 DH"));
-        historyPostDetailsAdapter = new HistoryPostDetailsAdapter(this, annoucementsList);
-        listView.setAdapter(historyPostDetailsAdapter);*/
     }
 
     public void fillPostulationFieldsFromIntents(ImageView avatar, TextView fullName, TextView sommeRating, TextView numberOfRating, TextView price1, TextView price2, TextView duration1, TextView duration2, TextView description){
@@ -86,8 +80,8 @@ public class HistoryPostDetailsActivity extends AppCompatActivity {
         fullName.setText(postulation.getWorker().getFullName());
         sommeRating.setText(""+round((double)postulation.getWorker().getSommeRating()/postulation.getWorker().getNumberOfRating(), 1));
         numberOfRating.setText(" ("+postulation.getWorker().getNumberOfRating()+") ");
-        price1.setText(""+postulation.getPrice());
-        price2.setText(""+postulation.getPrice());
+        price1.setText(""+postulation.getPrice()+" DH");
+        price2.setText(""+postulation.getPrice()+" DH");
         duration1.setText(""+postulation.getDuration()+" days");
         duration2.setText(""+postulation.getDuration()+" days");
         description.setText(postulation.getOffer().getDescription());

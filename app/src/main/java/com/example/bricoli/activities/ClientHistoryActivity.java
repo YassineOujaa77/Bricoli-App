@@ -55,12 +55,14 @@ public class ClientHistoryActivity extends AppCompatActivity {
 //        listView.setAdapter(clientHistoryAdapter);
 
 
+/*
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 openActivity();
             }
         });
+*/
 
         // initialize
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
