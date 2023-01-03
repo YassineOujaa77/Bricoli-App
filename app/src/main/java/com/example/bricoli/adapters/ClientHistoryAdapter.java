@@ -1,6 +1,8 @@
 package com.example.bricoli.adapters;
 
 import android.app.LauncherActivity;
+import android.content.Intent;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import com.example.bricoli.R;
 import androidx.annotation.NonNull;
@@ -17,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+import com.example.bricoli.activities.HistoryPostDetailsActivity;
 import com.example.bricoli.models.Offer;
 import com.example.bricoli.models.Offer;
 import com.example.bricoli.models.Postulation;
@@ -44,6 +48,8 @@ public class ClientHistoryAdapter extends ArrayAdapter<Offer> {
             listItem = LayoutInflater.from(aContext).inflate(R.layout.history_offre_cell,parent,false);
         }
 
+
+
         Offer currentOffer = offersList.get(position);
         Postulation currentPostulation = postulationsList.get(position);
 
@@ -68,7 +74,13 @@ public class ClientHistoryAdapter extends ArrayAdapter<Offer> {
         description=(TextView) listItem.findViewById(R.id.work_description);
         description.setText(currentOffer.getDescription());
 
+
         return listItem;
+
+
+
     }
+
+
 
 }

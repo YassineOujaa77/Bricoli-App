@@ -1,17 +1,21 @@
 package com.example.bricoli.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.bricoli.R;
+import com.example.bricoli.activities.HistoryPostDetailsActivity;
 import com.example.bricoli.models.Offer;
 import com.example.bricoli.models.Postulation;
 
@@ -22,6 +26,7 @@ public class PostulationAdapter extends ArrayAdapter<Postulation> {
 
     private Context aContext ;
     private List<Postulation> postulationsList;
+    private ListView listView;
 
     public PostulationAdapter(@NonNull Context context, @NonNull ArrayList<Postulation> list) {
         super(context, 0, list);
@@ -45,6 +50,7 @@ public class PostulationAdapter extends ArrayAdapter<Postulation> {
 
         TextView fullName , sommeRating , numberOfRating, city , duration , description ;
 
+        //Float price = currentPostulation.getPrice();
 
         fullName = (TextView) listItem.findViewById(R.id.nom_complet);
         fullName.setText(currentPostulation.getWorker().getFullName());
@@ -63,6 +69,19 @@ public class PostulationAdapter extends ArrayAdapter<Postulation> {
 
         description=(TextView) listItem.findViewById(R.id.work_description);
         description.setText(currentPostulation.getOffer().getDescription());
+
+        listView = (ListView) convertView.findViewById(R.id.history_listview);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Postulation postulationClicked = (Postulation) postulationsList.get(position);
+                Intent announcementIntent = new Intent(aContext, HistoryPostDetailsActivity.class);
+                announcementIntent.putExtra("postulation", (CharSequence) postulationClicked);
+                //announcementIntent.putExtra("postulationPrice", price);
+                aContext.startActivity(announcementIntent);
+            }
+        });
 
         return listItem;
 

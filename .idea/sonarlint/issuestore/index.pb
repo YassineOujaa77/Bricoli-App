@@ -11,3 +11,17 @@ n
 app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 s
 Capp/src/main/java/com/example/bricoli/activities/LoginActivity.java,9\7\9768161604e9169b858ce003ba4cbde38e09fb39
+g
+7app/src/main/java/com/example/bricoli/models/Offer.java,9\1\91ca5ce2351a83ad70f788ed57ca44502d6b44a5
+s
+Capp/src/main/java/com/example/bricoli/retrofit/RetrofitService.java,4\0\4060664ec14f98bb578d27a5b275ef7e8c541ecc
+l
+<app/src/main/java/com/example/bricoli/retrofit/OfferApi.java,0\f\0f10a7bf0102428f764899876e55930b5fb7f629
+r
+Bapp/src/main/java/com/example/bricoli/retrofit/PostulationApi.java,3\e\3e42e62f3a513b2779634bf1459c2c3d81b143dd
+h
+8app/src/main/java/com/example/bricoli/models/Worker.java,7\2\72d7d987c222d19f186a5353432d7ee068a9a2a6
+}
+Mapp/src/main/java/com/example/bricoli/adapters/HistoryPostDetailsAdapter.java,6\8\68ae27bf724a51ec8e4e9858989f6f3d41be68b9
+{
+Kapp/src/main/java/com/example/bricoli/activities/ClientHistoryActivity.java,a\4\a492d93841a1417f802b4e24380e419dc571e984
