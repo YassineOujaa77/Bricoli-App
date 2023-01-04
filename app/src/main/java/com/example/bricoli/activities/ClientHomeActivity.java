@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -76,28 +77,31 @@ public class ClientHomeActivity extends AppCompatActivity {
         });
 
 
-        ArrayAdapter<String> adapterItems;
+        //ArrayAdapter<String> adapterItems;
         addButton = findViewById(R.id.addButton);
 
         //spinner123
         autoCompleteTextView=findViewById(R.id.autoCompleteTxt);
+        String category = autoCompleteTextView.getText().toString();
 
-        TextInputLayout textInputLayout=findViewById(R.id.textInputLayout);
-        String category = textInputLayout.getEditText().toString();
+        /*TextInputLayout textInputLayout=findViewById(R.id.textInputLayout);
+        String category = textInputLayout.getEditText().toString();*/
 
         TextInputEditText textInputEditText = findViewById(R.id.textInputEditText);
-        String description = textInputEditText.getEditableText().toString();
+        String description = String.valueOf(textInputEditText.getText());
+        Log.d("text", description);
 
         String[] items = {"Tech","Organisateur de fêtes", "Plombier"};
         ArrayAdapter<String> itemAdapter=new ArrayAdapter<>(ClientHomeActivity.this, R.layout.list_item_for_home_client, items);
         autoCompleteTextView.setAdapter(itemAdapter);
+
 
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
                 try {
-                    if( !category.equals("") && !description.equals((""))){
+                    if( !description.equals((""))){
                         Client client = new Client(9L, "AE789098","123", "lot 3 rabat", 22L, 11, "photo", "Salma", "testtest", "0667888888" );
                         Offer offerToAdd =new Offer(10L, category, client, description, "finished", new Date(), new HashSet<>());
                         callAddOfferApi(offerToAdd);
