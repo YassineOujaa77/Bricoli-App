@@ -56,7 +56,7 @@
             app:boxCornerRadiusTopStart="16dp"
             app:boxStrokeWidth="0dp"
             app:boxStrokeWidthFocused="0dp"
-            app:endIconTint="@color/purple_700">
+            app:endIconTint="@color/black">
 
             <AutoCompleteTextView
                 android:id="@+id/autoCompleteTxt"
@@ -79,6 +79,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputEditText"
             android:layout_width="296dp"
             android:layout_height="155dp"
             android:layout_gravity="center"

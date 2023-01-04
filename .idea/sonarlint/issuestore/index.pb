@@ -9,8 +9,6 @@ s
 Capp/src/main/java/com/example/bricoli/activities/LoginActivity.java,9\7\9768161604e9169b858ce003ba4cbde38e09fb39
 s
 Capp/src/main/java/com/example/bricoli/retrofit/RetrofitService.java,4\0\4060664ec14f98bb578d27a5b275ef7e8c541ecc
-l
-<app/src/main/java/com/example/bricoli/retrofit/OfferApi.java,0\f\0f10a7bf0102428f764899876e55930b5fb7f629
 r
 Bapp/src/main/java/com/example/bricoli/retrofit/PostulationApi.java,3\e\3e42e62f3a513b2779634bf1459c2c3d81b143dd
 x
@@ -19,12 +17,8 @@ Happ/src/main/java/com/example/bricoli/adapters/ClientHistoryAdapter.java,7\4\7
 Mapp/src/main/java/com/example/bricoli/adapters/HistoryPostDetailsAdapter.java,6\8\68ae27bf724a51ec8e4e9858989f6f3d41be68b9
 n
 >app/src/main/java/com/example/bricoli/models/Notification.java,e\3\e319f369c44c115ce496552b4bc78ad97b543e90
-h
-8app/src/main/java/com/example/bricoli/models/Client.java,9\4\94ad85523cd70e608e7cdce2c1d372019facc02b
 e
 5app/src/main/java/com/example/bricoli/models/Job.java,d\0\d0fcc9bcaf03582248e9e43babd80b563e7a1dc1
-g
-7app/src/main/java/com/example/bricoli/models/Offer.java,9\1\91ca5ce2351a83ad70f788ed57ca44502d6b44a5
 f
 6app/src/main/java/com/example/bricoli/models/User.java,c\3\c3da960f19048766793b1267d19cf3cef385dabd
 h
