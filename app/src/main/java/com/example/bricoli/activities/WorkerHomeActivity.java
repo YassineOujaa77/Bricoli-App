@@ -15,6 +15,7 @@ import com.example.bricoli.enumeration.Category;
 import com.example.bricoli.enumeration.OfferState;
 import com.example.bricoli.R;
 import com.example.bricoli.models.Offer;
+import com.example.bricoli.models.Worker;
 import com.example.bricoli.retrofit.OfferApi;
 import com.example.bricoli.retrofit.RetrofitService;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -76,9 +77,10 @@ public class WorkerHomeActivity extends AppCompatActivity {
     }
 
     private void callGetOffersByCategroyAndStateApi(){
+        Worker worker = new Worker(1L,"cin","pass","adress",10L,1,"ggg","fullName","ggggg","666666");
         RetrofitService retrofit = new RetrofitService();
         OfferApi offerApi = retrofit.getRetrofit().create(OfferApi.class);
-        Call<List<Offer>> offersApi=offerApi.getOffersbyCategoryAndState(getClientCategory(), OfferState.offerstate.toString());
+        Call<List<Offer>> offersApi=offerApi.getOfferByCategoryAndStateNotAlreadyApplied(getClientCategory(), OfferState.offerstate.toString(),worker.getUserId());
         offersApi.enqueue(new Callback<List<Offer>>() {
             @Override
             public void onResponse(Call<List<Offer>> call, Response<List<Offer>> response) {
