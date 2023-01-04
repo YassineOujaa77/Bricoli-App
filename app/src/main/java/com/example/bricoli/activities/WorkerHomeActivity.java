@@ -86,6 +86,7 @@ public class WorkerHomeActivity extends AppCompatActivity {
             public void onResponse(Call<List<Offer>> call, Response<List<Offer>> response) {
                 List<Offer> offerList = response.body();
                 if(offerList.size()>0){
+
                     associateOfferAdapterAndAnnouncementList(offerList);
                 }
             }
