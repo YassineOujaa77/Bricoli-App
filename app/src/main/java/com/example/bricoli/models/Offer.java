@@ -19,6 +19,16 @@ public class Offer implements Serializable {
     private Date createdAt;
     private Set<Postulation> postulations = new HashSet<>();
 
+    public Offer(Long offerId, String category, Client client, String description, String state, Date createdAt, Set<Postulation> postulations) {
+        this.offerId = offerId;
+        this.category = category;
+        this.client = client;
+        this.description = description;
+        this.state = state;
+        this.createdAt = createdAt;
+        this.postulations = postulations;
+    }
+
     @SerializedName("Text")
     @Expose
     private String text;
