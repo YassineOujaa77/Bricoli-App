@@ -76,36 +76,26 @@ public class ClientHomeActivity extends AppCompatActivity {
             }
         });
 
-
-        //ArrayAdapter<String> adapterItems;
-        addButton = findViewById(R.id.addButton);
-
-        //spinner123
         autoCompleteTextView=findViewById(R.id.autoCompleteTxt);
-        String category = autoCompleteTextView.getText().toString();
-
-        /*TextInputLayout textInputLayout=findViewById(R.id.textInputLayout);
-        String category = textInputLayout.getEditText().toString();*/
-
-        TextInputEditText textInputEditText = findViewById(R.id.textInputEditText);
-        String description = String.valueOf(textInputEditText.getText());
-        Log.d("text", description);
 
         String[] items = {"Tech","Organisateur de fêtes", "Plombier"};
         ArrayAdapter<String> itemAdapter=new ArrayAdapter<>(ClientHomeActivity.this, R.layout.list_item_for_home_client, items);
         autoCompleteTextView.setAdapter(itemAdapter);
 
-
+        addButton = findViewById(R.id.addButton);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
+                TextInputLayout textInputLayout1 = findViewById(R.id.textInputLayout);
+                TextInputLayout textInputLayout2 = findViewById(R.id.textInputLayout2);
                 try {
-                    if( !description.equals((""))){
+                    if( !textInputLayout1.getEditText().getText().toString().equals(("")) && !textInputLayout2.getEditText().getText().toString().equals((""))){
+                        String category = textInputLayout1.getEditText().getText().toString();
+                        String description = textInputLayout2.getEditText().getText().toString();
                         Client client = new Client(9L, "AE789098","123", "lot 3 rabat", 22L, 11, "photo", "Salma", "testtest", "0667888888" );
                         Offer offerToAdd =new Offer(10L, category, client, description, "finished", new Date(), new HashSet<>());
                         callAddOfferApi(offerToAdd);
-                        openHomeBidsActivity();
                     }
                     else{
                         Toast.makeText(ClientHomeActivity.this, "Please fill both category and description", Toast.LENGTH_SHORT).show();
@@ -114,29 +104,10 @@ public class ClientHomeActivity extends AppCompatActivity {
                 catch(Exception e){
 
                 }
-
-
-
             }
         });
 
     }
-
- /*   autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
-            Object item = parent.getItemAtPosition(position);
-            if (item instanceof String){
-                String category=(String) item;
-                try {
-                    if(.equals("") && !description.equals("")){
-
-                    }
-                }
-            }
-        }
-    });*/
-
 
     private void callAddOfferApi(Offer offerToAdd){
         RetrofitService retrofit = new RetrofitService();
@@ -145,7 +116,8 @@ public class ClientHomeActivity extends AppCompatActivity {
         call.enqueue(new Callback<Offer>() {
             @Override
             public void onResponse(Call<Offer> call, Response<Offer> response) {
-                Toast.makeText(ClientHomeActivity.this, "Please fill both category and description", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ClientHomeActivity.this, "GOOD", Toast.LENGTH_SHORT).show();
+                //openHomeBidsActivity();
             }
             @Override
             public void onFailure(Call<Offer> call, Throwable t) {

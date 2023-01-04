@@ -11,8 +11,6 @@ s
 Capp/src/main/java/com/example/bricoli/retrofit/RetrofitService.java,4\0\4060664ec14f98bb578d27a5b275ef7e8c541ecc
 r
 Bapp/src/main/java/com/example/bricoli/retrofit/PostulationApi.java,3\e\3e42e62f3a513b2779634bf1459c2c3d81b143dd
-x
-Happ/src/main/java/com/example/bricoli/adapters/ClientHistoryAdapter.java,7\4\7459b1f3f76aebd0e571100cfd2428a84e717a94
 }
 Mapp/src/main/java/com/example/bricoli/adapters/HistoryPostDetailsAdapter.java,6\8\68ae27bf724a51ec8e4e9858989f6f3d41be68b9
 n
