@@ -43,26 +43,7 @@ public class ClientHistoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_client_history);
 
         listView = (ListView) findViewById(R.id.history_listview);
-        //loadOffers();
         loadPostulations();
-
-//        ArrayList<Annoucement> annoucementsList = new ArrayList<>();
-//        annoucementsList.add(new Annoucement("full Name1", "Rabat", "2.5 (500)", "2 days", "je suis entrain de chercher un plombier pour réparation d'une ...", R.drawable.userphoto));
-//        annoucementsList.add(new Annoucement("full Name2", "Salé", "3 (200)", "10 days", "je suis entrain de chercher un technicien pour réparation d'une ...", R.drawable.userphoto));
-//        annoucementsList.add(new Annoucement("full Name3", "Meknes", "4 (670)", "5 days", "je suis à la recherche d'un organisateur de fête ...", R.drawable.userphoto));
-
-//        clientHistoryAdapter = new ClientHistoryAdapter(this, annoucementsList);
-//        listView.setAdapter(clientHistoryAdapter);
-
-
-/*
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                openActivity();
-            }
-        });
-*/
 
         // initialize
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -94,34 +75,6 @@ public class ClientHistoryActivity extends AppCompatActivity {
         });
     }
 
-
-
-   /* private void loadOffers() {
-        RetrofitService retrofitService = new RetrofitService();
-        OfferApi offerApi = retrofitService.getRetrofit().create(OfferApi.class);
-        Call<ArrayList<Offer>> offer = offerApi.getOfferByClientIdAndState(2L, "3");
-        offer.enqueue(new Callback<ArrayList<Offer>>() {
-            @Override
-            public void onResponse(Call<ArrayList<Offer>> call, Response<ArrayList<Offer>> response) {
-                populateListView_offer(response.body());
-                if (response.isSuccessful()) {
-
-                    ArrayList<Offer> list_elements = response.body();
-                    //Long offerId = list_elements.get(0).getText();
-                    for (Offer item : list_elements) {
-                        String offerId = item.getText(); // print every text item in list
-                    }
-                }
-
-            }
-
-            @Override
-            public void onFailure(Call<ArrayList<Offer>> call, Throwable t) {
-                Toast.makeText(ClientHistoryActivity.this, "Failed to load offers", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }*/
-
     private void loadPostulations() {
         RetrofitService retrofitService2 = new RetrofitService();
         PostulationApi postulationApi = retrofitService2.getRetrofit().create(PostulationApi.class);
@@ -144,12 +97,6 @@ public class ClientHistoryActivity extends AppCompatActivity {
         postulationAdapter = new PostulationAdapter(this, postulationsList);
         listView.setAdapter(postulationAdapter);
     }
-
-   /* private void populateListView_offer(ArrayList<Offer> offersList) {
-        clientHistoryAdapter = new ClientHistoryAdapter(this, offersList);
-        listView.setAdapter(clientHistoryAdapter);
-    }*/
-
 
     public void openActivity() {
         Intent intent = new Intent(this, HistoryPostDetailsActivity.class);

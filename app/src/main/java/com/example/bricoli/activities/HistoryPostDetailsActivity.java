@@ -22,8 +22,6 @@ import java.util.ArrayList;
 
 public class HistoryPostDetailsActivity extends AppCompatActivity {
 
-    private ListView listView;
-    //private HistoryPostDetailsAdapter historyPostDetailsAdapter;
     private Postulation postulation;
 
     @Override
