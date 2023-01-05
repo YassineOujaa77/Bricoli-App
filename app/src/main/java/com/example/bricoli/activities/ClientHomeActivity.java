@@ -111,8 +111,8 @@ public class ClientHomeActivity extends AppCompatActivity {
         call.enqueue(new Callback<Offer>() {
             @Override
             public void onResponse(Call<Offer> call, Response<Offer> response) {
-                Toast.makeText(ClientHomeActivity.this, String.valueOf(response.code()), Toast.LENGTH_SHORT).show();
-                //openHomeBidsActivity();
+                //Toast.makeText(ClientHomeActivity.this, String.valueOf(response.code()), Toast.LENGTH_SHORT).show();
+                openHomeBidsActivity();
             }
             @Override
             public void onFailure(Call<Offer> call, Throwable t) {
