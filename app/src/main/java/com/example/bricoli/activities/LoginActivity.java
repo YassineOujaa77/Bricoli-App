@@ -2,6 +2,7 @@ package com.example.bricoli.activities;
 
 import static android.content.ContentValues.TAG;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
@@ -19,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bricoli.R;
 import com.example.bricoli.models.Client;
+import com.example.bricoli.models.Worker;
 import com.example.bricoli.retrofit.RetrofitService;
 import com.example.bricoli.retrofit.UserApi;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -101,6 +103,29 @@ public class LoginActivity extends AppCompatActivity {
                 if (username.getText().toString().equals("client") && password.getText().toString().equals("client")) {
                     editor.putString("role", "client");
                     editor.apply();
+                    RetrofitService retrofit = new RetrofitService();
+                    UserApi ziyad = retrofit.getRetrofit().create(UserApi.class);
+
+                    Call<Client> client=ziyad.getClientByPhoneNumber("0000");
+                    client.enqueue(new Callback<Client>() {
+                        @SuppressLint("SuspiciousIndentation")
+                        @Override
+                        public void onResponse(Call<Client> call, Response<Client> response) {
+                            Client myClient = response.body();
+                            if(myClient==null)
+                            {
+                                System.out.println("failed to find this client");
+
+                            }else {
+                                System.out.println("found client");
+
+                            }
+                        }
+                        @Override
+                        public void onFailure(Call<Client> call, Throwable t) {
+                            System.out.println("failed to work with client");
+                        }
+                    });
                     Intent intent = new Intent(LoginActivity.this, ClientHomeActivity.class);
                     startActivity(intent);
                 } else if (username.getText().toString().equals("worker") && password.getText().toString().equals("worker")) {
