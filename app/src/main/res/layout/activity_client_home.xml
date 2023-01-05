@@ -46,6 +46,7 @@
             android:layout_height="83dp"
             android:layout_gravity="center"
             android:layout_marginTop="56dp"
+            android:maxLines="3"
             android:background="@drawable/filter_spinner_dropdown_bg"
             android:elevation="10dp"
             app:boxBackgroundColor="@color/white"
@@ -74,7 +75,9 @@
                 android:textAlignment="textStart"
                 android:textColor="@color/gray_hintText"
                 android:textSize="15dp"
-                tools:ignore="LabelFor" />
+                tools:ignore="LabelFor"
+                android:scrollbars="vertical"
+                android:dropDownHeight="260dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
