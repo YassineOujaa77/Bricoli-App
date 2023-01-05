@@ -1,0 +1,10 @@
+
+C
+java:S16047"(Make this anonymous inner class a lambda(õßØµüÿÿÿÿ
+w
+java:S1450&"aRemove the "postulationAdapter" field and declare it as a local variable in the relevant methods.(“´ÜÚ
+f
+java:S18747"KRemove this use of "setOnNavigationItemSelectedListener"; it is deprecated.(õßØµüÿÿÿÿ
+o	java:S100`"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬ÿÑáþÿÿÿÿ8¨Öœí×0
+N
+java:S1068%"8Remove this unused "clientHistoryAdapter" private field.(×¦–“

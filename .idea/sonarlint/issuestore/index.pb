@@ -21,3 +21,15 @@ f
 6app/src/main/java/com/example/bricoli/models/User.java,c\3\c3da960f19048766793b1267d19cf3cef385dabd
 h
 8app/src/main/java/com/example/bricoli/models/Worker.java,7\2\72d7d987c222d19f186a5353432d7ee068a9a2a6
+v
+Fapp/src/main/java/com/example/bricoli/adapters/PostulationAdapter.java,a\3\a35bfa8591e31048e937a9f51c2901335db5664a
+m
+=app/src/main/java/com/example/bricoli/models/Postulation.java,d\4\d47a65b0c8cd70401eb4a670e55eebe0084e9e6f
+€
+Papp/src/main/java/com/example/bricoli/activities/HistoryPostDetailsActivity.java,d\c\dc6e38724ac2fc922ac96a8b0670c8367d54c8e8
+x
+Happ/src/main/java/com/example/bricoli/adapters/ClientHistoryAdapter.java,7\4\7459b1f3f76aebd0e571100cfd2428a84e717a94
+{
+Kapp/src/main/java/com/example/bricoli/activities/ClientHistoryActivity.java,a\4\a492d93841a1417f802b4e24380e419dc571e984
+s
+Capp/src/main/java/com/example/bricoli/adapters/HomeBidsAdapter.java,5\d\5d49736e5076000139039a13357dc6e67eefed5d
