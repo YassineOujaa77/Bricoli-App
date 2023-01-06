@@ -1,6 +1,8 @@
 package com.example.bricoli.models;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private Long userId;
     private String cin;
     private String password;

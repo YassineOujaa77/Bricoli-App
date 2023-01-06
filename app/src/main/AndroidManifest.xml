@@ -13,6 +13,8 @@
     <uses-permission android:name="android.permission.READ_RECIEVE"/>
     <uses-permission android:name="android.permission.SEND_SMS"/>
 
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" tools:node="remove"/>
+
 
 
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -27,6 +29,13 @@
         android:theme="@style/Theme.Project"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="firebase_messaging_auto_init_enabled"
+            android:value="false" />
+        <meta-data
+            android:name="firebase_analytics_collection_enabled"
+            android:value="false" />
         <activity
         android:name=".activities.MapForWorkerActivity"
             android:exported="false">
