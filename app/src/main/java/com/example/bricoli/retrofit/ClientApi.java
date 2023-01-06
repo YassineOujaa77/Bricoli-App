@@ -12,8 +12,8 @@ import retrofit2.http.Part;
 import retrofit2.http.Path;
 
 public interface ClientApi {
-    @Multipart
+
     @PUT("updateClient/{clientId}")
-    Call<Client> updateClient(@Body Client client, @Path("clientid") Long clientId);
+    Call<Client> updateClient(@Body Client client, @Path("clientId") Long clientId);
 
 }

@@ -18,6 +18,7 @@ import com.example.bricoli.models.Client;
 import com.example.bricoli.models.Worker;
 import com.example.bricoli.retrofit.ClientApi;
 import com.example.bricoli.retrofit.RetrofitService;
+import com.example.bricoli.retrofit.RetrofitServiceForWorker;
 import com.example.bricoli.retrofit.WorkerApi;
 import com.example.bricoli.util.CryptingMethod;
 import com.example.bricoli.util.FcmNotificationsSender;
@@ -73,8 +74,8 @@ public class ForgotPasswordChangePassword extends AppCompatActivity {
 
                         if(myclient==null) {
                             //update worker
-                            RetrofitService retrofit = new RetrofitService();
-                            WorkerApi myworkerapi = retrofit.getRetrofit().create(WorkerApi.class);
+                            RetrofitServiceForWorker workeretrofit = new RetrofitServiceForWorker();
+                            WorkerApi myworkerapi = workeretrofit.getRetrofit().create(WorkerApi.class);
                             Worker workertocopie=myworker;
                             try {
                                 passwordtoinserttodatabase1 = CryptingMethod.encrypt(firstpass.getText().toString());
@@ -86,15 +87,26 @@ public class ForgotPasswordChangePassword extends AppCompatActivity {
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
-                            Call<Worker> worker=myworkerapi.updateWorker(workertocopie,myworker.getUserId());
+                            Call<Worker> worker =myworkerapi.updateWorker(workertocopie,myworker.getUserId());
                             openlogin();
+                            worker.enqueue(new Callback<Worker>() {
+                                @Override
+                                public void onResponse(Call<Worker> call, Response<Worker> response) {
+                                    Worker chaymaa = response.body();
+                                }
+
+                                @Override
+                                public void onFailure(Call<Worker> call, Throwable t) {
+
+                                }
+                            });
 
                             FcmNotificationsSender notificationsSender = new FcmNotificationsSender(token, "Operation Accomplie", "Vous avez changé avec succès votre mot de pass", getApplicationContext(), ForgotPasswordChangePassword.this);
                             notificationsSender.SendNotifications();
                         }else {
                             //update client
                             RetrofitService retrofit = new RetrofitService();
-                            ClientApi myworkerapi = retrofit.getRetrofit().create(ClientApi.class);
+                            ClientApi myclientapi = retrofit.getRetrofit().create(ClientApi.class);
                             Client clientocopie=myclient;
                             try {
                                 try {
@@ -106,13 +118,25 @@ public class ForgotPasswordChangePassword extends AppCompatActivity {
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
-                            Call<Client> client=myworkerapi.updateClient(clientocopie,myclient.getUserId());
+                            Call<Client> client=myclientapi.updateClient(clientocopie,myclient.getUserId());
+                            client.enqueue(new Callback<Client>() {
+                                @Override
+                                public void onResponse(Call<Client> call, Response<Client> response) {
+                                    Client saad = response.body();
+                                }
+
+                                @Override
+                                public void onFailure(Call<Client> call, Throwable t) {
+
+                                }
+                            });
                             openlogin();
 
                             FcmNotificationsSender notificationsSender = new FcmNotificationsSender(token, "Operation Accomplie", "Vous avez changé avec succès votre mot de pass", getApplicationContext(), ForgotPasswordChangePassword.this);
                             notificationsSender.SendNotifications();
 
-                        }
+
+                    }
                     }
                     else {// les deux mots de pass sont pas egaux
                         Toast.makeText(ForgotPasswordChangePassword.this, "Les mots de pass entrés ne sont pas égaux", Toast.LENGTH_LONG).show();

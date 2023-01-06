@@ -103,6 +103,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (username.getText().toString().equals("client") && password.getText().toString().equals("client")) {
                     editor.putString("role", "client");
                     editor.apply();
+                    /*
                     RetrofitService retrofit = new RetrofitService();
                     UserApi ziyad = retrofit.getRetrofit().create(UserApi.class);
 
@@ -125,7 +126,7 @@ public class LoginActivity extends AppCompatActivity {
                         public void onFailure(Call<Client> call, Throwable t) {
                             System.out.println("failed to work with client");
                         }
-                    });
+                    });*/
                     Intent intent = new Intent(LoginActivity.this, ClientHomeActivity.class);
                     startActivity(intent);
                 } else if (username.getText().toString().equals("worker") && password.getText().toString().equals("worker")) {

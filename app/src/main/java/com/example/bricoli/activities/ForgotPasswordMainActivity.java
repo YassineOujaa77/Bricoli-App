@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.example.bricoli.models.Client;
 import com.example.bricoli.models.Worker;
 import com.example.bricoli.retrofit.RetrofitService;
+import com.example.bricoli.retrofit.RetrofitServiceForWorker;
 import com.example.bricoli.retrofit.UserApi;
 
 import java.util.Random;
@@ -52,70 +53,13 @@ public class ForgotPasswordMainActivity extends AppCompatActivity {
 
     }
 
-    /*public int isitWorkerOrClient(String theusernumber){
-        final int[] user_type = new int[1];//0 c client 1 C worker 2 c null on a aucun utilisateur avec ce telephone
-
-        RetrofitService retrofit = new RetrofitService();
-        UserApi ziyad = retrofit.getRetrofit().create(UserApi.class);
-        Call<Worker> worker=ziyad.getWorkerByPhoneNumber(theusernumber);
-        Call<Client> client=ziyad.getClientByPhoneNumber(theusernumber);
-        client.enqueue(new Callback<Client>() {
-            @SuppressLint("SuspiciousIndentation")
-            @Override
-            public void onResponse(Call<Client> call, Response<Client> response) {
-                Client myClient = response.body();
-                if(myClient==null)
-                {
-                    System.out.println("failed to find this client");
-                    isitclient =false;
-
-                }else {
-                    isitclient =true;
-                    user_type[0] =0;
-                    System.out.println("found client");
-                    localclient = myClient;
-                }
-            }
-            @Override
-            public void onFailure(Call<Client> call, Throwable t) {
-                System.out.println("failed to work with client");
-            }
-        });
-        worker.enqueue(new Callback<Worker>() {
-            @Override
-            public void onResponse(Call<Worker> call, Response<Worker> response) {
-                Worker myWorker = response.body();
-                if(myWorker==null) {
-                    ForgotPasswordMainActivity.isitworker = false;
-                }else {
-                    ForgotPasswordMainActivity.isitworker = true;
-                    ForgotPasswordMainActivity.localworker=myWorker;
-                }
-            }
-            @Override
-            public void onFailure(Call<Worker> call, Throwable t) {
-                System.out.println("failed to work with worker");
-
-            }
-        });
-
-        if(isitworker){
-            user_type[0] =1;
-            
-        }
-        if (!isitclient && !isitworker){
-            user_type[0] =3;
-        }
-        return user_type[0];
-        
-        
-    }*/
-
-    public void opensmsactivity(String theusernumbertocheck,Client client,Worker worker){
+    public void opensmsactivity(String theusernumbertocheck,Client client,Worker worker,Long idclient){
             Intent intent = new Intent(this, ForgotpasswordSmsActivity.class);
             intent.putExtra("client",client);
             intent.putExtra("worker",worker);
+            String idc=idclient+"";
             int sms=sendSMS(theusernumbertocheck);
+            intent.putExtra("idclient",idc);
             intent.putExtra("Codedeverification",sms+"");
             startActivity(intent);
 
@@ -142,8 +86,12 @@ public class ForgotPasswordMainActivity extends AppCompatActivity {
                 theusernumbertocheck=phone.getText().toString();
                 RetrofitService retrofit = new RetrofitService();
                 UserApi ziyad = retrofit.getRetrofit().create(UserApi.class);
-                Call<Worker> worker=ziyad.getWorkerByPhoneNumber(theusernumbertocheck);
+                //retrofitservice for worker
+                RetrofitServiceForWorker workeretrofit = new RetrofitServiceForWorker();
+                UserApi chaymaa = workeretrofit.getRetrofit().create(UserApi.class);
+                Call<Worker> worker=chaymaa.getWorkerByPhoneNumber(theusernumbertocheck);
                 Call<Client> client=ziyad.getClientByPhoneNumber(theusernumbertocheck);
+                ///////////////
                 client.enqueue(new Callback<Client>() {
                     @SuppressLint("SuspiciousIndentation")
                     @Override
@@ -155,8 +103,12 @@ public class ForgotPasswordMainActivity extends AppCompatActivity {
                             System.out.println("failed to find this client");
 
                         }else {
-                            opensmsactivity(theusernumbertocheck,myClient,null);
+
+                            System.out.println(myClient.getUserId());
+                            System.out.println("**********************************************************************************************************************************");
+                            opensmsactivity(theusernumbertocheck,myClient,null,myClient.getUserId());
                             System.out.println("found client");
+
                         }
                     }
                     @Override
@@ -164,6 +116,7 @@ public class ForgotPasswordMainActivity extends AppCompatActivity {
                         System.out.println("failed to work with client");
                     }
                 });
+                ////////////////
                 worker.enqueue(new Callback<Worker>() {
                     @Override
                     public void onResponse(Call<Worker> call, Response<Worker> response) {
@@ -171,7 +124,7 @@ public class ForgotPasswordMainActivity extends AppCompatActivity {
                         if(myWorker==null) {
                             thewrongnumbermessage.setVisibility(View.VISIBLE);
                         }else {
-                            opensmsactivity(theusernumbertocheck,null,myWorker);
+                            opensmsactivity(theusernumbertocheck,null,myWorker,1L);
 
                         }
                     }
