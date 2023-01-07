@@ -13,6 +13,9 @@ import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -36,14 +39,17 @@ import com.google.android.gms.location.LocationSettingsResponse;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+
 import android.location.Geocoder;
 
 import java.io.IOException;
 
 import java.util.List;
 import java.util.Locale;
-import com.google.firebase.messaging.FirebaseMessaging;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class SignupActivity extends AppCompatActivity {
     EditText addresstofillautomatically;
@@ -52,8 +58,19 @@ public class SignupActivity extends AppCompatActivity {
     String adresseapresville;
     String adresseparlatitude;// format: latitude/longitude
     private LocationRequest locationRequest;
+    private TextInputEditText fullnameEditText;
+    private TextInputEditText phoneEditText;
+    private TextInputEditText cinEditText;
+    private TextInputEditText passwordEditText;
+    private TextInputEditText passwordConfirmationEditText;
+    private Button signupButton;
 
-
+    private TextInputLayout fullnameTextInputLayout;
+    private TextInputLayout phoneTextInputLayout;
+    private TextInputLayout addressTextInputLayout;
+    private TextInputLayout cinTextInputLayout;
+    private TextInputLayout passwordTextInputLayout;
+    private TextInputLayout passwordConfirmationTextInputLayout;
 
 
     @Override
@@ -68,24 +85,127 @@ public class SignupActivity extends AppCompatActivity {
         locationRequest.setInterval(5000);
         locationRequest.setFastestInterval(2000);
 
+        fullnameEditText = findViewById(R.id.nameComplet);
+        phoneEditText = findViewById(R.id.Phone);
+        cinEditText = findViewById(R.id.Cin);
+        passwordEditText = findViewById(R.id.Password);
+        passwordConfirmationEditText = findViewById(R.id.PasswordConfirmation);
+
+        fullnameTextInputLayout = findViewById(R.id.textInputLayoutname);
+        phoneTextInputLayout = findViewById(R.id.textInputLayoutPhone);
+        cinTextInputLayout = findViewById(R.id.textInputLayoutCin);
+        passwordTextInputLayout = findViewById(R.id.textInputLayoutPassword);
+        passwordConfirmationTextInputLayout = findViewById(R.id.textInputLayoutPasswordConfirmation);
+
+        signupButton = findViewById(R.id.Signup);
+
+        // Disable the signup button initially
+        signupButton.setEnabled(false);
+
+        // Add a text changed listener to the input fields to enable the signup button when all fields are filled out correctly
+        TextWatcher textWatcher = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                checkFieldsForEmptyValues();
+            }
+        };
+        //every time we change we will look if all fields are not empty
+        fullnameEditText.addTextChangedListener(textWatcher);
+        phoneEditText.addTextChangedListener(textWatcher);
+        cinEditText.addTextChangedListener(textWatcher);
+        passwordEditText.addTextChangedListener(textWatcher);
+        passwordConfirmationEditText.addTextChangedListener(textWatcher);
+
+
+        setRequiredField(fullnameEditText, fullnameTextInputLayout);
+        setRequiredField(phoneEditText, phoneTextInputLayout);
+        setRequiredField(cinEditText, cinTextInputLayout);
+        setRequiredField(passwordEditText, passwordTextInputLayout);
+        setRequiredField(passwordConfirmationEditText, passwordConfirmationTextInputLayout);
+
+        setPhoneNumberValidator(phoneEditText, phoneTextInputLayout);
+        validateCinLength(cinEditText, cinTextInputLayout);
 
         Button addPicture = findViewById(R.id.upload_image_button);
 
+        //for tha password verification
+        passwordEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                validatePasswordMatch(passwordEditText, passwordConfirmationEditText, passwordTextInputLayout, passwordConfirmationTextInputLayout);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
+        passwordConfirmationEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                validatePasswordMatch(passwordEditText, passwordConfirmationEditText, passwordTextInputLayout, passwordConfirmationTextInputLayout);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
+
+
         getCurrentLocation();
+
         // When user click on Add picture button , he should be able to import images
         addPicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_PICK);
                 intent.setType("image/*");
-                startActivityForResult(intent,1);
+                startActivityForResult(intent, 1);
 
 
             }
         });
+
+        signupButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fullnameEditText.clearFocus();
+                cinEditText.clearFocus();
+                phoneEditText.clearFocus();
+                passwordEditText.clearFocus();
+                passwordConfirmationEditText.clearFocus();
+                // Check if any of the fields have an error
+                if (passwordTextInputLayout.getError() != null ||
+                        passwordConfirmationTextInputLayout.getError() != null || cinTextInputLayout.getError() != null
+                        || phoneTextInputLayout.getError() != null || fullnameTextInputLayout.getError()!=null) {
+                    // One of the fields has an error, so disable the button
+                    signupButton.setEnabled(false);
+                } else {
+                    // No errors present, so enable the button
+                    signupButton.setEnabled(true);
+
+                    // Start the new activity here
+                    Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
     }
-
-
 
 
     // functions for the gps
@@ -93,14 +213,14 @@ public class SignupActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        if (requestCode == 1){
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED){
+        if (requestCode == 1) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
                 if (isGPSEnabled()) {
 
                     getCurrentLocation();
 
-                }else {
+                } else {
 
                     turnOnGPS();
                 }
@@ -139,23 +259,23 @@ public class SignupActivity extends AppCompatActivity {
                                     LocationServices.getFusedLocationProviderClient(SignupActivity.this)
                                             .removeLocationUpdates(this);
 
-                                    if (locationResult != null && locationResult.getLocations().size() >0){
+                                    if (locationResult != null && locationResult.getLocations().size() > 0) {
 
                                         int index = locationResult.getLocations().size() - 1;
                                         double latitude = locationResult.getLocations().get(index).getLatitude();
                                         double longitude = locationResult.getLocations().get(index).getLongitude();
 
-                                        Geocoder geocoder=new Geocoder(SignupActivity.this, Locale.getDefault());
-                                        List<Address> addresses= null;
+                                        Geocoder geocoder = new Geocoder(SignupActivity.this, Locale.getDefault());
+                                        List<Address> addresses = null;
                                         try {
-                                            addresses = geocoder.getFromLocation(latitude,longitude,1);
-                                            ville=addresses.get(0).getLocality();
-                                            country=addresses.get(0).getCountryName();
-                                            adresseapresville=addresses.get(0).getAddressLine(0);
-                                            adresseparlatitude=latitude+"";
+                                            addresses = geocoder.getFromLocation(latitude, longitude, 1);
+                                            ville = addresses.get(0).getLocality();
+                                            country = addresses.get(0).getCountryName();
+                                            adresseapresville = addresses.get(0).getAddressLine(0);
+                                            adresseparlatitude = latitude + "";
                                             adresseparlatitude.concat("/");
-                                            adresseparlatitude.concat(longitude+"");
-                                            addresstofillautomatically.setText(country+","+ville+","+adresseapresville);
+                                            adresseparlatitude.concat(longitude + "");
+                                            addresstofillautomatically.setText(country + "," + ville + "," + adresseapresville);
                                         } catch (IOException e) {
                                             e.printStackTrace();
                                         }
@@ -175,7 +295,6 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     private void turnOnGPS() {
-
 
 
         LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()
@@ -228,4 +347,105 @@ public class SignupActivity extends AppCompatActivity {
         return isEnabled;
 
     }
+
+
+    private void setRequiredField(TextInputEditText editText, TextInputLayout textInputLayout) {
+        editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (!hasFocus) {
+                    // Validate the field
+                    if (TextUtils.isEmpty(editText.getText()) || TextUtils.isEmpty(editText.getText().toString().trim())) {
+                        textInputLayout.setErrorEnabled(true);
+                        textInputLayout.setError("This field is required");
+                    } else {
+                        textInputLayout.setErrorEnabled(false);
+                        textInputLayout.setError(null);
+                    }
+
+                }
+            }
+        });
+    }
+
+    private void validatePasswordMatch(TextInputEditText passwordField, TextInputEditText confirmPasswordField, TextInputLayout passwordLayout, TextInputLayout confirmPasswordLayout) {
+        int minPasswordLength = 8; // Set minimum password length here
+        if (isPasswordMatch(passwordField, confirmPasswordField)) {
+            // Passwords match, clear any errors
+            passwordLayout.setErrorEnabled(false);
+            confirmPasswordLayout.setErrorEnabled(false);
+
+        } else {
+            // Passwords do not match, show an error message
+            passwordLayout.setErrorEnabled(true);
+            passwordLayout.setError("Passwords do not match");
+            confirmPasswordLayout.setErrorEnabled(true);
+            confirmPasswordLayout.setError("Passwords do not match");
+        }
+        //also look for the length
+        if (passwordField.length() < minPasswordLength) {
+            // Password is too short
+            passwordLayout.setErrorEnabled(true);
+            passwordLayout.setError("Password must be at least " + minPasswordLength + " characters long");
+        }
+    }
+
+    private boolean isPasswordMatch(TextInputEditText passwordField, TextInputEditText confirmPasswordField) {
+        String password = passwordField.getText().toString();
+        String confirmPassword = confirmPasswordField.getText().toString();
+        return password.equals(confirmPassword);
+    }
+
+    void checkFieldsForEmptyValues() {
+        String fullname = fullnameEditText.getText().toString();
+        String phone = phoneEditText.getText().toString();
+        String cin = cinEditText.getText().toString();
+        String password = passwordEditText.getText().toString();
+        String passwordConfirmation = passwordConfirmationEditText.getText().toString();
+
+        if (TextUtils.isEmpty(fullname) || TextUtils.isEmpty(phone) || TextUtils.isEmpty(cin) || TextUtils.isEmpty(password) || TextUtils.isEmpty(passwordConfirmation) || !(isPasswordMatch(passwordEditText, passwordConfirmationEditText))) {
+            signupButton.setEnabled(false);
+        } else {
+            signupButton.setEnabled(true);
+        }
+    }
+
+    private void setPhoneNumberValidator(TextInputEditText phoneNumberEditText, TextInputLayout textInputLayout) {
+        phoneNumberEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (!hasFocus) {
+                    // Validate the phone number
+                    if (phoneNumberEditText.getText().length() != 9) {
+                        textInputLayout.setErrorEnabled(true);
+                        textInputLayout.setError("Phone number must be 9 characters long");
+                    } else {
+                        textInputLayout.setErrorEnabled(false);
+                        textInputLayout.setError(null);
+                    }
+                }
+            }
+        });
+    }
+
+
+    private void validateCinLength(TextInputEditText cinEditText, TextInputLayout cinTextInputLayout) {
+        cinEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (!hasFocus) {
+                    // Validate the field
+                    String cin = cinEditText.getText().toString();
+                    if (cin.length() < 7 || cin.length() > 8) {
+                        cinTextInputLayout.setErrorEnabled(true);
+                        cinTextInputLayout.setError("CIN must be 7 or 8 characters long");
+                    } else {
+                        cinTextInputLayout.setErrorEnabled(false);
+                        cinTextInputLayout.setError(null);
+                    }
+                }
+            }
+        });
+    }
+
 }
