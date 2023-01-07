@@ -19,6 +19,8 @@ public class Client extends User implements Serializable {
         setPhone(phone);
     }
 
+
+
     public Set<Offer> getOffers() {
         return offers;
     }
