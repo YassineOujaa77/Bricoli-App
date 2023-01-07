@@ -1,6 +1,8 @@
 package com.example.bricoli.models;
 
-public class Job {
+import java.io.Serializable;
+
+public class Job implements Serializable {
     private Long jobId;
     private Worker worker;
     private String picture;

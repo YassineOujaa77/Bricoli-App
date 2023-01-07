@@ -1,12 +1,19 @@
 
-C
-java:S1604$"(Make this anonymous inner class a lambda(õßØµüÿÿÿÿ
-a
-java:S1301'"KReplace this "switch" statement by "if" statements to increase readability.(ºÓ©¦
-~
-java:S1450"hRemove the "historyPostDetailsAdapter" field and declare it as a local variable in the relevant methods.(ôÒş
-r
-java:S1450"WRemove the "listView" field and declare it as a local variable in the relevant methods.(¯¤½ñûÿÿÿÿ
-f
-java:S1874$"KRemove this use of "setOnNavigationItemSelectedListener"; it is deprecated.(õßØµüÿÿÿÿ
-7	java:S131'""Add a default case to this switch.(ºÓ©¦
+u
+java:S1450"ZRemove the "postulation" field and declare it as a local variable in the relevant methods.(¡øƒ»üÿÿÿÿ
+V	java:S107J"<Method has 9 parameters, which is greater than 7 authorized.(Æ¹„‚øÿÿÿÿ
+c
+java:S1854,"HRemove this useless assignment to local variable "bottomNavigationView".(Åáµúÿÿÿÿ
+T
+java:S1481,"9Remove this unused "bottomNavigationView" local variable.(Åáµúÿÿÿÿ
+V	java:S125/"<This block of commented-out lines of code should be removed.(·Ñ¤­ùÿÿÿÿ
+Q	java:S1252"<This block of commented-out lines of code should be removed.(·²ÓÀ
+u
+java:S1450"ZRemove the "postulation" field and declare it as a local variable in the relevant methods.(¡øƒ»üÿÿÿÿ
+V	java:S107J"<Method has 9 parameters, which is greater than 7 authorized.(Æ¹„‚øÿÿÿÿ
+c
+java:S1854,"HRemove this useless assignment to local variable "bottomNavigationView".(Åáµúÿÿÿÿ
+T
+java:S1481,"9Remove this unused "bottomNavigationView" local variable.(Åáµúÿÿÿÿ
+V	java:S125/"<This block of commented-out lines of code should be removed.(·Ñ¤­ùÿÿÿÿ
+Q	java:S1252"<This block of commented-out lines of code should be removed.(·²ÓÀ
