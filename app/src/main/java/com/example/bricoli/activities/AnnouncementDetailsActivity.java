@@ -16,6 +16,9 @@ import com.example.bricoli.models.Postulation;
 import com.example.bricoli.models.Worker;
 import com.example.bricoli.retrofit.PostulationApi;
 import com.example.bricoli.retrofit.RetrofitService;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -53,9 +56,12 @@ public class AnnouncementDetailsActivity extends AppCompatActivity {
                         float price = Float.parseFloat(priceProposed.getText().toString());
                         int duration = Integer.parseInt(durationProposed.getText().toString());
                         //prend l worker from login
-                        Worker worker = new Worker(5L,"cin","pass","adress",10L,1,"ggg","fullName","ggggg","666666");
-                        Postulation postulationToAdd = new Postulation(price,duration, PostulationState.WAITING.toString(),new Date(),worker,offer);
+                        Worker worker = new Worker(1L,"cin","pass","adress",10L,1,"ggg","fullName","ggggg","666666");
+                        //Date date = formatDate(offer.getCreatedAt());
+                        offer.setCreatedAt(null);
+                        Postulation postulationToAdd = new Postulation(price,duration, PostulationState.WAITING.toString(),null,worker,offer);
                         callAddPostulationApi(postulationToAdd);
+                        startActivity(new Intent(AnnouncementDetailsActivity.this,WorkerHomeActivity.class));
                     }
                 }
                 catch(Exception e){
@@ -72,7 +78,6 @@ public class AnnouncementDetailsActivity extends AppCompatActivity {
         call.enqueue(new Callback<Postulation>() {
             @Override
             public void onResponse(Call<Postulation> call, Response<Postulation> response) {
-                startActivity(new Intent(AnnouncementDetailsActivity.this,WorkerHomeActivity.class));
             }
 
             @Override
@@ -81,4 +86,10 @@ public class AnnouncementDetailsActivity extends AppCompatActivity {
             }
         });
     }
+    /*private Date formatDate(Date date) throws ParseException {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        String strDate= formatter.format(date);
+        Date date1 =new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(strDate);
+        return date1;
+    }*/
 }
