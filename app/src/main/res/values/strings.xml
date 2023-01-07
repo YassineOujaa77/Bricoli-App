@@ -41,10 +41,17 @@
     <string name="invite_friends">Invite Friends</string>
     <string name="invite_your_friend_and_earn_nbonus_amount_in_wallet">Invite your Friends and earn \nbonus amount in wallet</string>
     <string name="refer_friends">Refer Friends</string>
-    <string-array name="services">
+    <string-array name="categories">
         <item>Plomblier</item>
         <item>Organisateur de fetes</item>
-        <item>Technicien</item>
+        <item>Electricien</item>
+        <item>Maçon</item>
+        <item>Menuisier</item>
+        <item>Forgeon</item>
+        <item>Teinturier</item>
+        <item>Chef cuisinier</item>
+        <item>Décorateur</item>
+        <item>Responsable nettoyage</item>
     </string-array>
     <string name="account">Account</string>
     <string name="more">More</string>

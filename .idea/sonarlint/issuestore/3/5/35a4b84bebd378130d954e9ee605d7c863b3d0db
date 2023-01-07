@@ -1,0 +1,26 @@
+
+C
+java:S1604?"(Make this anonymous inner class a lambda(õßØµüÿÿÿÿ
+C
+java:S1604P"(Make this anonymous inner class a lambda(ŽËÍøÿÿÿÿÿ
+C
+java:S1604X"(Make this anonymous inner class a lambda(ÿÑ‘¦ùÿÿÿÿ
+C
+java:S1604_"(Make this anonymous inner class a lambda(Åó¾Ëøÿÿÿÿ
+a
+java:S1301B"KReplace this "switch" statement by "if" statements to increase readability.(ºÓ©¦
+v
+java:S4144)"[Update this method so that its implementation is not identical to "openprofile" on line 36.(ˆ‹¿Çûÿÿÿÿ
+q
+java:S1450"[Remove the "finishbutton" field and declare it as a local variable in the relevant methods.(Œô¨³
+u
+java:S1450"ZRemove the "imageButton" field and declare it as a local variable in the relevant methods.(óè×¡ýÿÿÿÿ
+u
+java:S1450"ZRemove the "profilecard" field and declare it as a local variable in the relevant methods.(÷¤„•ÿÿÿÿÿ
+S
+java:S1854l"8Remove this useless assignment to local variable "time".(çÊß«ûÿÿÿÿ
+f
+java:S1874?"KRemove this use of "setOnNavigationItemSelectedListener"; it is deprecated.(õßØµüÿÿÿÿ
+7	java:S131B""Add a default case to this switch.(ºÓ©¦
+D
+java:S1481l")Remove this unused "time" local variable.(çÊß«ûÿÿÿÿ
