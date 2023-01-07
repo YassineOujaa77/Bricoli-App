@@ -1,15 +1,2 @@
 
-d
-java:S1192+"IDefine a constant instead of duplicating this literal "remember" 3 times.(×™àÈıÿÿÿÿ
-b
-java:S11921"GDefine a constant instead of duplicating this literal "client" 4 times.(¦ó”üÿÿÿÿÿ
-b
-java:S1192G"GDefine a constant instead of duplicating this literal "worker" 3 times.(ÏÏ¡Øøÿÿÿÿ
-C
-java:S1604?"(Make this anonymous inner class a lambda(ç¯€ùÿÿÿÿ
-C
-java:S1604R"(Make this anonymous inner class a lambda(ÍÌÖŸøÿÿÿÿ
-C
-java:S1604["(Make this anonymous inner class a lambda(¨ÛÚ»ÿÿÿÿÿ
-C
-java:S1604g"(Make this anonymous inner class a lambda(³ÄçÄşÿÿÿÿ
+
