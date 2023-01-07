@@ -89,6 +89,18 @@
     <string name="confirmpassword">تأكيد كلمة المرور الجديدة</string>
     <string name="thewrongnumber">هذا رقم غير مسجل</string>
     <string name="thewrongcode">رمز التحقق خاطئ</string>
+    <string-array name="categories">
+        <item> سباك </item>
+        <item> مخطط الحفلة </item>
+        <item> كهربائي </item>
+        <item> بناء </item>
+        <item> نجار </item>
+        <item> حداد </item>
+        <item> صباغ </item>
+        <item> طباخ </item>
+        <item> مختص ديكور </item>
+        <item> مدير التنظيف </item>
+    </string-array>
 
 
 </resources>

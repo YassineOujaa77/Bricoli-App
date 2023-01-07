@@ -19,7 +19,7 @@ public interface OfferApi {
     @POST("offer")
     Call<Offer> addOffer(@Body Offer offer);
     
-    @GET("offer/byCategoryAndStateNotAlreadyApplied/{category}/{state}/{workerId}");
+    @GET("offer/byCategoryAndStateNotAlreadyApplied/{category}/{state}/{workerId}")
     Call<List<Offer>> getOfferByCategoryAndStateNotAlreadyApplied(@Path("category") String category,@Path("state") String state, @Path("workerId") Long workerId);
 
 }
