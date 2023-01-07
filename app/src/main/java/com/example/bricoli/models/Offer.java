@@ -1,20 +1,38 @@
 package com.example.bricoli.models;
 
-import com.google.android.gms.common.api.Api;
-
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Offer {
+public class Offer implements Serializable {
 
     private Long offerId;
     private String category;
-    private Api.Client client;
+    private Client client;
     private String description;
     private String state;
     private Date createdAt;
     private Set<Postulation> postulations = new HashSet<>();
+
+
+    public Offer(String category, Client client, String description, String state, Date createdAt, Set<Postulation> postulations) {
+        this.category = category;
+        this.client = client;
+        this.description = description;
+        this.state = state;
+        this.createdAt = createdAt;
+        this.postulations = postulations;
+    }
+
+
+
+    @SerializedName("Text")
+    @Expose
+    private String text;
+
 
     public Long getOfferId() {
         return offerId;
@@ -32,11 +50,11 @@ public class Offer {
         this.category = category;
     }
 
-    public Api.Client getClient() {
+    public Client getClient() {
         return client;
     }
 
-    public void setClient(Api.Client client) {
+    public void setClient(Client client) {
         this.client = client;
     }
 
@@ -83,5 +101,9 @@ public class Offer {
                 ", createdAt=" + createdAt +
                 ", postulations=" + postulations +
                 '}';
+    }
+
+    public String getText() {
+        return text;
     }
 }

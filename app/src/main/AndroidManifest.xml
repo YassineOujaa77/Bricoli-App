@@ -12,6 +12,7 @@
     <uses-permission android:name="android.permission.READ_SMS"/>
     <uses-permission android:name="android.permission.READ_RECIEVE"/>
     <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 
 
@@ -82,20 +83,21 @@
             android:exported="false" /> <!-- Client Home activity -->
         <activity
             android:name=".activities.ClientHomeActivity"
-            android:exported="false">
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
             <meta-data
                 android:name="preloaded_fonts"
                 android:resource="@array/preloaded_fonts" />
         </activity>
         <activity
             android:name=".activities.splashactivity"
-            android:exported="true"
+            android:exported="false"
             android:theme="@style/Theme.splashtheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
             <meta-data
                 android:name="android.app.lib_name"
@@ -110,7 +112,9 @@
         </activity> <!-- History Client activity -->
         <activity
             android:name=".activities.ClientHistoryActivity"
-            android:exported="false">
+            android:exported="true">
+
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
