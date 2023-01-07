@@ -33,3 +33,7 @@ Happ/src/main/java/com/example/bricoli/adapters/ClientHistoryAdapter.java,7\4\7
 Kapp/src/main/java/com/example/bricoli/activities/ClientHistoryActivity.java,a\4\a492d93841a1417f802b4e24380e419dc571e984
 s
 Capp/src/main/java/com/example/bricoli/adapters/HomeBidsAdapter.java,5\d\5d49736e5076000139039a13357dc6e67eefed5d
+h
+8app/src/main/java/com/example/bricoli/models/Client.java,9\4\94ad85523cd70e608e7cdce2c1d372019facc02b
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
