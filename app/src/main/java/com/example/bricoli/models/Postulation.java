@@ -1,10 +1,10 @@
 package com.example.bricoli.models;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.io.Serializable;
 
-public class Postulation implements Serializable{
-
+public class Postulation implements Serializable {
     private Long postulationId;
     private float price;
     private int duration;
@@ -12,6 +12,15 @@ public class Postulation implements Serializable{
     private Date createdAt;
     private Worker worker;
     private Offer offer;
+
+    public Postulation(float price, int duration, String state, Date createdAt, Worker worker, Offer offer) {
+        this.price = price;
+        this.duration = duration;
+        this.state = state;
+        this.createdAt = createdAt;
+        this.worker = worker;
+        this.offer = offer;
+    }
 
     public Long getPostulationId() {
         return postulationId;
