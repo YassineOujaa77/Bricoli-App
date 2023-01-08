@@ -9,11 +9,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.example.bricoli.R;
+import com.example.bricoli.enumeration.OfferState;
 import com.example.bricoli.enumeration.PostulationState;
 import com.example.bricoli.models.Offer;
 import com.example.bricoli.models.Postulation;
 import com.example.bricoli.models.Worker;
+import com.example.bricoli.retrofit.OfferApi;
 import com.example.bricoli.retrofit.PostulationApi;
 import com.example.bricoli.retrofit.RetrofitService;
 
@@ -57,11 +61,18 @@ public class AnnouncementDetailsActivity extends AppCompatActivity {
                         int duration = Integer.parseInt(durationProposed.getText().toString());
                         //prend l worker from login
                         Worker worker = new Worker(1L,"cin","pass","adress",10L,1,"ggg","fullName","ggggg","666666");
-                        //Date date = formatDate(offer.getCreatedAt());
                         offer.setCreatedAt(null);
                         Postulation postulationToAdd = new Postulation(price,duration, PostulationState.WAITING.toString(),null,worker,offer);
                         callAddPostulationApi(postulationToAdd);
+                        if(offer.getState().equals(OfferState.EN_ATTENTE.toString())){
+                            callUpdateOfferApi(offer);
+                        }
+                        Toast.makeText(AnnouncementDetailsActivity.this,getString(R.string.duration_price_proposed_not_inserted),Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(AnnouncementDetailsActivity.this,WorkerHomeActivity.class));
+
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(),getString(R.string.duration_price_proposed_not_inserted),Toast.LENGTH_SHORT).show();
                     }
                 }
                 catch(Exception e){
@@ -86,10 +97,22 @@ public class AnnouncementDetailsActivity extends AppCompatActivity {
             }
         });
     }
-    /*private Date formatDate(Date date) throws ParseException {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-        String strDate= formatter.format(date);
-        Date date1 =new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(strDate);
-        return date1;
-    }*/
+    private void callUpdateOfferApi(Offer offer){
+        offer.setState(OfferState.EN_COURS_NEGOCIATION.toString());
+        RetrofitService retrofit = new RetrofitService();
+        OfferApi offerApi = retrofit.getRetrofit().create(OfferApi.class);
+        Call<Offer> call=offerApi.updateOffer(offer.getOfferId(),offer);
+        call.enqueue(new Callback<Offer>() {
+            @Override
+            public void onResponse(Call<Offer> call, Response<Offer> response) {
+                Offer offer1 = response.body();
+                System.out.println(offer1.toString());
+            }
+
+            @Override
+            public void onFailure(Call<Offer> call, Throwable t) {
+                Log.d("offer update","*********************** Echec");
+            }
+        });
+    }
 }
