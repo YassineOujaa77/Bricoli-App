@@ -22,6 +22,8 @@ import com.example.bricoli.R;
 import com.example.bricoli.models.Client;
 import com.example.bricoli.models.Worker;
 import com.example.bricoli.retrofit.RetrofitService;
+import com.example.bricoli.retrofit.RetrofitServiceForClient;
+import com.example.bricoli.retrofit.RetrofitServiceForWorker;
 import com.example.bricoli.retrofit.UserApi;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -100,10 +102,72 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (username.getText().toString().equals("client") && password.getText().toString().equals("client")) {
+
+                RetrofitServiceForWorker retrofit=new RetrofitServiceForWorker();
+                UserApi login=retrofit.getRetrofit().create(UserApi.class);
+
+                RetrofitServiceForClient retrofitClient=new RetrofitServiceForClient();
+                UserApi loginClient=retrofitClient.getRetrofit().create(UserApi.class);
+
+
+                Call<Worker> worker =login.getWorkerByPhoneNumber("hgsys");
+                Call<Client> client =loginClient.getClientByPhoneNumber("test");
+                worker.enqueue(new Callback<Worker>() {
+                    @Override
+                    public void onResponse(Call<Worker> call, Response<Worker> response) {
+                        Worker worker=response.body();
+                        if(worker==null)
+                        {
+                            //Log.d("test","*********************************** No worker");
+
+                            client.enqueue(new Callback<Client>() {
+                                @Override
+                                public void onResponse(Call<Client> call, Response<Client> response) {
+                                    Client cl =response.body();
+                                    if(cl==null)
+                                    {
+                                        //Log.d("test","*********************************** No client");
+                                        Toast.makeText(LoginActivity.this, "Phone or password incorrect.", Toast.LENGTH_SHORT).show();
+
+                                    }
+                                    else
+                                    {
+                                        //Log.d("test","****************************************"+cl.getFullName());
+                                        Intent intent = new Intent(LoginActivity.this, ClientHomeActivity.class);
+                                        startActivity(intent);
+                                    }
+                                }
+
+                                @Override
+                                public void onFailure(Call<Client> call, Throwable t) {
+
+                                }
+                            });
+                        }
+                        else
+                        {
+                            //Log.d("test","*****************************"+worker.getFullName());
+                            Intent intent = new Intent(LoginActivity.this, WorkerHomeActivity.class);
+                            startActivity(intent);
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<Worker> call, Throwable t) {
+
+                    }
+                });
+
+
+
+
+
+                /*if (username.getText().toString().equals("client") && password.getText().toString().equals("client")) {
                     editor.putString("role", "client");
                     editor.apply();
-                    /*
+
                     RetrofitService retrofit = new RetrofitService();
                     UserApi ziyad = retrofit.getRetrofit().create(UserApi.class);
 
@@ -126,7 +190,7 @@ public class LoginActivity extends AppCompatActivity {
                         public void onFailure(Call<Client> call, Throwable t) {
                             System.out.println("failed to work with client");
                         }
-                    });*/
+                    });
                     Intent intent = new Intent(LoginActivity.this, ClientHomeActivity.class);
                     startActivity(intent);
                 } else if (username.getText().toString().equals("worker") && password.getText().toString().equals("worker")) {
@@ -136,7 +200,7 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(intent);
                 } else {
                     Toast.makeText(LoginActivity.this, "Phone or password incorrect.", Toast.LENGTH_SHORT).show();
-                }
+                }*/
             }
         });
 

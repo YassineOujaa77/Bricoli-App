@@ -1,6 +1,9 @@
 package com.example.bricoli.retrofit;
 
 import com.example.bricoli.models.Client;
+import com.example.bricoli.models.Offer;
+
+import java.util.List;
 
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -15,5 +18,7 @@ public interface ClientApi {
 
     @PUT("updateClient/{clientId}")
     Call<Client> updateClient(@Body Client client, @Path("clientId") Long clientId);
+
+
 
 }

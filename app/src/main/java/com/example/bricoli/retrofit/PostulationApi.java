@@ -2,6 +2,8 @@ package com.example.bricoli.retrofit;
 
 import com.example.bricoli.models.Postulation;
 import java.util.ArrayList;
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -15,4 +17,7 @@ public interface PostulationApi {
     
     @POST("postulation")
     Call<Postulation> addPostulation(@Body Postulation postulation);
+
+    @GET("listByWorkerId/{workerId}")
+    Call<List<Postulation>> getPostulationsByWorkerId(@Path("workerId") Long workerId);
 }

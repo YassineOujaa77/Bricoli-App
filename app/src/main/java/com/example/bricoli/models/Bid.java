@@ -86,4 +86,17 @@ public class Bid
         Etat = etat;
     }
 
+    @Override
+    public String toString() {
+        return "Bid{" +
+                "Photo=" + Photo +
+                ", Ville='" + Ville + '\'' +
+                ", NomComplet='" + NomComplet + '\'' +
+                ", Note='" + Note + '\'' +
+                ", Prix='" + Prix + '\'' +
+                ", Period='" + Period + '\'' +
+                ", Distance='" + Distance + '\'' +
+                ", Etat='" + Etat + '\'' +
+                '}';
+    }
 }
