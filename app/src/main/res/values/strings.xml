@@ -92,6 +92,8 @@
     <string name="thewrongnumber">This is a non registered number</string>
     <string name="thewrongcode">Wrong verification code</string>
     <string name="upload_image">Upload image</string>
-
+    <string name="no_offer_found">No Offer Found</string>
+    <string name="duration_price_proposed_not_inserted">you should insert the duration and the price</string>
+    <string name="postulation_added">applyment added with success</string>
 
 </resources>

@@ -95,5 +95,9 @@
         <item>Décorateur</item>
         <item>Responsable nettoyage</item>
     </string-array>
+    <string name="no_offer_found">Aucune offre trouvée</string>
+    <string name="duration_price_proposed_not_inserted">vous devez insérer la durée et le prix</string>
+    <string name="postulation_added">postulation ajoutée avec succès</string>
+
 
 </resources>
