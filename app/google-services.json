@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "258003212400",
+    "project_id": "bricoli-cd2c0",
+    "storage_bucket": "bricoli-cd2c0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:258003212400:android:1b4c9a85980818f7747cb5",
+        "android_client_info": {
+          "package_name": "com.example.bricoli"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "258003212400-2t62v98nk6cs7m12dqdiklla9ivro370.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjy3UwiGWrf3j5zkX5qyiI809BS6NLSr8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "258003212400-2t62v98nk6cs7m12dqdiklla9ivro370.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

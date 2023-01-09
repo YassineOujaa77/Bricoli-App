@@ -126,6 +126,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="-30dp"
+        android:layout_marginBottom="70dp"
         android:layout_below="@id/history_post_detail_card1"
         app:cardBackgroundColor="@color/card_background"
         app:cardCornerRadius="14dp"
@@ -239,6 +240,14 @@
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/bottom_navigation_menu"
+        android:layout_alignParentBottom="true"
+        />
 
 </RelativeLayout>
 

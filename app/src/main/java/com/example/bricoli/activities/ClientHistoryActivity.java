@@ -34,8 +34,8 @@ import retrofit2.Response;
 public class ClientHistoryActivity extends AppCompatActivity {
 
     private ListView listView;
-    private ClientHistoryAdapter clientHistoryAdapter;
     private PostulationAdapter postulationAdapter;
+    ArrayList<Postulation> postulations = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,28 +78,31 @@ public class ClientHistoryActivity extends AppCompatActivity {
     private void loadPostulations() {
         RetrofitService retrofitService2 = new RetrofitService();
         PostulationApi postulationApi = retrofitService2.getRetrofit().create(PostulationApi.class);
-        Call<ArrayList<Postulation>> postulation = postulationApi.getPostulationByClientIdAndState(4L, "0");
-        postulation.enqueue(new Callback<ArrayList<Postulation>>() {
+        Call<List<Postulation>> postulation = postulationApi.getPostulationByClientIdAndState(4L, "0");
+        postulation.enqueue(new Callback<List<Postulation>>() {
             @Override
-            public void onResponse(Call<ArrayList<Postulation>> call, Response<ArrayList<Postulation>> response) {
-                populateListView_postulation(response.body());
+            public void onResponse(Call<List<Postulation>> call, Response<List<Postulation>> response) {
+                List<Postulation> listPostulation = response.body();
+                if (listPostulation.size() > 0 ){
+                    populateListView_postulation(listPostulation);
+                }
+                else {
+                    Toast.makeText(ClientHistoryActivity.this, "No postulation found", Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
-            public void onFailure(Call<ArrayList<Postulation>> call, Throwable t) {
+            public void onFailure(Call<List<Postulation>> call, Throwable t) {
                 Toast.makeText(ClientHistoryActivity.this, "Failed to load postulations", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-
-    private void populateListView_postulation(ArrayList<Postulation> postulationsList) {
-        postulationAdapter = new PostulationAdapter(this, postulationsList);
+    private void populateListView_postulation(@NonNull List<Postulation> postulationsList) {
+        for(int i=0;i<postulationsList.size();i++){
+            this.postulations.add(postulationsList.get(i));
+        }
+        postulationAdapter = new PostulationAdapter(this, postulations);
         listView.setAdapter(postulationAdapter);
-    }
-
-    public void openActivity() {
-        Intent intent = new Intent(this, HistoryPostDetailsActivity.class);
-        startActivity(intent);
     }
 }

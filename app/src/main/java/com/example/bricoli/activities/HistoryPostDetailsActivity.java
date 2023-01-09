@@ -44,10 +44,10 @@ public class HistoryPostDetailsActivity extends AppCompatActivity {
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         // set History Selected
-        //bottomNavigationView.setSelectedItemId(R.id.history);
+        bottomNavigationView.setSelectedItemId(R.id.history);
 
         // item from menu selected listener
-        /*bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+       bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
@@ -67,7 +67,7 @@ public class HistoryPostDetailsActivity extends AppCompatActivity {
                         return false;
                 }
             }
-        });*/
+        });
 
     }
 

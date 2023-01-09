@@ -51,7 +51,6 @@ public class PostulationAdapter extends ArrayAdapter<Postulation> {
 
         TextView fullName , sommeRating , numberOfRating, city , duration , description ;
 
-        //Float price = currentPostulation.getPrice();
 
         fullName = (TextView) listItem.findViewById(R.id.nom_complet);
         fullName.setText(postulations.get(position).getWorker().getFullName());
