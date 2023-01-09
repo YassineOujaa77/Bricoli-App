@@ -21,7 +21,7 @@ public class WorkerProfilForClientActivity extends AppCompatActivity {
 
         ImageSlider imageSlider = findViewById(R.id.image_slider);
         List<SlideModel> slideModels =new ArrayList<>();
-        slideModels.add(new SlideModel(R.drawable.projet1,"", ScaleTypes.CENTER_CROP));
+        slideModels.add(new SlideModel("content://media/external/images/media/37","", ScaleTypes.CENTER_CROP));
         slideModels.add(new SlideModel(R.drawable.projet2,"", ScaleTypes.CENTER_CROP));
         imageSlider.setImageList(slideModels);
     }

@@ -20,4 +20,9 @@ public interface PostulationApi {
 
     @GET("listByWorkerId/{workerId}")
     Call<List<Postulation>> getPostulationsByWorkerId(@Path("workerId") Long workerId);
+
+    @GET("byWorkerIdAndState/{workerId}/{state}")
+    Call<List<Postulation>> getPostulationByWorkerIdAndState(@Path("workerId") Long workerId, @Path("state") String state);
+
+
 }

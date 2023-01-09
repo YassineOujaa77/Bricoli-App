@@ -3,6 +3,7 @@ package com.example.bricoli.adapters;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,8 +68,7 @@ public class CurrentBidsAdapter extends BaseAdapter
             btn.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#17688F")));
             btn.setBackgroundResource(R.drawable.button_reglage);
             btn.setText(bid.getEtat());
-
-            img.setImageResource(bid.getPhoto());
+            img.setImageURI(Uri.parse(bid.getPhoto()));
             txtVille.setText(bid.getVille());
             txtNomComplet.setText(bid.getNomComplet());
             txtNote.setText(bid.getNote());
@@ -84,7 +84,7 @@ public class CurrentBidsAdapter extends BaseAdapter
             btn.setBackgroundResource(R.drawable.button_reglage);
             btn.setText(bid.getEtat());
 
-            img.setImageResource(bid.getPhoto());
+            img.setImageURI(Uri.parse(bid.getPhoto()));
             txtVille.setText(bid.getVille());
             txtNomComplet.setText(bid.getNomComplet());
             txtNote.setText(bid.getNote());
@@ -100,7 +100,7 @@ public class CurrentBidsAdapter extends BaseAdapter
             btn.setBackgroundResource(R.drawable.button_reglage);
             btn.setText(bid.getEtat());
 
-            img.setImageResource(bid.getPhoto());
+            img.setImageURI(Uri.parse(bid.getPhoto()));
             txtVille.setText(bid.getVille());
             txtNomComplet.setText(bid.getNomComplet());
             txtNote.setText(bid.getNote());
@@ -116,7 +116,7 @@ public class CurrentBidsAdapter extends BaseAdapter
             btn.setBackgroundResource(R.drawable.button_reglage);
             btn.setText(bid.getEtat());
 
-            img.setImageResource(bid.getPhoto());
+            img.setImageURI(Uri.parse(bid.getPhoto()));
             txtVille.setText(bid.getVille());
             txtNomComplet.setText(bid.getNomComplet());
             txtNote.setText(bid.getNote());

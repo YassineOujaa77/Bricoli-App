@@ -2,7 +2,7 @@ package com.example.bricoli.models;
 
 public class Bid
 {
-    int Photo;
+    String Photo;
     String Ville;
     String NomComplet;
     String Note;
@@ -11,7 +11,7 @@ public class Bid
     String Distance;
     String Etat;
 
-    public Bid(int photo, String ville, String nomComplet, String note, String prix, String period, String distance,String etat) {
+    public Bid(String photo, String ville, String nomComplet, String note, String prix, String period, String distance,String etat) {
         Photo = photo;
         Ville = ville;
         NomComplet = nomComplet;
@@ -22,11 +22,11 @@ public class Bid
         Etat=etat;
     }
 
-    public int getPhoto() {
+    public String getPhoto() {
         return Photo;
     }
 
-    public void setPhoto(int photo) {
+    public void setPhoto(String photo) {
         Photo = photo;
     }
 

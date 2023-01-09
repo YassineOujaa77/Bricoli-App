@@ -71,8 +71,10 @@ public class PostsActuelActivity extends AppCompatActivity {
                     String []Descriptions=new String[offers.size()];
                     String []Etats=new String[offers.size()];
                     String []States=new String[offers.size()];
+                    String []nbrBids=new String[offers.size()];
                     for(int i=0;i<offers.size();i++)
                     {
+                        nbrBids[i]="";
                         Categories[i]=offers.get(i).getCategory();
                         Descriptions[i]=offers.get(i).getDescription();
                         Date date1= offers.get(i).getCreatedAt();
@@ -106,7 +108,7 @@ public class PostsActuelActivity extends AppCompatActivity {
                     posts=new ArrayList<Post>();
                     for(int i=0;i<offers.size();i++)
                     {
-                        Post post=new Post(Categories[i],Periodes[i],Descriptions[i],nbBids[i],States[i]);
+                        Post post=new Post(Categories[i],Periodes[i],Descriptions[i],nbrBids[i],States[i]);
                         posts.add(post);
                     }
                     PostsActuelAdapter adapter=new PostsActuelAdapter(getApplicationContext(),posts);

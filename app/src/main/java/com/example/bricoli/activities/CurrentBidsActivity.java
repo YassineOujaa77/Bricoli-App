@@ -100,9 +100,13 @@ public class CurrentBidsActivity extends AppCompatActivity {
                             String []periodes=new String[postulations.size()];
                             String []states=new String[postulations.size()];
                             String []choix=new String[postulations.size()];
+                            String []distancee=new String[postulations.size()];
+                            String []cities=new String[postulations.size()];
 
                             for(int i=0;i<postulations.size();i++)
                             {
+                                distancee[i]="";
+                                cities[i]="Rabat";
                                 //Log.d("worker","**************************** "+worker.getFullName());
                                 imageProfils[i]=worker.getPhoto();
                                 Names[i]=worker.getFullName();
@@ -135,7 +139,7 @@ public class CurrentBidsActivity extends AppCompatActivity {
                             bids=new ArrayList<Bid>();
                             for(int i=0;i<postulations.size();i++)
                             {
-                                Bid bid=new Bid(Photos[i],Villes[i],Names[i],Notees[i],prices[i],periodes[i],Distances[i],choix[i]);
+                                Bid bid=new Bid(imageProfils[i],cities[i],Names[i],Notees[i],prices[i],periodes[i],distancee[i],choix[i]);
                                 bids.add(bid);
                             }
 

@@ -110,8 +110,8 @@ public class LoginActivity extends AppCompatActivity {
                 UserApi loginClient=retrofitClient.getRetrofit().create(UserApi.class);
 
 
-                Call<Worker> worker =login.getWorkerByPhoneNumber("hgsys");
-                Call<Client> client =loginClient.getClientByPhoneNumber("test");
+                Call<Worker> worker =login.getWorkerByPhoneNumber(username.getText().toString());
+                Call<Client> client =loginClient.getClientByPhoneNumber(username.getText().toString());
                 worker.enqueue(new Callback<Worker>() {
                     @Override
                     public void onResponse(Call<Worker> call, Response<Worker> response) {
@@ -132,9 +132,17 @@ public class LoginActivity extends AppCompatActivity {
                                     }
                                     else
                                     {
-                                        //Log.d("test","****************************************"+cl.getFullName());
-                                        Intent intent = new Intent(LoginActivity.this, ClientHomeActivity.class);
-                                        startActivity(intent);
+                                        if(cl.getPassword().equals(password.getText().toString()))
+                                        {
+                                            //Log.d("test","****************************************"+cl.getFullName());
+                                            Intent intent = new Intent(LoginActivity.this, ClientHomeActivity.class);
+                                            startActivity(intent);
+                                        }
+                                        else
+                                        {
+                                            Toast.makeText(LoginActivity.this, "Phone or password incorrect.", Toast.LENGTH_SHORT).show();
+                                        }
+
                                     }
                                 }
 
@@ -146,9 +154,17 @@ public class LoginActivity extends AppCompatActivity {
                         }
                         else
                         {
-                            //Log.d("test","*****************************"+worker.getFullName());
-                            Intent intent = new Intent(LoginActivity.this, WorkerHomeActivity.class);
-                            startActivity(intent);
+                            if(worker.getPassword().equals(password.getText().toString()))
+                            {
+                                //Log.d("test","*****************************"+worker.getFullName());
+                                Intent intent = new Intent(LoginActivity.this, WorkerHomeActivity.class);
+                                startActivity(intent);
+                            }
+                            else
+                            {
+                                Toast.makeText(LoginActivity.this, "Phone or password incorrect.", Toast.LENGTH_SHORT).show();
+                            }
+
 
                         }
 
