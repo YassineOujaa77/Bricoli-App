@@ -95,9 +95,17 @@
         <item>Décorateur</item>
         <item>Responsable nettoyage</item>
     </string-array>
+
     <string name="toast_client_home_catgo_desc">Veuillez remplir la catégorie et la description</string>
     <string name="toast_client_home_add_offer">Offre ajoutée</string>
     <string name="toast_client_home_fail_add_offer">Échec</string>
     <string name="no_postulation_found">Pas d'offres</string>
+
+    <string name="no_offer_found">Aucune offre trouvée</string>
+    <string name="duration_price_proposed_not_inserted">vous devez insérer la durée et le prix</string>
+    <string name="postulation_added">postulation ajoutée avec succès</string>
+    <string name="duration_price_proposed_not_valid">vous devez insérer une durée et un prix valide</string>
+
+
 
 </resources>

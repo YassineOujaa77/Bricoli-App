@@ -5,5 +5,5 @@ public enum OfferState {
     EN_COURS_EXECUTION,
     EN_COURS_NEGOCIATION,
     FINISHED,
-    offerstate
+    EN_ATTENTE_AND_EN_COURS_NEGOCIATION
 }
