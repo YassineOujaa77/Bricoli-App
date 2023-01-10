@@ -83,5 +83,21 @@
     <string name="newpassword">Nouveau mot de pass</string>
     <string name="confirmpassword">Confirmer le nouveau mot de pass</string>
     <string name="thewrongnumber">Ceci est un numéro non enregistré</string>
+    <string-array name="categories">
+        <item>Plomblier</item>
+        <item>Organisateur de fetes</item>
+        <item>Electricien</item>
+        <item>Maçon</item>
+        <item>Menuisier</item>
+        <item>Forgeron</item>
+        <item>Teinturier</item>
+        <item>Chef cuisinier</item>
+        <item>Décorateur</item>
+        <item>Responsable nettoyage</item>
+    </string-array>
+    <string name="no_offer_found">Aucune offre trouvée</string>
+    <string name="duration_price_proposed_not_inserted">vous devez insérer la durée et le prix</string>
+    <string name="postulation_added">postulation ajoutée avec succès</string>
+
 
 </resources>

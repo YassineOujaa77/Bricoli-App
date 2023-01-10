@@ -19,6 +19,9 @@ public interface OfferApi {
 
     @POST("offer")
     Call<Offer> addOffer(@Body Offer offer);
+
+    @PUT("offer/offers/{id}")
+    Call<Offer> updateOffer(@Path("id") Long offerId, @Body Offer offer);
     
     @GET("offer/byCategoryAndStateNotAlreadyApplied/{category}/{state}/{workerId}")
     Call<List<Offer>> getOfferByCategoryAndStateNotAlreadyApplied(@Path("category") String category,@Path("state") String state, @Path("workerId") Long workerId);

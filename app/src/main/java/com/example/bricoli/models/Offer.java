@@ -27,6 +27,15 @@ public class Offer implements Serializable {
         this.createdAt = createdAt;
         this.postulations = postulations;
     }
+    public Offer(Long offerId, String category, Client client, String description, String state, Date createdAt, Set<Postulation> postulations) {
+        this.offerId = offerId;
+        this.category = category;
+        this.client = client;
+        this.description = description;
+        this.state = state;
+        this.createdAt = createdAt;
+        this.postulations = postulations;
+    }
 
 
 
