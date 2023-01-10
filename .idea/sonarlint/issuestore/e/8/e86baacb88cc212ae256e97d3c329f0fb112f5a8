@@ -1,0 +1,6 @@
+
+†
+java:S1319"iThe type of "histories" should be an interface such as "List" rather than the implementation "ArrayList".(…º¾Ì8ƒºâóÏ0
+c
+java:S1226/"AIntroduce a new variable instead of reusing the parameter "view".(ò‹ºÕûÿÿÿÿ8ºâóÏ0
+u	java:S116"TRename this field "Histories" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ô¤ÁÏøÿÿÿÿ8´ºâóÏ0

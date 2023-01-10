@@ -28,6 +28,17 @@ public class Offer implements Serializable {
         this.postulations = postulations;
     }
 
+    public Offer(String category, Client client, String description, String state, Date createdAt, Set<Postulation> postulations) {
+
+        this.category = category;
+        this.client = client;
+        this.description = description;
+        this.state = state;
+        this.createdAt = createdAt;
+        this.postulations = postulations;
+    }
+
+
 
 
     @SerializedName("Text")

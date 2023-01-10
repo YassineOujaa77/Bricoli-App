@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.bricoli.adapters.OfferAdapter;
 import com.example.bricoli.enumeration.Category;
@@ -76,23 +77,26 @@ public class WorkerHomeActivity extends AppCompatActivity {
     }
 
     private void callGetOffersByCategroyAndStateApi(){
-        Worker worker = new Worker(1L,"cin","pass","adress",10L,1,"ggg","fullName","ggggg","666666","token");
+
+        Worker worker = new Worker(1L,"cin","pass","adress",10L,1,"ggg","fullName",Category.Plomblier.toString(),"666666","");
+
         RetrofitService retrofit = new RetrofitService();
         OfferApi offerApi = retrofit.getRetrofit().create(OfferApi.class);
-        Call<List<Offer>> offersApi=offerApi.getOfferByCategoryAndStateNotAlreadyApplied(getClientCategory(), OfferState.offerstate.toString(),worker.getUserId());
+        Call<List<Offer>> offersApi=offerApi.getOfferByCategoryAndStateNotAlreadyApplied(worker.getWorkerField(), OfferState.EN_ATTENTE_AND_EN_COURS_NEGOCIATION.toString(),worker.getUserId());
         offersApi.enqueue(new Callback<List<Offer>>() {
             @Override
             public void onResponse(Call<List<Offer>> call, Response<List<Offer>> response) {
                 List<Offer> offerList = response.body();
                 if(offerList.size()>0){
-
                     associateOfferAdapterAndAnnouncementList(offerList);
                 }
+                else {
+                    Toast.makeText(getApplicationContext(),getString(R.string.no_offer_found),Toast.LENGTH_SHORT).show();
+                }
             }
-
             @Override
             public void onFailure(Call<List<Offer>> call, Throwable t) {
-                Log.d("client","*********************** Echec");
+                Log.d("OFFER","*********************** GET OFFER ByCategroyAndStateNotAlreadyApplied Echec");
             }
         });
     }
@@ -102,8 +106,5 @@ public class WorkerHomeActivity extends AppCompatActivity {
         }
         OfferAdapter offerAdapter = new OfferAdapter(WorkerHomeActivity.this,R.layout.annoucement_cell_layout,offers);
         announcementList.setAdapter(offerAdapter);
-    }
-    private String getClientCategory(){
-        return Category.offercategory.toString();
     }
 }

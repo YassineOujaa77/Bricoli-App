@@ -2,14 +2,14 @@ package com.example.bricoli.models;
 
 public class History
 {
-    int Image;
+    String Image;
     String NomComplet;
     String Ville;
     String Note;
     String Date;
     String Description;
 
-    public History(int image, String nomComplet, String ville, String note, String date, String description) {
+    public History(String image, String nomComplet, String ville, String note, String date, String description) {
         Image = image;
         NomComplet = nomComplet;
         Ville = ville;
@@ -18,11 +18,11 @@ public class History
         Description = description;
     }
 
-    public int getImage() {
+    public String getImage() {
         return Image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         Image = image;
     }
 
