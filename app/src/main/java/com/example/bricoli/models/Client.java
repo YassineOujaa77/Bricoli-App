@@ -6,6 +6,10 @@ import java.util.Set;
 
 public class Client extends User implements Serializable {
     private Set<Offer> offers = new HashSet<>();
+
+    public Client() {
+    }
+
     public Client(Long userId, String cin, String password, String address, Long sommeRating, Integer numberOfRating, String photo, String fullName, String workerField, String phone) {
         setUserId(userId);
         setCin(cin);
