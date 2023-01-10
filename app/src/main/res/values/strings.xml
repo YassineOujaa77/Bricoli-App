@@ -95,5 +95,7 @@
     <string name="no_offer_found">No Offer Found</string>
     <string name="duration_price_proposed_not_inserted">you should insert the duration and the price</string>
     <string name="postulation_added">applyment added with success</string>
+    <string name="duration_price_proposed_not_valid">you should insert a valid duration and price</string>
+
 
 </resources>

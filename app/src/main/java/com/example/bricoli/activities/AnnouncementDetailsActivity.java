@@ -45,7 +45,8 @@ public class AnnouncementDetailsActivity extends AppCompatActivity {
         Intent  intent= getIntent();
         this.offer = (Offer) intent.getSerializableExtra("offer");
         fullName.setText(offer.getClient().getFullName());
-        rating.setText(offer.getClient().getSommeRating().toString());
+        Long ratingValue = offer.getClient().getSommeRating() / offer.getClient().getNumberOfRating();
+        rating.setText(ratingValue + "("+offer.getClient().getNumberOfRating().toString()+")");
         description.setText(offer.getDescription());
 
     }
@@ -76,6 +77,7 @@ public class AnnouncementDetailsActivity extends AppCompatActivity {
                     }
                 }
                 catch(Exception e){
+                    Toast.makeText(getApplicationContext(),getString(R.string.duration_price_proposed_not_valid),Toast.LENGTH_SHORT).show();
 
                 }
             }
