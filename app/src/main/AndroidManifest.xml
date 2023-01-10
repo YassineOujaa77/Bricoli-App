@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="ExtraText">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -67,7 +70,10 @@
             android:exported="false" />
         <activity
             android:name=".activities.WorkerProfilForClientActivity"
-            android:exported="false" />
+            android:exported="false">
+
+        </activity>
+
         <activity
             android:name=".activities.AddRecentJobsPicturesActivity"
             android:exported="false" />
@@ -94,14 +100,23 @@
             android:name=".activities.ClientHomeActivity"
             android:exported="true">
 
+
             <meta-data
                 android:name="preloaded_fonts"
                 android:resource="@array/preloaded_fonts" />
         </activity>
         <activity
             android:name=".activities.splashactivity"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/Theme.splashtheme">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+
 
 
             <meta-data
@@ -159,6 +174,8 @@
         <activity
             android:name=".activities.PostsActuelActivity"
             android:exported="false">
+
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -166,6 +183,8 @@
         <activity
             android:name=".activities.CurrentBidsActivity"
             android:exported="false">
+
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -173,6 +192,9 @@
         <activity
             android:name=".activities.HistoryOffreActivity"
             android:exported="false">
+
+
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
