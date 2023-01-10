@@ -58,6 +58,9 @@ public class JobDetailsForWorkerActivity extends AppCompatActivity {
         //this.postulation = (Postulation) intent.getSerializableExtra("postulation_bids_worker");
         Worker worker = new Worker(1L,"cin","pass","adress",10L,1,"ggg","fullName","ggggg","666666");
         Client client = new Client(1L,"cin","zzzzz","adress",2L,2,"dfghj","name","gghhhhh","3456788","token");
+        // Client client = postulation.getOffer().getClient();
+        // Worker worker = postulation.getWorker();
+        // Offer offer = postulation.getOffer();
         Offer offer = new Offer(5L,"Plomblier",client,"ttttt","EN_COURS_NEGOCIATION",null,null);
         this.postulation = new Postulation(552L,3L,4,"WAITING",null,worker,offer);
         fillJobDetailsForWorker(this.postulation);
