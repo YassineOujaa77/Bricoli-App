@@ -1,8 +1,12 @@
 package com.example.bricoli.retrofit;
 
+
 import com.example.bricoli.models.Offer;
+import com.example.bricoli.models.Client;
 import com.example.bricoli.models.Postulation;
 import java.util.ArrayList;
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.PUT;
@@ -20,4 +24,10 @@ public interface PostulationApi {
 
     @PUT("postulation/byPostulationId/{postulationId}")
     Call<Postulation> updatePostulation(@Path("postulationId") Long postulationId, @Body Postulation postulation);
+
+    @GET("postulation/byOfferIdAndState/{offerId}/{state}")
+    Call<List<Postulation>> getPostulationByOfferIdAndState(@Path("offerId") Long offerId, @Path("state") String state);
+
+    
+
 }

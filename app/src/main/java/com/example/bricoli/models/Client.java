@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class Client extends User implements Serializable {
     private Set<Offer> offers = new HashSet<>();
-    public Client(Long userId, String cin, String password, String address, Long sommeRating, Integer numberOfRating, String photo, String fullName, String workerField, String phone) {
+    public Client(Long userId, String cin, String password, String address, Long sommeRating, Integer numberOfRating, String photo, String fullName, String workerField, String phone,String token) {
         setUserId(userId);
         setCin(cin);
         setPassword(password);
@@ -17,6 +17,7 @@ public class Client extends User implements Serializable {
         setFullName(fullName);
         setWorkerField(workerField);
         setPhone(phone);
+        setToken(token);
     }
 
 

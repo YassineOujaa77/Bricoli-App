@@ -275,6 +275,7 @@ public class SignupActivity extends AppCompatActivity {
                                             adresseparlatitude = latitude + "";
                                             adresseparlatitude.concat("/");
                                             adresseparlatitude.concat(longitude + "");
+                                            adresseparlatitude.concat(","+ville);
                                             addresstofillautomatically.setText(country + "," + ville + "," + adresseapresville);
                                         } catch (IOException e) {
                                             e.printStackTrace();

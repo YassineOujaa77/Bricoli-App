@@ -77,7 +77,9 @@ public class WorkerHomeActivity extends AppCompatActivity {
     }
 
     private void callGetOffersByCategroyAndStateApi(){
-        Worker worker = new Worker(1L,"cin","pass","adress",10L,1,"ggg","fullName",Category.Plomblier.toString(),"666666");
+
+        Worker worker = new Worker(1L,"cin","pass","adress",10L,1,"ggg","fullName",Category.Plomblier.toString(),"666666","token");
+
         RetrofitService retrofit = new RetrofitService();
         OfferApi offerApi = retrofit.getRetrofit().create(OfferApi.class);
         Call<List<Offer>> offersApi=offerApi.getOfferByCategoryAndStateNotAlreadyApplied(worker.getWorkerField(), OfferState.EN_ATTENTE_AND_EN_COURS_NEGOCIATION.toString(),worker.getUserId());

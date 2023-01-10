@@ -9,10 +9,10 @@ import retrofit2.http.Path;
 
 public interface UserApi
 {
-    @GET("byPhone/{phone}")
+    @GET("client/byPhone/{phone}")
     Call <Client> getClientByPhoneNumber(@Path("phone") String phone);
 
-    @GET("byPhone/{phone}")
+    @GET("worker/byPhone/{phone}")
     Call <Worker> getWorkerByPhoneNumber(@Path("phone") String phone);
 
 }

@@ -7,7 +7,7 @@ import java.util.Set;
 public class Worker extends User implements Serializable {
     private Set<Job> jobs = new HashSet<>();
     private Set<Postulation> postulations = new HashSet<>();
-    public Worker(Long userId, String cin, String password, String address, Long sommeRating, Integer numberOfRating, String photo, String fullName, String workerField, String phone) {
+    public Worker(Long userId, String cin, String password, String address, Long sommeRating, Integer numberOfRating, String photo, String fullName, String workerField, String phone,String token) {
         setUserId(userId);
         setCin(cin);
         setPassword(password);
@@ -18,6 +18,7 @@ public class Worker extends User implements Serializable {
         setFullName(fullName);
         setWorkerField(workerField);
         setPhone(phone);
+        setToken(token);
     }
 
     public Set<Job> getJobs() {

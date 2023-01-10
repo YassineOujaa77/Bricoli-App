@@ -16,4 +16,7 @@ public interface ClientApi {
     @PUT("client/updateClient/{clientId}")
     Call<Client> updateClient(@Body Client client, @Path("clientId") Long clientId);
 
+    @GET("client/byId/{id}")
+    Call<Client> getClientById(@Path("id") Long clientId);
+
 }

@@ -89,8 +89,11 @@ public class ClientHomeActivity extends AppCompatActivity {
                     if( !textInputLayout1.getEditText().getText().toString().equals(("")) && !textInputLayout2.getEditText().getText().toString().equals((""))){
                         String category = getStringArrayItem(textInputLayout1.getEditText().getText().toString());
                         String description = textInputLayout2.getEditText().getText().toString();
-                        Client client = new Client(2L, "cin","zzzzz", "adress", 2L, 2, "dfghj", "name", "gghhhhh", "3456788" );
+
+
+                        Client client = new Client(1L, "AE789098","123", "lot 3 rabat", 22L, 11, "photo", "Salma", "testtest", "0667888888","/////////" );
                         Offer offerToAdd =new Offer(category, client, description, OfferState.EN_ATTENTE.toString(), null, null);
+
                         callAddOfferApi(offerToAdd);
                     }
                     else{

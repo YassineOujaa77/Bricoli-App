@@ -175,11 +175,11 @@
                                 android:textSize="45px"
                                 android:textStyle="bold" />
                             <TextView
-
+                                android:id="@+id/daysduration"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/poppins_regular"
-                                android:text="   2 "
+                                android:text=""
                                 android:textSize="45px"
                                 android:textStyle="bold" />
 

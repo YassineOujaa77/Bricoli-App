@@ -26,10 +26,16 @@ import com.example.bricoli.models.Client;
 import com.example.bricoli.models.Offer;
 import com.example.bricoli.models.Postulation;
 import com.example.bricoli.models.Worker;
+
 import com.example.bricoli.retrofit.ClientApi;
 import com.example.bricoli.retrofit.OfferApi;
 import com.example.bricoli.retrofit.PostulationApi;
 import com.example.bricoli.retrofit.RetrofitService;
+
+import com.example.bricoli.retrofit.PostulationApi;
+import com.example.bricoli.retrofit.RetrofitService;
+import com.example.bricoli.retrofit.WorkerApi;
+
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -40,8 +46,12 @@ public class JobDetailsForWorkerActivity extends AppCompatActivity {
     private Button callbutton;
     private String clientnumber;
     private ImageButton imageButton;
+
     private Postulation postulation;
     //get postulation from intent
+
+    public static Offer staticoffre;//should be initialised by an offre
+
 
     public void openMap(){
         Intent intent=new Intent(this, MapForWorkerActivity.class);
@@ -53,18 +63,20 @@ public class JobDetailsForWorkerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_details_for_worker);
+
         //read from intent
         //Intent intent = getIntent();
         //this.postulation = (Postulation) intent.getSerializableExtra("postulationToJobDetailsActivity");
         Worker worker = new Worker(1L,"cin","pass","adress",10L,1,"ggg","fullName","ggggg","666666");
-        Client client = new Client(1L,"cin","zzzzz","adress",2L,2,"dfghj","name","gghhhhh","3456788");
+        Client client = new Client(1L,"cin","zzzzz","adress",2L,2,"dfghj","name","gghhhhh","3456788","this is a token to get ");
         Offer offer = new Offer(5L,"Plomblier",client,"ttttt","EN_COURS_NEGOCIATION",null,null);
         this.postulation = new Postulation(552L,3L,4,"WAITING",null,worker,offer);
         fillJobDetailsForWorker(this.postulation);
         Button finishButton = (Button) findViewById(R.id.job_details_worker_finishbutton);
         finishButton.setOnClickListener(onfinishButtonClicked());
+
         //initialize the number
-        clientnumber="0658601214";
+        clientnumber=client.getPhone();
         callbutton = findViewById(R.id.callbutton);
 
         Fragment fragment= new MapFragmentForWorker();

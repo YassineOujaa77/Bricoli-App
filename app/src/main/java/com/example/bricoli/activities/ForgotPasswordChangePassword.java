@@ -18,7 +18,6 @@ import com.example.bricoli.models.Client;
 import com.example.bricoli.models.Worker;
 import com.example.bricoli.retrofit.ClientApi;
 import com.example.bricoli.retrofit.RetrofitService;
-import com.example.bricoli.retrofit.RetrofitServiceForWorker;
 import com.example.bricoli.retrofit.WorkerApi;
 import com.example.bricoli.util.CryptingMethod;
 import com.example.bricoli.util.FcmNotificationsSender;
@@ -74,7 +73,7 @@ public class ForgotPasswordChangePassword extends AppCompatActivity {
 
                         if(myclient==null) {
                             //update worker
-                            RetrofitServiceForWorker workeretrofit = new RetrofitServiceForWorker();
+                            RetrofitService workeretrofit = new RetrofitService();
                             WorkerApi myworkerapi = workeretrofit.getRetrofit().create(WorkerApi.class);
                             Worker workertocopie=myworker;
                             try {
@@ -103,7 +102,8 @@ public class ForgotPasswordChangePassword extends AppCompatActivity {
 
                             FcmNotificationsSender notificationsSender = new FcmNotificationsSender(token, "Operation Accomplie", "Vous avez changé avec succès votre mot de pass", getApplicationContext(), ForgotPasswordChangePassword.this);
                             notificationsSender.SendNotifications();
-                        }else {
+                        }else
+                        {
                             //update client
                             RetrofitService retrofit = new RetrofitService();
                             ClientApi myclientapi = retrofit.getRetrofit().create(ClientApi.class);
@@ -136,7 +136,7 @@ public class ForgotPasswordChangePassword extends AppCompatActivity {
                             notificationsSender.SendNotifications();
 
 
-                    }
+                        }
                     }
                     else {// les deux mots de pass sont pas egaux
                         Toast.makeText(ForgotPasswordChangePassword.this, "Les mots de pass entrés ne sont pas égaux", Toast.LENGTH_LONG).show();
