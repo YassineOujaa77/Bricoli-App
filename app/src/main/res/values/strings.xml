@@ -92,7 +92,7 @@
     <string name="thewrongnumber">This is a non registered number</string>
     <string name="thewrongcode">Wrong verification code</string>
     <string name="upload_image">Upload image</string>
-    <string name="toast_client_home_page">Please fill both category and description</string>
-
-
+    <string name="toast_client_home_catgo_desc">Please fill both category and description</string>
+    <string name="toast_client_home_add_offer">Offer added </string>
+    <string name="toast_client_home_fail_add_offer">Fail</string>
 </resources>

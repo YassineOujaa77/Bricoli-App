@@ -95,6 +95,8 @@
         <item>Décorateur</item>
         <item>Responsable nettoyage</item>
     </string-array>
-    <string name="toast_client_home_page">Veuillez remplir la catégorie et la description</string>
+    <string name="toast_client_home_catgo_desc">Veuillez remplir la catégorie et la description</string>
+    <string name="toast_client_home_add_offer">Offre ajoutée</string>
+    <string name="toast_client_home_fail_add_offer">Échec</string>
 
 </resources>
