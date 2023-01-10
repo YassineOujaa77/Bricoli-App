@@ -101,6 +101,6 @@
         <item> مختص ديكور </item>
         <item> مدير التنظيف </item>
     </string-array>
-
+    <string name="toast_client_home_page">الرجاء ملء كلا التصنيف والوصف</string>
 
 </resources>
