@@ -55,7 +55,7 @@ public class JobDetailsForWorkerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_job_details_for_worker);
         //read from intent
         //Intent intent = getIntent();
-        //this.postulation = (Postulation) intent.getSerializableExtra("postulationToJobDetailsActivity");
+        //this.postulation = (Postulation) intent.getSerializableExtra("postulation_bids_worker");
         Worker worker = new Worker(1L,"cin","pass","adress",10L,1,"ggg","fullName","ggggg","666666");
         Client client = new Client(1L,"cin","zzzzz","adress",2L,2,"dfghj","name","gghhhhh","3456788","token");
         Offer offer = new Offer(5L,"Plomblier",client,"ttttt","EN_COURS_NEGOCIATION",null,null);
