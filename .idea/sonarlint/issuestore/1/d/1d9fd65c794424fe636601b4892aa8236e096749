@@ -1,0 +1,12 @@
+
+J
+java:S1604<"(Make this anonymous inner class a lambda(®¯ÊŠøÿÿÿÿ8í¥óØ0
+J
+java:S1604C"(Make this anonymous inner class a lambda(´¸©”üÿÿÿÿ8‘í¥óØ0
+<
+java:S1170"!Make this final field static too.(Ç¨ï¥şÿÿÿÿ
+7
+java:S1170 "!Make this final field static too.(·»À”
+q
+java:S1450"[Remove the "requestQueue" field and declare it as a local variable in the relevant methods.(©¯Í€
+c	java:S100,"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤ÑÿĞ

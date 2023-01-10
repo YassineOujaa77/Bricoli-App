@@ -7,8 +7,7 @@
     app:cardBackgroundColor="@color/card_background"
     app:cardCornerRadius="14dp"
     app:cardElevation="16dp"
-    app:cardUseCompatPadding="true"
-    >
+    app:cardUseCompatPadding="true">
 
 
     <RelativeLayout
@@ -71,7 +70,6 @@
 
         </LinearLayout>
 
-
         <TextView
             android:id="@+id/city_textView"
             android:layout_width="wrap_content"
@@ -87,7 +85,6 @@
             android:text="Rabat"
             android:textColor="@color/black"
             android:textSize="16dp" />
-
 
         <LinearLayout
             android:id="@+id/layout2"
