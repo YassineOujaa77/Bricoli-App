@@ -21,6 +21,15 @@ public class Postulation implements Serializable {
         this.worker = worker;
         this.offer = offer;
     }
+    public Postulation(Long postulationId, float price, int duration, String state, Date createdAt, Worker worker, Offer offer) {
+        this.postulationId = postulationId;
+        this.price = price;
+        this.duration = duration;
+        this.state = state;
+        this.createdAt = createdAt;
+        this.worker = worker;
+        this.offer = offer;
+    }
 
     public Long getPostulationId() {
         return postulationId;
