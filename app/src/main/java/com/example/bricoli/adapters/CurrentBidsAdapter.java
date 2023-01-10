@@ -68,7 +68,8 @@ public class CurrentBidsAdapter extends BaseAdapter
             btn.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#17688F")));
             btn.setBackgroundResource(R.drawable.button_reglage);
             btn.setText(bid.getEtat());
-            img.setImageURI(Uri.parse(bid.getPhoto()));
+            //img.setImageURI(Uri.parse(bid.getPhoto()));
+            img.setImageResource(R.drawable.photo);
             txtVille.setText(bid.getVille());
             txtNomComplet.setText(bid.getNomComplet());
             txtNote.setText(bid.getNote());
@@ -83,8 +84,8 @@ public class CurrentBidsAdapter extends BaseAdapter
             btn.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#DC3545")));
             btn.setBackgroundResource(R.drawable.button_reglage);
             btn.setText(bid.getEtat());
-
-            img.setImageURI(Uri.parse(bid.getPhoto()));
+            img.setImageResource(R.drawable.photo);
+            //img.setImageURI(Uri.parse(bid.getPhoto()));
             txtVille.setText(bid.getVille());
             txtNomComplet.setText(bid.getNomComplet());
             txtNote.setText(bid.getNote());
@@ -100,7 +101,8 @@ public class CurrentBidsAdapter extends BaseAdapter
             btn.setBackgroundResource(R.drawable.button_reglage);
             btn.setText(bid.getEtat());
 
-            img.setImageURI(Uri.parse(bid.getPhoto()));
+            //img.setImageURI(Uri.parse(bid.getPhoto()));
+            img.setImageResource(R.drawable.photo);
             txtVille.setText(bid.getVille());
             txtNomComplet.setText(bid.getNomComplet());
             txtNote.setText(bid.getNote());
@@ -116,7 +118,8 @@ public class CurrentBidsAdapter extends BaseAdapter
             btn.setBackgroundResource(R.drawable.button_reglage);
             btn.setText(bid.getEtat());
 
-            img.setImageURI(Uri.parse(bid.getPhoto()));
+            //img.setImageURI(Uri.parse(bid.getPhoto()));
+            img.setImageResource(R.drawable.photo);
             txtVille.setText(bid.getVille());
             txtNomComplet.setText(bid.getNomComplet());
             txtNote.setText(bid.getNote());

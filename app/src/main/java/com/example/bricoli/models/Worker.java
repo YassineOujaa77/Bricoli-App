@@ -20,7 +20,7 @@ public class Worker extends User implements Serializable {
         setPhone(phone);
     }
 
-    public Worker( String cin, String password, String address, Long sommeRating, Integer numberOfRating, String photo, String fullName, String workerField, String phone) {
+    public Worker( String cin, String password, String address, Long sommeRating, Integer numberOfRating, String photo, String fullName, String workerField, String phone,String token) {
         setCin(cin);
         setPassword(password);
         setAddress(address);
@@ -30,6 +30,7 @@ public class Worker extends User implements Serializable {
         setFullName(fullName);
         setWorkerField(workerField);
         setPhone(phone);
+        setToken(token);
     }
 
     public Worker() {

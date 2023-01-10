@@ -19,13 +19,13 @@ import retrofit2.http.Path;
 public interface WorkerApi {
 
     @Multipart
-    @PUT("updateWorker/{workerId}")
+    @PUT("worker/updateWorker/{workerId}")
     Call<Worker> updateWorker(@Body Worker worker, @Path("workerId") Long workerId);
 
-    @GET("byId/{workerId}")
-    Call<Worker> getWorkerById(@Path("workerId") Long id);
+    @GET("worker/byId/{workerId}")
+    Call<Worker> getWorkerById(@Path("workerId") Long workerId);
 
-    @DELETE("deleteWorker/{workerId}")
+    @DELETE("worker/deleteWorker/{workerId}")
     Call<Void> deleteWorker(@Path("workerId") Long workerId);
 
     @POST("worker/addWorker")

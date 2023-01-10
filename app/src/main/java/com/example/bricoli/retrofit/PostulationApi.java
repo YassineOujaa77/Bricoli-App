@@ -24,10 +24,10 @@ public interface PostulationApi {
     Call<List<Postulation>> getPostulationByOfferId(@Path("offerId") int offerId);
 
 
-    @GET("listByWorkerId/{workerId}")
+    @GET("postulation/listByWorkerId/{workerId}")
     Call<List<Postulation>> getPostulationsByWorkerId(@Path("workerId") Long workerId);
 
-    @GET("byWorkerIdAndState/{workerId}/{state}")
+    @GET("postulation/byWorkerIdAndState/{workerId}/{state}")
     Call<List<Postulation>> getPostulationByWorkerIdAndState(@Path("workerId") Long workerId, @Path("state") String state);
 
 

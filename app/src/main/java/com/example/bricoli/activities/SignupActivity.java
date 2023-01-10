@@ -30,6 +30,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import com.example.bricoli.R;
+import com.example.bricoli.enumeration.Category;
 import com.example.bricoli.models.Client;
 import com.example.bricoli.models.User;
 import com.example.bricoli.models.Worker;
@@ -74,6 +75,7 @@ public class SignupActivity extends AppCompatActivity {
     String country;
     String adresseapresville;
     String adresseparlatitude;// format: latitude/longitude
+    String token;
     private LocationRequest locationRequest;
     private TextInputEditText fullnameEditText;
     private TextInputEditText phoneEditText;
@@ -232,15 +234,27 @@ public class SignupActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
 
-
+                    FirebaseMessaging.getInstance().getToken()
+                            .addOnCompleteListener(new OnCompleteListener<String>() {
+                                @Override
+                                public void onComplete(@NonNull Task<String> task) {
+                                    if (!task.isSuccessful()) {
+                                        Log.w(TAG, "Fetching FCM registration token failed", task.getException());
+                                        return;
+                                    }
+                                    // Get new FCM registration token
+                                    token = task.getResult();
+                                }
+                            });
                     if (clientOrWorker){
 
-                        Client client = new Client(cin, password, adresseparlatitude, 0L, 0, URI,fullname,  "", phone);
+                        Client client = new Client(cin, password, adresseparlatitude, 0L, 0, URI,fullname, "", phone,token);
+
                         handleClientOrWorker(clientOrWorker,client,null);
 
                     }else{
 
-                        Worker worker = new Worker(cin, password, adresseparlatitude, 0L, 0, URI,fullname,  "", phone);
+                        Worker worker = new Worker(cin, password, adresseparlatitude, 0L, 0, URI,fullname, Category.Electricien.toString(), phone,token);
                         handleClientOrWorker(clientOrWorker,null,worker);
                     }
 
@@ -341,9 +355,9 @@ public class SignupActivity extends AppCompatActivity {
                                             country = addresses.get(0).getCountryName();
                                             adresseapresville = addresses.get(0).getAddressLine(0);
                                             adresseparlatitude = latitude + "";
-                                            adresseparlatitude.concat("/");
-                                            adresseparlatitude.concat(longitude + "");
-                                            adresseparlatitude.concat(","+ville);
+                                            adresseparlatitude = adresseparlatitude + "/";
+                                            adresseparlatitude = adresseparlatitude + longitude;
+                                            adresseparlatitude = adresseparlatitude + ","+ ville;
                                             addresstofillautomatically.setText(country + "," + ville + "," + adresseapresville);
                                         } catch (IOException e) {
                                             e.printStackTrace();
@@ -456,7 +470,7 @@ public class SignupActivity extends AppCompatActivity {
             // Password is too short
             passwordLayout.setErrorEnabled(true);
             passwordLayout.setError("Password must be at least " + minPasswordLength + " characters long");
-            passwordLayout.setEndIconMode(1);
+            //passwordLayout.setEndIconMode(1);
             passwordLayout.setEndIconDrawable(null);
         }
     }

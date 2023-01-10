@@ -1,6 +1,7 @@
 package com.example.bricoli.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -56,10 +57,13 @@ public class PostsActuelActivity extends AppCompatActivity {
         setContentView(R.layout.activity_posts_actuel);
         list=findViewById(R.id.PostsList);
         offers=new ArrayList<Offer>();
+        SharedPreferences preferences = getSharedPreferences("contenu", MODE_PRIVATE);
+        String state=preferences.getString("role","default");
+        Long idUser=preferences.getLong("IdUser",-1l);
 
         RetrofitServiceForOffer retrofit=new RetrofitServiceForOffer();
         OfferApi offer=retrofit.getRetrofit().create(OfferApi.class);
-        offer.getOfferByClientId(1l).enqueue(new Callback<List<Offer>>() {
+        offer.getOfferByClientId(idUser).enqueue(new Callback<List<Offer>>() {
             @Override
             public void onResponse(Call<List<Offer>> call, Response<List<Offer>> response) {
                 offers=response.body();

@@ -3,6 +3,7 @@ package com.example.bricoli.activities;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -47,11 +48,10 @@ public class HistoryOffreActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history_offre);
-
-        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
-
-
-
+        SharedPreferences preferences = getSharedPreferences("contenu", MODE_PRIVATE);
+        String state=preferences.getString("role","default");
+        Long idUser=preferences.getLong("IdUser",-1l);
+        //ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
         historylist = findViewById(R.id.historylist);
         historylist.setBackgroundColor(Color.WHITE);
         postulations=new ArrayList<Postulation>();
@@ -59,7 +59,7 @@ public class HistoryOffreActivity extends AppCompatActivity {
 
         RetrofitServiceForPostulation retrofit = new RetrofitServiceForPostulation();
         PostulationApi postulation=retrofit.getRetrofit().create(PostulationApi.class);
-        postulation.getPostulationByWorkerIdAndState(1l,"FINISHED").enqueue(new Callback<List<Postulation>>() {
+        postulation.getPostulationByWorkerIdAndState(idUser,"FINISHED").enqueue(new Callback<List<Postulation>>() {
             @Override
             public void onResponse(Call<List<Postulation>> call, Response<List<Postulation>> response) {
                 postulations=response.body();
@@ -82,7 +82,11 @@ public class HistoryOffreActivity extends AppCompatActivity {
                         int duration=postulations.get(i).getDuration();
                         periods[i]=duration+" Days";
                         desc[i]=postulations.get(i).getOffer().getDescription();
-                        cities[i]="Rabat";
+                        String[] address = postulations.get(i).getOffer().getClient().getAddress().split(",",2);
+                        if(address.length>=1){
+                            cities[i]=address[1];
+                        }
+                        //cities[i]="Rabat";
                     }
                     histories=new ArrayList<History>();
                     for(int i=0;i<postulations.size();i++)

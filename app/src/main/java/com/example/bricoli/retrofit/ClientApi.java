@@ -27,15 +27,12 @@ public interface ClientApi {
     Call<Client> updateClient(@Body Client client, @Path("clientId") Long clientId);
 
 
-    @PUT("client/updateClient/{clientId}")
-    Call<Client> updateClient(@Body Client client, @Path("clientId") Long clientId);
-
     @POST("client/addClient")
     Call<Client> addClient(@Body Client client);
     
     
 
-    @DELETE("deleteClient/{clientId}")
+    @DELETE("client/deleteClient/{clientId}")
     Call <Void> deleteClient(@Path("clientId") Long clientId);
 
     

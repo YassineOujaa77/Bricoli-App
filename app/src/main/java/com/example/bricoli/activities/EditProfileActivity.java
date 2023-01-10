@@ -117,7 +117,8 @@ public class EditProfileActivity extends AppCompatActivity {
                         ,                   response.body().getPhoto()
                         ,                   response.body().getFullName()
                         ,                   response.body().getWorkerField()
-                        ,                   response.body().getPhone());
+                        ,                   response.body().getPhone()
+                        ,                   response.body().getToken());
 
 
                 clientFromDb.setPhoto(path);

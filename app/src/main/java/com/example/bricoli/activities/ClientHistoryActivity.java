@@ -3,6 +3,7 @@ package com.example.bricoli.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.bricoli.R;
 import com.example.bricoli.adapters.PostulationAdapter;
+import com.example.bricoli.enumeration.PostulationState;
 import com.example.bricoli.models.Postulation;
 import com.example.bricoli.retrofit.PostulationApi;
 import com.example.bricoli.retrofit.RetrofitService;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ListView;
@@ -71,7 +73,10 @@ public class ClientHistoryActivity extends AppCompatActivity {
     private void loadPostulations() {
         RetrofitService retrofitService2 = new RetrofitService();
         PostulationApi postulationApi = retrofitService2.getRetrofit().create(PostulationApi.class);
-        Call<List<Postulation>> postulation = postulationApi.getPostulationByClientIdAndState(4L, "0");
+        SharedPreferences preferences = getSharedPreferences("contenu", MODE_PRIVATE);
+        String state=preferences.getString("role","default");
+        Long idUser=preferences.getLong("IdUser",-1l);
+        Call<List<Postulation>> postulation = postulationApi.getPostulationByClientIdAndState(idUser, PostulationState.FINISHED.toString());
         postulation.enqueue(new Callback<List<Postulation>>() {
             @Override
             public void onResponse(Call<List<Postulation>> call, Response<List<Postulation>> response) {

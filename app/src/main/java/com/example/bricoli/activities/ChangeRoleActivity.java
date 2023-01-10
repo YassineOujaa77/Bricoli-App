@@ -49,7 +49,7 @@ public class ChangeRoleActivity extends AppCompatActivity {
         {
              worker.setChecked(true);
         }
-        btnSave.setOnClickListener(new View.OnClickListener() {
+        /*btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 RetrofitServiceForWorker retrofitWorker=new RetrofitServiceForWorker();
@@ -182,6 +182,6 @@ public class ChangeRoleActivity extends AppCompatActivity {
 
 
 
-
+*/
     }
 }

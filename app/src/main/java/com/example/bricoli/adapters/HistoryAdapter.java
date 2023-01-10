@@ -64,8 +64,8 @@ public class HistoryAdapter extends BaseAdapter
 
         imgi1.setImageResource(R.drawable.vector);
         imgi2.setImageResource(R.drawable.star);
-        //img.setImageResource(history.getImage());
-        img.setImageURI(Uri.parse(history.getImage()));
+        img.setImageResource(R.drawable.photo);
+        //img.setImageURI(Uri.parse(history.getImage()));
         //img.setImageURI(Uri.fromFile(new File("content://media/external/images/media/37")));
 
         nom.setText(history.getNomComplet());

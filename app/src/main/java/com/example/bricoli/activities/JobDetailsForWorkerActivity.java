@@ -57,7 +57,7 @@ public class JobDetailsForWorkerActivity extends AppCompatActivity {
         //Intent intent = getIntent();
         //this.postulation = (Postulation) intent.getSerializableExtra("postulationToJobDetailsActivity");
         Worker worker = new Worker(1L,"cin","pass","adress",10L,1,"ggg","fullName","ggggg","666666");
-        Client client = new Client(1L,"cin","zzzzz","adress",2L,2,"dfghj","name","gghhhhh","3456788");
+        Client client = new Client(1L,"cin","zzzzz","adress",2L,2,"dfghj","name","gghhhhh","3456788","token");
         Offer offer = new Offer(5L,"Plomblier",client,"ttttt","EN_COURS_NEGOCIATION",null,null);
         this.postulation = new Postulation(552L,3L,4,"WAITING",null,worker,offer);
         fillJobDetailsForWorker(this.postulation);
@@ -136,7 +136,7 @@ public class JobDetailsForWorkerActivity extends AppCompatActivity {
 
                 RatingBar ratingBar =(RatingBar)findViewById(R.id.ratingBar);
                 Worker worker = new Worker(1L,"cin","pass","adress",10L,1,"ggg","fullName","ggggg","666666");
-                Client client = new Client(1L,"cin","zzzzz","adress",2L,2,"dfghj","name","gghhhhh","3456788");
+                Client client = new Client(1L,"cin","zzzzz","adress",2L,2,"dfghj","name","gghhhhh","3456788","token");
                 Offer offer = new Offer(5L,"Plomblier",client,"ttttt","EN_COURS_NEGOCIATION",null,null);
                 Postulation postulation = new Postulation(552L,3L,4,"WAITING",null,worker,offer);
                 //read from intent

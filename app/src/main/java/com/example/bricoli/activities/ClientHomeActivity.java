@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,6 +19,7 @@ import com.example.bricoli.enumeration.Category;
 import com.example.bricoli.enumeration.OfferState;
 import com.example.bricoli.models.Client;
 import com.example.bricoli.models.Offer;
+import com.example.bricoli.retrofit.ClientApi;
 import com.example.bricoli.retrofit.OfferApi;
 import com.example.bricoli.retrofit.RetrofitService;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -90,10 +92,25 @@ public class ClientHomeActivity extends AppCompatActivity {
                     if( !textInputLayoutToString1.equals(("")) && !textInputLayoutToString2.equals((""))){
                         String category = getStringArrayItem(textInputLayoutToString1);
                         String description = textInputLayoutToString2;
+                        SharedPreferences preferences = getSharedPreferences("contenu", MODE_PRIVATE);
+                        String state=preferences.getString("role","default");
+                        Long idUser=preferences.getLong("IdUser",-1l);
+                        RetrofitService retrofitClient=new RetrofitService();
+                        ClientApi clientApi = retrofitClient.getRetrofit().create(ClientApi.class);
+                        clientApi.getClient(idUser).enqueue(new Callback<Client>() {
+                            @Override
+                            public void onResponse(Call<Client> call, Response<Client> response) {
+                                Client client = response.body();
+                                Offer offerToAdd =new Offer(category, client, description, OfferState.EN_ATTENTE.toString(), null, null);
+                                callAddOfferApi(offerToAdd);
+                            }
+                            @Override
+                            public void onFailure(Call<Client> call, Throwable t) {
 
-                        Client client = new Client(2L, "cin","zzzzz", "adress", 2L, 2, "dfghj", "name", "gghhhhh", "3456788" );
-                        Offer offerToAdd =new Offer(category, client, description, OfferState.EN_ATTENTE.toString(), null, null);
-                        callAddOfferApi(offerToAdd);
+                            }
+                        });
+                        //Client client = new Client(2L, "cin","zzzzz", "adress", 2L, 2, "dfghj", "name", "gghhhhh", "3456788" ,"token");
+
                     }
                     else{
                         Toast.makeText(ClientHomeActivity.this, getResources().getText(R.string.toast_client_home_catgo_desc), Toast.LENGTH_SHORT).show();
@@ -150,7 +167,7 @@ public class ClientHomeActivity extends AppCompatActivity {
     }
 
     public void openHomeBidsActivity() {
-        Intent intent = new Intent(this, HomeBidsActivity.class);
+        Intent intent = new Intent(this, PostsActuelActivity.class);
         startActivity(intent);
     }
 }

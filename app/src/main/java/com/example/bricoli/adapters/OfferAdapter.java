@@ -39,7 +39,9 @@ public class OfferAdapter extends ArrayAdapter<Offer> {
         TextView city = (TextView) convertView.findViewById(R.id.city);
         //distance.setText(offers.get(position).getClient().getDistance());
         String[] address = offers.get(position).getClient().getAddress().split(",",2);
-        city.setText(address[1]);
+        if(address.length>=1){
+            city.setText(address[1]);
+        }
 
         TextView rating = (TextView) convertView.findViewById(R.id.rating);
         Long ratingValue = offers.get(position).getClient().getSommeRating() / offers.get(position).getClient().getNumberOfRating();

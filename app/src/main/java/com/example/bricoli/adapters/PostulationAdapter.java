@@ -54,7 +54,10 @@ public class PostulationAdapter extends ArrayAdapter<Postulation> {
         numberOfRating.setText(" ("+postulations.get(position).getWorker().getNumberOfRating()+") ");
 
         city = (TextView) listItem.findViewById(R.id.city_textView);
-        city.setText("city");
+        String[] address = postulations.get(position).getWorker().getAddress().split(",",2);
+        if(address.length>=1){
+            city.setText(address[1]);
+        }
 
         duration = (TextView) listItem.findViewById(R.id.work_duration_textView);
         duration.setText(""+postulations.get(position).getDuration()+" days");

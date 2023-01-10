@@ -1,7 +1,10 @@
 package com.example.bricoli.activities;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +16,7 @@ import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.example.bricoli.R;
 import com.example.bricoli.adapters.CurrentBidsAdapter;
@@ -65,7 +69,10 @@ public class CurrentBidsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_current_bids);
         list=findViewById(R.id.BidsList);
         postulations=new ArrayList<Postulation>();
-
+        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
+        SharedPreferences preferences = getSharedPreferences("contenu", MODE_PRIVATE);
+        String state=preferences.getString("role","default");
+        Long idUser=preferences.getLong("IdUser",-1l);
 
 
 
@@ -75,7 +82,7 @@ public class CurrentBidsActivity extends AppCompatActivity {
         WorkerApi workerApi =worker.getRetrofit().create(WorkerApi.class);
 
 
-        workerApi.getWorkerById(1l).enqueue(new Callback<Worker>() {
+        workerApi.getWorkerById(idUser).enqueue(new Callback<Worker>() {
             @Override
             public void onResponse(Call<Worker> call, Response<Worker> response) {
                 Worker worker =response.body();
@@ -84,7 +91,7 @@ public class CurrentBidsActivity extends AppCompatActivity {
                 RetrofitServiceForPostulation retrofit = new RetrofitServiceForPostulation();
                 PostulationApi postulation=retrofit.getRetrofit().create(PostulationApi.class);
 
-                postulation.getPostulationsByWorkerId(1l).enqueue(new Callback<List<Postulation>>() {
+                postulation.getPostulationsByWorkerId(idUser).enqueue(new Callback<List<Postulation>>() {
                     @Override
                     public void onResponse(Call<List<Postulation>> call, Response<List<Postulation>> response) {
                         postulations=response.body();
@@ -102,11 +109,18 @@ public class CurrentBidsActivity extends AppCompatActivity {
                             String []choix=new String[postulations.size()];
                             String []distancee=new String[postulations.size()];
                             String []cities=new String[postulations.size()];
+                            //distance.setText(offers.get(position).getClient().getDistance());
+
 
                             for(int i=0;i<postulations.size();i++)
                             {
                                 distancee[i]="";
-                                cities[i]="Rabat";
+                                //distance.setText(offers.get(position).getClient().getDistance());
+                                String[] address = postulations.get(i).getOffer().getClient().getAddress().split(",",2);
+                                if(address.length>=1){
+                                    cities[i]=address[1];
+                                }
+                                //cities[i]="Rabat";
                                 //Log.d("worker","**************************** "+worker.getFullName());
                                 imageProfils[i]=worker.getPhoto();
                                 Names[i]=worker.getFullName();

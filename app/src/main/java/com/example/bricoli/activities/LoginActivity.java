@@ -25,6 +25,7 @@ import com.example.bricoli.retrofit.RetrofitService;
 import com.example.bricoli.retrofit.RetrofitServiceForClient;
 import com.example.bricoli.retrofit.RetrofitServiceForWorker;
 import com.example.bricoli.retrofit.UserApi;
+import com.example.bricoli.util.CryptingMethod;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -134,7 +135,13 @@ public class LoginActivity extends AppCompatActivity {
                                     }
                                     else
                                     {
-                                        if(cl.getPassword().equals(password.getText().toString()))
+                                        String passwordCrypterClient = null;
+                                        try {
+                                            passwordCrypterClient = CryptingMethod.encrypt(password.getText().toString());
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+                                        }
+                                        if(cl.getPassword().equals(passwordCrypterClient))
                                         {
                                             SharedPreferences preferences = getSharedPreferences("contenu", MODE_PRIVATE);
                                             SharedPreferences.Editor editor=preferences.edit();
@@ -162,7 +169,13 @@ public class LoginActivity extends AppCompatActivity {
                         }
                         else
                         {
-                            if(worker.getPassword().equals(password.getText().toString()))
+                            String passwordCrypterWorker = null;
+                            try {
+                                passwordCrypterWorker = CryptingMethod.encrypt(password.getText().toString());
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                            if(worker.getPassword().equals(passwordCrypterWorker))
                             {
                                 SharedPreferences preferences = getSharedPreferences("contenu", MODE_PRIVATE);
                                 SharedPreferences.Editor editor=preferences.edit();
