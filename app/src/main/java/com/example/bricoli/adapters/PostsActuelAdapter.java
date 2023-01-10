@@ -50,8 +50,6 @@ public class PostsActuelAdapter extends BaseAdapter
         TextView categorie=view.findViewById(R.id.textCategorie);
         TextView period=view.findViewById(R.id.textPeriod);
         TextView description=view.findViewById(R.id.textDescription);
-        ImageView ellipse=view.findViewById(R.id.imgEllipse);
-        TextView nbBids=view.findViewById(R.id.textNbBids);
         TextView etat=view.findViewById(R.id.textEtat);
 
         Post post=Posts.get(i);
@@ -60,22 +58,34 @@ public class PostsActuelAdapter extends BaseAdapter
             categorie.setText(post.getCategorie());
             period.setText(post.getPeriod());
             description.setText(post.getDescription());
-            ellipse.setImageResource(R.drawable.ellipse_green);
-            nbBids.setText(post.getNbBids());
             etat.setText(post.getEtat());
             etat.setTextColor(Color.parseColor("#F26868"));
         }
-        else
+        else if(post.getEtat()=="Encours Execution")
         {
             categorie.setText(post.getCategorie());
             period.setText(post.getPeriod());
             description.setText(post.getDescription());
-            ellipse.setImageResource(R.drawable.ellipse_green);
-            ellipse.setVisibility(View.INVISIBLE);
-            nbBids.setText(post.getNbBids());
-            nbBids.setVisibility(View.INVISIBLE);
+            etat.setText(post.getEtat());
+            etat.setTextColor(Color.parseColor("#ff7f00"));
+        }
+        else if(post.getEtat()=="En Attente")
+        {
+            categorie.setText(post.getCategorie());
+            period.setText(post.getPeriod());
+            description.setText(post.getDescription());
+            etat.setText(post.getEtat());
+            etat.setTextColor(Color.parseColor("#7393B3"));
+
+        }
+        else if(post.getEtat()=="Finished")
+        {
+            categorie.setText(post.getCategorie());
+            period.setText(post.getPeriod());
+            description.setText(post.getDescription());
             etat.setText(post.getEtat());
             etat.setTextColor(Color.parseColor("#0BDB45"));
+
         }
         return view;
     }

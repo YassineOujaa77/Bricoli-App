@@ -11,10 +11,13 @@
         android:id="@+id/annoucementList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="32dp"
-        android:divider="#fff"
-        android:dividerHeight="26dp"
-        android:scrollbars="none">
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="50dp"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="10sp"
+        tools:listitem="@layout/annoucement_cell_layout">
     </ListView>
 
 

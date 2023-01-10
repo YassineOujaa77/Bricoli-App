@@ -2,6 +2,7 @@ package com.example.bricoli.activities;
 
 import static android.content.ContentValues.TAG;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
@@ -19,7 +20,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bricoli.R;
 import com.example.bricoli.models.Client;
+import com.example.bricoli.models.Worker;
 import com.example.bricoli.retrofit.RetrofitService;
+import com.example.bricoli.retrofit.RetrofitServiceForClient;
+import com.example.bricoli.retrofit.RetrofitServiceForWorker;
 import com.example.bricoli.retrofit.UserApi;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -32,6 +36,7 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity {
     //to update in database in every login
     String userdevicetoken;//this is the device token for the user in the signup activity
+
 
 
 
@@ -82,6 +87,7 @@ public class LoginActivity extends AppCompatActivity {
 
         if (remeberMeCheckbox.equals("true")) {
             if(role.equals("client")){
+
                 Intent intent = new Intent(getApplicationContext(), ClientHomeActivity.class);
                 startActivity(intent);
             }else{
@@ -98,9 +104,123 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (username.getText().toString().equals("client") && password.getText().toString().equals("client")) {
+
+                RetrofitServiceForWorker retrofit=new RetrofitServiceForWorker();
+                UserApi login=retrofit.getRetrofit().create(UserApi.class);
+
+                RetrofitServiceForClient retrofitClient=new RetrofitServiceForClient();
+                UserApi loginClient=retrofitClient.getRetrofit().create(UserApi.class);
+
+
+                Call<Worker> worker =login.getWorkerByPhoneNumber(username.getText().toString());
+                Call<Client> client =loginClient.getClientByPhoneNumber(username.getText().toString());
+                worker.enqueue(new Callback<Worker>() {
+                    @Override
+                    public void onResponse(Call<Worker> call, Response<Worker> response) {
+                        Worker worker=response.body();
+                        if(worker==null)
+                        {
+                            //Log.d("test","*********************************** No worker");
+
+                            client.enqueue(new Callback<Client>() {
+                                @Override
+                                public void onResponse(Call<Client> call, Response<Client> response) {
+                                    Client cl =response.body();
+                                    if(cl==null)
+                                    {
+                                        //Log.d("test","*********************************** No client");
+                                        Toast.makeText(LoginActivity.this, "Phone or password incorrect.", Toast.LENGTH_SHORT).show();
+
+                                    }
+                                    else
+                                    {
+                                        if(cl.getPassword().equals(password.getText().toString()))
+                                        {
+                                            SharedPreferences preferences = getSharedPreferences("contenu", MODE_PRIVATE);
+                                            SharedPreferences.Editor editor=preferences.edit();
+                                            editor.putString("role","client").commit();
+                                            editor.putLong("IdUser",cl.getUserId()).commit();
+                                            //Log.d("test","****************************************"+cl.getFullName());
+                                            Intent intent = new Intent(LoginActivity.this, ClientHomeActivity.class);
+                                            //Intent intent = new Intent(LoginActivity.this, ChangeRoleActivity.class);
+                                            //intent.putExtra("client",cl);
+                                            startActivity(intent);
+                                        }
+                                        else
+                                        {
+                                            Toast.makeText(LoginActivity.this, "Phone or password incorrect.", Toast.LENGTH_SHORT).show();
+                                        }
+
+                                    }
+                                }
+
+                                @Override
+                                public void onFailure(Call<Client> call, Throwable t) {
+
+                                }
+                            });
+                        }
+                        else
+                        {
+                            if(worker.getPassword().equals(password.getText().toString()))
+                            {
+                                SharedPreferences preferences = getSharedPreferences("contenu", MODE_PRIVATE);
+                                SharedPreferences.Editor editor=preferences.edit();
+                                editor.putString("role","worker").commit();
+                                editor.putLong("IdUser",worker.getUserId()).commit();
+                                //Log.d("test","*****************************"+worker.getFullName());
+                                Intent intent = new Intent(LoginActivity.this, WorkerHomeActivity.class);
+                                //Intent intent = new Intent(LoginActivity.this, ChangeRoleActivity.class);
+                                //intent.putExtra("worker",worker);
+                                startActivity(intent);
+                            }
+                            else
+                            {
+                                Toast.makeText(LoginActivity.this, "Phone or password incorrect.", Toast.LENGTH_SHORT).show();
+                            }
+
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<Worker> call, Throwable t) {
+
+                    }
+                });
+
+
+
+
+
+                /*if (username.getText().toString().equals("client") && password.getText().toString().equals("client")) {
                     editor.putString("role", "client");
                     editor.apply();
+
+                    RetrofitService retrofit = new RetrofitService();
+                    UserApi ziyad = retrofit.getRetrofit().create(UserApi.class);
+
+                    Call<Client> client=ziyad.getClientByPhoneNumber("0000");
+                    client.enqueue(new Callback<Client>() {
+                        @SuppressLint("SuspiciousIndentation")
+                        @Override
+                        public void onResponse(Call<Client> call, Response<Client> response) {
+                            Client myClient = response.body();
+                            if(myClient==null)
+                            {
+                                System.out.println("failed to find this client");
+
+                            }else {
+                                System.out.println("found client");
+
+                            }
+                        }
+                        @Override
+                        public void onFailure(Call<Client> call, Throwable t) {
+                            System.out.println("failed to work with client");
+                        }
+                    });
                     Intent intent = new Intent(LoginActivity.this, ClientHomeActivity.class);
                     startActivity(intent);
                 } else if (username.getText().toString().equals("worker") && password.getText().toString().equals("worker")) {
@@ -110,7 +230,7 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(intent);
                 } else {
                     Toast.makeText(LoginActivity.this, "Phone or password incorrect.", Toast.LENGTH_SHORT).show();
-                }
+                }*/
             }
         });
 

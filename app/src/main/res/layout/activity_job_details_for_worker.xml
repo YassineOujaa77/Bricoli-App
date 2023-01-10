@@ -175,7 +175,7 @@
                                 android:textSize="45px"
                                 android:textStyle="bold" />
                             <TextView
-
+                                android:id="@+id/job_details_duration"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/poppins_regular"
@@ -287,7 +287,7 @@
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/finishbutton"
+        android:id="@+id/job_details_worker_finishbutton"
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

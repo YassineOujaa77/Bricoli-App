@@ -6,44 +6,35 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
-import com.example.bricoli.models.Annoucement;
-import com.example.bricoli.adapters.AnnoucementAdapter;
+import com.example.bricoli.adapters.OfferAdapter;
+import com.example.bricoli.enumeration.Category;
+import com.example.bricoli.enumeration.OfferState;
 import com.example.bricoli.R;
+import com.example.bricoli.models.Offer;
+import com.example.bricoli.models.Worker;
+import com.example.bricoli.retrofit.OfferApi;
+import com.example.bricoli.retrofit.RetrofitService;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnItemClick;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class WorkerHomeActivity extends AppCompatActivity {
 
     @BindView(R.id.annoucementList)
     ListView announcementList;
-    ArrayList<Annoucement> annoucements = new ArrayList<>();
-    @OnItemClick(R.id.annoucementList)
-    public void OnAnnouncementListItemClicked(int position){
-        Annoucement annoucementClicked = (Annoucement) annoucements.get(position);
-        Intent announcementIntent = new Intent(WorkerHomeActivity.this, AnnouncementDetailsActivity.class);
-        announcementIntent.putExtra("fullName", annoucementClicked.getFullName());
-        announcementIntent.putExtra("city", annoucementClicked.getCity());
-        announcementIntent.putExtra("rating", annoucementClicked.getRating());
-        announcementIntent.putExtra("description", annoucementClicked.getDescription());
-        announcementIntent.putExtra("distance", annoucementClicked.getDistance());
-        announcementIntent.putExtra("photo", annoucementClicked.getPhoto());
-        announcementIntent.putExtra("duration", annoucementClicked.getDuration());
-        announcementIntent.putExtra("price", annoucementClicked.getPrice());
-        announcementIntent.putExtra("photo",annoucementClicked.getPhoto());
-        startActivity(announcementIntent);
-    }
-
-
+    ArrayList<Offer> offers = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,11 +73,36 @@ public class WorkerHomeActivity extends AppCompatActivity {
         });
 
         ButterKnife.bind(this);
-        annoucements.add(new Annoucement("Full Name1","Rabat","2.5 (500)","300DH","2 jrs","900m","Je suis à la recherche d'un plombier...........",R.drawable.photo));
-        annoucements.add(new Annoucement("Full Name2","Rabat","2.5 (500)","300DH","2 jrs","900m","Je suis à la recherche d'un plombier...........",R.drawable.photo));
-        annoucements.add(new Annoucement("Full Name3","Rabat","2.5 (500)","300DH","2 jrs","900m","Je suis à la recherche d'un plombier...........",R.drawable.photo));
+        callGetOffersByCategroyAndStateApi();
+    }
 
-        AnnoucementAdapter annoucementAdapter = new AnnoucementAdapter(getApplicationContext(),R.layout.annoucement_cell_layout,annoucements);
-        announcementList.setAdapter(annoucementAdapter);
+    private void callGetOffersByCategroyAndStateApi(){
+        Worker worker = new Worker(1L,"cin","pass","adress",10L,1,"ggg","fullName",Category.Plomblier.toString(),"666666");
+        RetrofitService retrofit = new RetrofitService();
+        OfferApi offerApi = retrofit.getRetrofit().create(OfferApi.class);
+        Call<List<Offer>> offersApi=offerApi.getOfferByCategoryAndStateNotAlreadyApplied(worker.getWorkerField(), OfferState.EN_ATTENTE_AND_EN_COURS_NEGOCIATION.toString(),worker.getUserId());
+        offersApi.enqueue(new Callback<List<Offer>>() {
+            @Override
+            public void onResponse(Call<List<Offer>> call, Response<List<Offer>> response) {
+                List<Offer> offerList = response.body();
+                if(offerList.size()>0){
+                    associateOfferAdapterAndAnnouncementList(offerList);
+                }
+                else {
+                    Toast.makeText(getApplicationContext(),getString(R.string.no_offer_found),Toast.LENGTH_SHORT).show();
+                }
+            }
+            @Override
+            public void onFailure(Call<List<Offer>> call, Throwable t) {
+                Log.d("OFFER","*********************** GET OFFER ByCategroyAndStateNotAlreadyApplied Echec");
+            }
+        });
+    }
+    private void associateOfferAdapterAndAnnouncementList(List<Offer> offersList){
+        for(int i=0;i<offersList.size();i++){
+            this.offers.add(offersList.get(i));
+        }
+        OfferAdapter offerAdapter = new OfferAdapter(WorkerHomeActivity.this,R.layout.annoucement_cell_layout,offers);
+        announcementList.setAdapter(offerAdapter);
     }
 }

@@ -1,6 +1,8 @@
 package com.example.bricoli.adapters;
 
 import android.app.LauncherActivity;
+import android.content.Intent;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import com.example.bricoli.R;
 import androidx.annotation.NonNull;
@@ -17,19 +20,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import com.example.bricoli.models.Annoucement;
+import com.example.bricoli.activities.HistoryPostDetailsActivity;
+import com.example.bricoli.models.Offer;
+import com.example.bricoli.models.Offer;
+import com.example.bricoli.models.Postulation;
 
 
-public class ClientHistoryAdapter extends ArrayAdapter<Annoucement> {
+public class ClientHistoryAdapter extends ArrayAdapter<Offer> {
 
     private Context aContext ;
-    private List<Annoucement> annoucementsList = new ArrayList<>();
+    private List<Offer> offersList;
+    //private List<Offer> offersList = new ArrayList<>();
+    private List<Postulation> postulationsList;
 
-    public ClientHistoryAdapter(@NonNull Context context, @NonNull ArrayList<Annoucement> List) {
+    public ClientHistoryAdapter(@NonNull Context context, @NonNull ArrayList<Offer> List) {
 
         super(context, 0, List);
         aContext = context ;
-        annoucementsList = List;
+        offersList = List;
     }
 
     @NonNull
@@ -40,29 +48,39 @@ public class ClientHistoryAdapter extends ArrayAdapter<Annoucement> {
             listItem = LayoutInflater.from(aContext).inflate(R.layout.history_offre_cell,parent,false);
         }
 
-        Annoucement currentAnnoucement = annoucementsList.get(position);
+
+
+        Offer currentOffer = offersList.get(position);
+        Postulation currentPostulation = postulationsList.get(position);
 
         ImageView avatar=(ImageView) listItem.findViewById(R.id.worker_image);
-        avatar.setImageResource(currentAnnoucement.getPhoto());
+        avatar.setImageResource(R.drawable.userphoto);
+        //avatar.setImageResource(currentOffer.getPhoto());
 
         TextView fullname , rate , city , duration , description ;
 
         fullname = (TextView) listItem.findViewById(R.id.nom_complet);
-        fullname.setText(currentAnnoucement.getFullName());
+        fullname.setText(currentPostulation.getWorker().getFullName());
 
         rate = (TextView) listItem.findViewById(R.id.rate_textView);
-        rate.setText(currentAnnoucement.getRating());
+        rate.setText(currentOffer.getDescription());
 
         city = (TextView) listItem.findViewById(R.id.city_textView);
-        city.setText(currentAnnoucement.getCity());
+        city.setText("Rabat");
 
         duration = (TextView) listItem.findViewById(R.id.work_duration_textView);
-        duration.setText(currentAnnoucement.getDuration());
+        duration.setText(currentPostulation.getDuration());
 
         description=(TextView) listItem.findViewById(R.id.work_description);
-        description.setText(currentAnnoucement.getDescription());
+        description.setText(currentOffer.getDescription());
+
 
         return listItem;
+
+
+
     }
+
+
 
 }

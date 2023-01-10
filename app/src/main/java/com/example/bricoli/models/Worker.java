@@ -1,9 +1,10 @@
 package com.example.bricoli.models;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Worker extends User{
+public class Worker extends User implements Serializable {
     private Set<Job> jobs = new HashSet<>();
     private Set<Postulation> postulations = new HashSet<>();
     public Worker(Long userId, String cin, String password, String address, Long sommeRating, Integer numberOfRating, String photo, String fullName, String workerField, String phone) {
@@ -18,6 +19,22 @@ public class Worker extends User{
         setWorkerField(workerField);
         setPhone(phone);
     }
+
+    public Worker( String cin, String password, String address, Long sommeRating, Integer numberOfRating, String photo, String fullName, String workerField, String phone) {
+        setCin(cin);
+        setPassword(password);
+        setAddress(address);
+        setSommeRating(sommeRating);
+        setNumberOfRating(numberOfRating);
+        setPhoto(photo);
+        setFullName(fullName);
+        setWorkerField(workerField);
+        setPhone(phone);
+    }
+
+    public Worker() {
+    }
+
 
     public Set<Job> getJobs() {
         return jobs;

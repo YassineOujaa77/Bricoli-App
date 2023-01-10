@@ -41,10 +41,17 @@
     <string name="invite_friends">Invite Friends</string>
     <string name="invite_your_friend_and_earn_nbonus_amount_in_wallet">Invite your Friends and earn \nbonus amount in wallet</string>
     <string name="refer_friends">Refer Friends</string>
-    <string-array name="services">
-        <item>Plomblier</item>
-        <item>Organisateur de fetes</item>
-        <item>Technicien</item>
+    <string-array name="categories">
+        <item>Plumber</item>
+        <item>Party Planner</item>
+        <item>Electrician</item>
+        <item>Mason</item>
+        <item>Carpenter</item>
+        <item>Blacksmith</item>
+        <item>Dyer</item>
+        <item>Chef</item>
+        <item>Decorator</item>
+        <item>In charge of cleaning</item>
     </string-array>
     <string name="account">Account</string>
     <string name="more">More</string>
@@ -85,6 +92,17 @@
     <string name="thewrongnumber">This is a non registered number</string>
     <string name="thewrongcode">Wrong verification code</string>
     <string name="upload_image">Upload image</string>
+
+    <string name="toast_client_home_catgo_desc">Please fill both category and description</string>
+    <string name="toast_client_home_add_offer">Offer added </string>
+    <string name="toast_client_home_fail_add_offer">Fail</string>
+    <string name="no_postulation_found">No offers</string>
+
+    <string name="no_offer_found">No Offer Found</string>
+    <string name="duration_price_proposed_not_inserted">you should insert the duration and the price</string>
+    <string name="postulation_added">applyment added with success</string>
+    <string name="duration_price_proposed_not_valid">you should insert a valid duration and price</string>
+
 
 
 </resources>
