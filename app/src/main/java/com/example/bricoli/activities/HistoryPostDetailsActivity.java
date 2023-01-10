@@ -8,17 +8,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.bricoli.R;
-import com.example.bricoli.adapters.ClientHistoryAdapter;
-import com.example.bricoli.adapters.HistoryPostDetailsAdapter;
-import com.example.bricoli.models.Annoucement;
 import com.example.bricoli.models.Postulation;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import java.util.ArrayList;
 
 public class HistoryPostDetailsActivity extends AppCompatActivity {
 
@@ -40,9 +34,9 @@ public class HistoryPostDetailsActivity extends AppCompatActivity {
         TextView description = (TextView) findViewById(R.id.work_description);
         fillPostulationFieldsFromIntents(avatar, fullName, sommeRating, numberOfRating, price1, price2, duration1, duration2, description);
 
-        // initialize
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
 
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         // set History Selected
         bottomNavigationView.setSelectedItemId(R.id.history);
 

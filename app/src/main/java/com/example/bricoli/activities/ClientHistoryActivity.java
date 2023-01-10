@@ -2,12 +2,8 @@ package com.example.bricoli.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.bricoli.R;
-import com.example.bricoli.adapters.ClientHistoryAdapter;
 import com.example.bricoli.adapters.PostulationAdapter;
-import com.example.bricoli.models.Client;
-import com.example.bricoli.models.Offer;
 import com.example.bricoli.models.Postulation;
-import com.example.bricoli.retrofit.OfferApi;
 import com.example.bricoli.retrofit.PostulationApi;
 import com.example.bricoli.retrofit.RetrofitService;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -18,14 +14,11 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -45,9 +38,9 @@ public class ClientHistoryActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.history_listview);
         loadPostulations();
 
-        // initialize
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
 
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         // set History Selected
         bottomNavigationView.setSelectedItemId(R.id.history);
 
@@ -87,13 +80,13 @@ public class ClientHistoryActivity extends AppCompatActivity {
                     populateListView_postulation(listPostulation);
                 }
                 else {
-                    Toast.makeText(ClientHistoryActivity.this, "No postulation found", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ClientHistoryActivity.this, getResources().getText(R.string.no_postulation_found), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<List<Postulation>> call, Throwable t) {
-                Toast.makeText(ClientHistoryActivity.this, "Failed to load postulations", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ClientHistoryActivity.this, getResources().getText(R.string.toast_client_home_fail_add_offer), Toast.LENGTH_SHORT).show();
             }
         });
     }
