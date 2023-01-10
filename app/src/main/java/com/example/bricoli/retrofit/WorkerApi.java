@@ -9,6 +9,7 @@ import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 public interface WorkerApi {
@@ -22,8 +23,9 @@ public interface WorkerApi {
     @DELETE("deleteWorker/{workerId}")
     Call<Void> deleteWorker(@Path("workerId") Long workerId);
 
-    @POST("addWorker")
+    @POST("worker/addWorker")
     Call <Worker> addWorker(@Body Worker worker);
+
 
 
 }

@@ -123,6 +123,7 @@
 
 
             <RadioGroup
+                android:id="@+id/radio_group"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_marginLeft="20dp"
@@ -219,10 +220,10 @@
                     android:id="@+id/Cin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
                     android:inputType="text"
                     android:maxLines="1"
                     android:padding="20dp"
-                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
                     />
 
@@ -246,7 +247,6 @@
                 app:boxCornerRadiusTopStart="15dp"
                 app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color"
                 app:endIconMode="password_toggle"
-                app:errorIconDrawable="@drawable/ic_baseline_error_24"
                 app:helperText=""
                 app:hintTextColor="@color/mtrl_textinput_default_box_stroke_color"
                 tools:ignore="PrivateResource">
@@ -281,7 +281,6 @@
                 app:boxCornerRadiusTopStart="15dp"
                 app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color"
                 app:endIconMode="password_toggle"
-                app:errorIconDrawable="@drawable/ic_baseline_error_24"
                 app:helperText=""
                 app:hintTextColor="@color/mtrl_textinput_default_box_stroke_color"
                 tools:ignore="PrivateResource">
