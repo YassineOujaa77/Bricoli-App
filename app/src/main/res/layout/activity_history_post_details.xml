@@ -14,8 +14,7 @@
         app:cardBackgroundColor="@color/card_background"
         app:cardCornerRadius="14dp"
         app:cardElevation="16dp"
-        app:cardUseCompatPadding="true"
-        >
+        app:cardUseCompatPadding="true">
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -131,8 +130,7 @@
         app:cardBackgroundColor="@color/card_background"
         app:cardCornerRadius="14dp"
         app:cardElevation="16dp"
-        app:cardUseCompatPadding="true"
-        >
+        app:cardUseCompatPadding="true">
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -246,8 +244,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:menu="@menu/bottom_navigation_menu"
-        android:layout_alignParentBottom="true"
-        />
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>
 
