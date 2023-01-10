@@ -10,6 +10,7 @@ import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
@@ -20,6 +21,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -28,6 +30,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import com.example.bricoli.R;
+import com.example.bricoli.models.Client;
+import com.example.bricoli.models.User;
+import com.example.bricoli.models.Worker;
+import com.example.bricoli.retrofit.ClientApi;
+import com.example.bricoli.retrofit.RetrofitService;
+import com.example.bricoli.retrofit.RetrofitServiceForClient;
+import com.example.bricoli.retrofit.RetrofitServiceForWorker;
+import com.example.bricoli.retrofit.WorkerApi;
+import com.example.bricoli.util.CryptingMethod;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.ResolvableApiException;
 import com.google.android.gms.location.LocationCallback;
@@ -51,6 +62,12 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.android.material.textfield.TextInputLayout;
 
+import android.provider.MediaStore;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class SignupActivity extends AppCompatActivity {
     EditText addresstofillautomatically;
     String ville;
@@ -72,6 +89,10 @@ public class SignupActivity extends AppCompatActivity {
     private TextInputLayout passwordTextInputLayout;
     private TextInputLayout passwordConfirmationTextInputLayout;
 
+    private Boolean clientOrWorker;
+
+    private final int GALLERY_REQ_CODE = 1000;
+    private String URI = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -173,13 +194,14 @@ public class SignupActivity extends AppCompatActivity {
         addPicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_PICK);
-                intent.setType("image/*");
-                startActivityForResult(intent, 1);
-
+                Intent iGallery = new Intent(Intent.ACTION_PICK);
+                iGallery.setType("image/*");
+                iGallery.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(iGallery, GALLERY_REQ_CODE);
 
             }
         });
+
 
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -192,19 +214,57 @@ public class SignupActivity extends AppCompatActivity {
                 // Check if any of the fields have an error
                 if (passwordTextInputLayout.getError() != null ||
                         passwordConfirmationTextInputLayout.getError() != null || cinTextInputLayout.getError() != null
-                        || phoneTextInputLayout.getError() != null || fullnameTextInputLayout.getError()!=null) {
+                        || phoneTextInputLayout.getError() != null || fullnameTextInputLayout.getError() != null || URI.isEmpty()) {
                     // One of the fields has an error, so disable the button
                     signupButton.setEnabled(false);
                 } else {
                     // No errors present, so enable the button
                     signupButton.setEnabled(true);
 
-                    // Start the new activity here
+                    //here we create the coresponding object worker or client
+                    String fullname = fullnameEditText.getText().toString();
+                    String phone = phoneEditText.getText().toString();
+                    String cin = cinEditText.getText().toString();
+                    String password = null;
+                    try {
+                        password = CryptingMethod.encrypt(passwordEditText.getText().toString());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+
+                    if (clientOrWorker){
+
+                        Client client = new Client(cin, password, adresseparlatitude, 0L, 0, URI,fullname,  "", phone);
+                        handleClientOrWorker(clientOrWorker,client,null);
+
+                    }else{
+
+                        Worker worker = new Worker(cin, password, adresseparlatitude, 0L, 0, URI,fullname,  "", phone);
+                        handleClientOrWorker(clientOrWorker,null,worker);
+                    }
+
+                        // Start the new activity here
                     Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
                     startActivity(intent);
                 }
             }
         });
+
+        clientOrWorker = true; //it means client
+        RadioGroup radioGroup = findViewById(R.id.radio_group);
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.radio_button_client) {
+                    clientOrWorker = true;
+                } else if (checkedId == R.id.radio_button_worker) {
+                    clientOrWorker = false;
+                }
+            }
+        });
+
+
     }
 
 
@@ -238,6 +298,14 @@ public class SignupActivity extends AppCompatActivity {
             if (resultCode == Activity.RESULT_OK) {
 
                 getCurrentLocation();
+            }
+        }
+        if (resultCode == RESULT_OK) {
+            if (requestCode == GALLERY_REQ_CODE) {
+                Uri selectedImageUri = data.getData();
+                URI = selectedImageUri.toString();
+                checkFieldsForEmptyValues();
+
             }
         }
     }
@@ -275,6 +343,7 @@ public class SignupActivity extends AppCompatActivity {
                                             adresseparlatitude = latitude + "";
                                             adresseparlatitude.concat("/");
                                             adresseparlatitude.concat(longitude + "");
+                                            adresseparlatitude.concat(","+ville);
                                             addresstofillautomatically.setText(country + "," + ville + "," + adresseapresville);
                                         } catch (IOException e) {
                                             e.printStackTrace();
@@ -387,6 +456,8 @@ public class SignupActivity extends AppCompatActivity {
             // Password is too short
             passwordLayout.setErrorEnabled(true);
             passwordLayout.setError("Password must be at least " + minPasswordLength + " characters long");
+            passwordLayout.setEndIconMode(1);
+            passwordLayout.setEndIconDrawable(null);
         }
     }
 
@@ -403,7 +474,8 @@ public class SignupActivity extends AppCompatActivity {
         String password = passwordEditText.getText().toString();
         String passwordConfirmation = passwordConfirmationEditText.getText().toString();
 
-        if (TextUtils.isEmpty(fullname) || TextUtils.isEmpty(phone) || TextUtils.isEmpty(cin) || TextUtils.isEmpty(password) || TextUtils.isEmpty(passwordConfirmation) || !(isPasswordMatch(passwordEditText, passwordConfirmationEditText))) {
+        if (TextUtils.isEmpty(fullname) || TextUtils.isEmpty(phone) || TextUtils.isEmpty(cin) || TextUtils.isEmpty(password) ||
+                TextUtils.isEmpty(passwordConfirmation) || !(isPasswordMatch(passwordEditText, passwordConfirmationEditText)) || URI.isEmpty()) {
             signupButton.setEnabled(false);
         } else {
             signupButton.setEnabled(true);
@@ -448,4 +520,41 @@ public class SignupActivity extends AppCompatActivity {
         });
     }
 
+    private void handleClientOrWorker(Boolean isClient, Client client ,Worker worker) {
+        if (isClient) {
+            RetrofitServiceForClient retrofit = new RetrofitServiceForClient();
+
+            ClientApi clientApi = retrofit.getRetrofit().create(ClientApi.class);
+            Call<Client> call = clientApi.addClient(client);
+            call.enqueue(new Callback<Client>() {
+                @Override
+                public void onResponse(Call<Client> call, Response<Client> response) {
+                    System.out.println(client.toString() + response.code());
+
+                }
+
+                @Override
+                public void onFailure(Call<Client> call, Throwable t) {
+                    System.out.println("doesn't  works ");
+                }
+            });
+        } else {
+            RetrofitServiceForWorker retrofit = new RetrofitServiceForWorker();
+            WorkerApi workerApi = retrofit.getRetrofit().create(WorkerApi.class);
+            Call<Worker> call = workerApi.addWorker(worker);
+            call.enqueue(new Callback<Worker>() {
+                @Override
+                public void onResponse(Call<Worker> call, Response<Worker> response) {
+                    System.out.println(worker.toString());
+                }
+
+                @Override
+                public void onFailure(Call<Worker> call, Throwable t) {
+                    // handle failure
+                }
+            });
+
+
+        }
+    }
 }
