@@ -2,6 +2,7 @@ package com.example.bricoli.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,13 +17,23 @@ import androidx.annotation.Nullable;
 
 import com.example.bricoli.R;
 import com.example.bricoli.activities.JobDetailsForClientActivity;
+import com.example.bricoli.enumeration.OfferState;
+import com.example.bricoli.enumeration.PostulationState;
 import com.example.bricoli.models.Annoucement;
+import com.example.bricoli.models.Offer;
 import com.example.bricoli.models.Postulation;
+import com.example.bricoli.retrofit.OfferApi;
+import com.example.bricoli.retrofit.PostulationApi;
+import com.example.bricoli.retrofit.RetrofitService;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class HomeBidsAdapter extends ArrayAdapter<Postulation> {
 
@@ -76,6 +87,8 @@ public class HomeBidsAdapter extends ArrayAdapter<Postulation> {
         acceptBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                callUpdatePostulationApiBids(currentpostulation);
+                callUpdateOfferApiBids(currentpostulation.getOffer());
                 aContext.startActivity(new Intent(aContext, JobDetailsForClientActivity.class));
             }
         });
@@ -91,6 +104,43 @@ public class HomeBidsAdapter extends ArrayAdapter<Postulation> {
     private static double round (double value, int precision) {
         int scale = (int) Math.pow(10, precision);
         return (double) Math.round(value * scale) / scale;
+    }
+    private void callUpdatePostulationApiBids(Postulation postulation){
+        postulation.setCreatedAt(null);
+        postulation.getOffer().setCreatedAt(null);
+        postulation.setState(PostulationState.ACCEPTED.toString());
+        RetrofitService retrofit = new RetrofitService();
+        PostulationApi postulationApi = retrofit.getRetrofit().create(PostulationApi.class);
+        Call<Postulation> call=postulationApi.updatePostulation(postulation.getPostulationId(),postulation);
+        call.enqueue(new Callback<Postulation>() {
+            @Override
+            public void onResponse(Call<Postulation> call, Response<Postulation> response) {
+                System.out.println(" post updated"+ response.code());
+            }
+
+            @Override
+            public void onFailure(Call<Postulation> call, Throwable t) {
+                Log.d("postulation update","*********************** Echec");
+            }
+        });
+    }
+    private void callUpdateOfferApiBids(Offer offer){
+        offer.setCreatedAt(null);
+        offer.setState(OfferState.EN_COURS_EXECUTION.toString());
+        RetrofitService retrofit = new RetrofitService();
+        OfferApi offerApi = retrofit.getRetrofit().create(OfferApi.class);
+        Call<Offer> call=offerApi.updateOffer(offer.getOfferId(),offer);
+        call.enqueue(new Callback<Offer>() {
+            @Override
+            public void onResponse(Call<Offer> call, Response<Offer> response) {
+                System.out.println(" offer updated"+ response.code());
+            }
+
+            @Override
+            public void onFailure(Call<Offer> call, Throwable t) {
+                Log.d("offer update","*********************** Echec");
+            }
+        });
     }
 
 

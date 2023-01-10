@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bricoli.R;
 import com.example.bricoli.adapters.PostsActuelAdapter;
+import com.example.bricoli.enumeration.PostulationState;
 import com.example.bricoli.models.Offer;
 import com.example.bricoli.models.Post;
 import com.example.bricoli.retrofit.OfferApi;
@@ -88,20 +89,19 @@ public class PostsActuelActivity extends AppCompatActivity {
                         Periodes[i]=days_difference+" days ago";
                         Etats[i]=offers.get(i).getState().toString();
                         Log.d("etat","***********************"+Etats[i]);
-                        if(Etats[i].equals("EN_ATTENTE"))
+                        if(Etats[i].equals(OfferState.EN_ATTENTE.toString()))
                         {
                             States[i]="En Attente";
-
                         }
-                        else if(Etats[i].equals("EN_COURS_EXECUTION"))
+                        if(Etats[i].equals(OfferState.EN_COURS_EXECUTION.toString()))
                         {
                             States[i]="Encours Execution";
                         }
-                        else if(Etats[i].equals("EN_COURS_NEGOCIATION"))
+                        if(Etats[i].equals(OfferState.EN_COURS_NEGOCIATION.toString()))
                         {
                             States[i]="Encours Negociation";
                         }
-                        else if(Etats[i].equals("FINISHED"))
+                        if(Etats[i].equals(OfferState.FINISHED.toString()))
                         {
                             States[i]="Finished";
                         }
@@ -123,7 +123,9 @@ public class PostsActuelActivity extends AppCompatActivity {
                             TextView txt=view.findViewById(R.id.textEtat);
                             if(txt.getText()=="Encours Negociation")
                             {
-                                startActivity(new Intent(PostsActuelActivity.this,HomeBidsActivity.class));
+                                Intent intentHomeBids = new Intent(PostsActuelActivity.this,HomeBidsActivity.class);
+                                intentHomeBids.putExtra("idOfferHomeBids",offers.get(i).getOfferId());
+                                startActivity(intentHomeBids);
                             }
                             else if(txt.getText()=="Encours Execution")
                             {

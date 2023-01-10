@@ -59,7 +59,9 @@ public class HomeBidsActivity extends AppCompatActivity {
 
         RetrofitService retrofitService = new RetrofitService();
         PostulationApi postulationApi = retrofitService.getRetrofit().create(PostulationApi.class);
-        Call<List<Postulation>> call= postulationApi.getPostulationByOfferId(1);
+        Intent intentHomeBids = getIntent();
+        Long offerId = intentHomeBids.getExtras().getLong("idOfferHomeBids");
+        Call<List<Postulation>> call= postulationApi.getPostulationByOfferId(4);
         call.enqueue(new Callback<List<Postulation>>() {
             @Override
             public void onResponse(Call<List<Postulation>> call, Response<List<Postulation>> response) {
