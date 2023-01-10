@@ -24,6 +24,23 @@ public class Client extends User implements Serializable {
     }
 
 
+    public Client( String cin, String password, String address, Long sommeRating, Integer numberOfRating, String photo, String fullName, String workerField, String phone) {
+        setCin(cin);
+        setPassword(password);
+        setAddress(address);
+        setSommeRating(sommeRating);
+        setNumberOfRating(numberOfRating);
+        setPhoto(photo);
+        setFullName(fullName);
+        setWorkerField(workerField);
+        setPhone(phone);
+    }
+
+
+
+    public Client() {
+    }
+
 
     public Set<Offer> getOffers() {
         return offers;

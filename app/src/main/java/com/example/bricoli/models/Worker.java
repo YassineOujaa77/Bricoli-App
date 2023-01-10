@@ -20,6 +20,22 @@ public class Worker extends User implements Serializable {
         setPhone(phone);
     }
 
+    public Worker( String cin, String password, String address, Long sommeRating, Integer numberOfRating, String photo, String fullName, String workerField, String phone) {
+        setCin(cin);
+        setPassword(password);
+        setAddress(address);
+        setSommeRating(sommeRating);
+        setNumberOfRating(numberOfRating);
+        setPhoto(photo);
+        setFullName(fullName);
+        setWorkerField(workerField);
+        setPhone(phone);
+    }
+
+    public Worker() {
+    }
+
+
     public Set<Job> getJobs() {
         return jobs;
     }

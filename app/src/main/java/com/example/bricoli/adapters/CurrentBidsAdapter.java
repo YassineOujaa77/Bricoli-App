@@ -3,6 +3,7 @@ package com.example.bricoli.adapters;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,7 +58,7 @@ public class CurrentBidsAdapter extends BaseAdapter
         ImageView imgStar=view.findViewById(R.id.imageStar);
         TextView txtPrix=view.findViewById(R.id.textPrix);
         TextView txtPriod=view.findViewById(R.id.textJours);
-        TextView txtDistance=view.findViewById(R.id.textDistance);
+        //TextView txtDistance=view.findViewById(R.id.textDistance);
         Button btn =view.findViewById(R.id.btnState);
 
         Bid bid=Bids.get(i);
@@ -67,47 +68,61 @@ public class CurrentBidsAdapter extends BaseAdapter
             btn.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#17688F")));
             btn.setBackgroundResource(R.drawable.button_reglage);
             btn.setText(bid.getEtat());
-
-            img.setImageResource(bid.getPhoto());
+            img.setImageURI(Uri.parse(bid.getPhoto()));
             txtVille.setText(bid.getVille());
             txtNomComplet.setText(bid.getNomComplet());
             txtNote.setText(bid.getNote());
             imgStar.setImageResource(R.drawable.star);
             txtPrix.setText(bid.getPrix());
             txtPriod.setText(bid.getPeriod());
-            txtDistance.setText(bid.getDistance());
+            //txtDistance.setText(bid.getDistance());
         }
-        else if(bid.getEtat()=="Declined")
+        else if(bid.getEtat()=="Rejected")
         {
             card.setCardBackgroundColor(Color.parseColor("#F49BA4"));
             btn.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#DC3545")));
             btn.setBackgroundResource(R.drawable.button_reglage);
             btn.setText(bid.getEtat());
 
-            img.setImageResource(bid.getPhoto());
+            img.setImageURI(Uri.parse(bid.getPhoto()));
             txtVille.setText(bid.getVille());
             txtNomComplet.setText(bid.getNomComplet());
             txtNote.setText(bid.getNote());
             imgStar.setImageResource(R.drawable.star);
             txtPrix.setText(bid.getPrix());
             txtPriod.setText(bid.getPeriod());
-            txtDistance.setText(bid.getDistance());
+            //txtDistance.setText(bid.getDistance());
         }
-        else//bid.getEtat()=="Accepted"
+        else if (bid.getEtat()=="Accepted")
         {
             card.setCardBackgroundColor(Color.parseColor("#70B57F"));
             btn.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#218838")));
             btn.setBackgroundResource(R.drawable.button_reglage);
             btn.setText(bid.getEtat());
 
-            img.setImageResource(bid.getPhoto());
+            img.setImageURI(Uri.parse(bid.getPhoto()));
             txtVille.setText(bid.getVille());
             txtNomComplet.setText(bid.getNomComplet());
             txtNote.setText(bid.getNote());
             imgStar.setImageResource(R.drawable.star);
             txtPrix.setText(bid.getPrix());
             txtPriod.setText(bid.getPeriod());
-            txtDistance.setText(bid.getDistance());
+            //txtDistance.setText(bid.getDistance());
+        }
+        else if(bid.getEtat()=="Finished")
+        {
+            card.setCardBackgroundColor(Color.parseColor("#70B57F"));
+            btn.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#218838")));
+            btn.setBackgroundResource(R.drawable.button_reglage);
+            btn.setText(bid.getEtat());
+
+            img.setImageURI(Uri.parse(bid.getPhoto()));
+            txtVille.setText(bid.getVille());
+            txtNomComplet.setText(bid.getNomComplet());
+            txtNote.setText(bid.getNote());
+            imgStar.setImageResource(R.drawable.star);
+            txtPrix.setText(bid.getPrix());
+            txtPriod.setText(bid.getPeriod());
         }
 
         return view;
