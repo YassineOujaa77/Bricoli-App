@@ -18,14 +18,22 @@ import retrofit2.http.Path;
 
 public interface ClientApi {
 
+
+    @GET("client/byId/{id}")
+    Call<Client> getClient(@Path("id") Long clientId);
+
+
+    @PUT("client/updateClient/{clientId}")
+    Call<Client> updateClient(@Body Client client, @Path("clientId") Long clientId);
+
+
     @PUT("client/updateClient/{clientId}")
     Call<Client> updateClient(@Body Client client, @Path("clientId") Long clientId);
 
     @POST("client/addClient")
     Call<Client> addClient(@Body Client client);
     
-    @GET("byId/{id}")
-    Call <Client> getClientById(@Path("id") Long id);
+    
 
     @DELETE("deleteClient/{clientId}")
     Call <Void> deleteClient(@Path("clientId") Long clientId);

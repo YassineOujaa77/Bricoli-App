@@ -17,21 +17,22 @@ import androidx.annotation.Nullable;
 import com.example.bricoli.R;
 import com.example.bricoli.activities.JobDetailsForClientActivity;
 import com.example.bricoli.models.Annoucement;
+import com.example.bricoli.models.Postulation;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeBidsAdapter extends ArrayAdapter<Annoucement> {
+public class HomeBidsAdapter extends ArrayAdapter<Postulation> {
 
     private Context aContext ;
-    private List<Annoucement> annoucementsList = new ArrayList<>();
+    private List<Postulation> postulationArrayList = new ArrayList<>();
 
-    public HomeBidsAdapter(@NotNull Context context , ArrayList<Annoucement> list){
+    public HomeBidsAdapter(@NotNull Context context , ArrayList<Postulation> list){
         super(context,0,list);
         aContext = context ;
-        annoucementsList = list ;
+        postulationArrayList = list ;
 
     }
 
@@ -43,30 +44,32 @@ public class HomeBidsAdapter extends ArrayAdapter<Annoucement> {
             listItem = LayoutInflater.from(aContext).inflate(R.layout.list_item_for_home_bids,parent,false);
         }
 
-        Annoucement currentAnnoucement = annoucementsList.get(position);
+        Postulation currentpostulation = postulationArrayList.get(position);
 
         ImageView avatar = (ImageView) listItem.findViewById(R.id.worker_image);
-        avatar.setImageResource(currentAnnoucement.getPhoto());
+        avatar.setImageResource(R.drawable.userphoto);
 
         TextView fullname , rate , city , price , duration , distance ;
 
         fullname = (TextView) listItem.findViewById(R.id.nom_complet);
-        fullname.setText(currentAnnoucement.getFullName());
+        fullname.setText(currentpostulation.getWorker().getFullName());
 
         rate = (TextView) listItem.findViewById(R.id.rate_textView);
-        rate.setText(currentAnnoucement.getRating());
+        rate.setText(currentpostulation.getWorker().getNumberOfRating()+")");
+        rate.setText(""+round((double)currentpostulation.getWorker().getSommeRating()/currentpostulation.getWorker().getNumberOfRating(), 1));
+
 
         city = (TextView) listItem.findViewById(R.id.city_textView);
-        city.setText(currentAnnoucement.getCity());
+        city.setText("city");
 
         price = (TextView) listItem.findViewById(R.id.price_textView);
-        price.setText(currentAnnoucement.getPrice());
+        //price.setText(currentpostulation.getPrice());
 
         duration = (TextView) listItem.findViewById(R.id.days_textView);
-        duration.setText(currentAnnoucement.getDuration());
+        duration.setText("2jrs");
 
         distance = (TextView) listItem.findViewById(R.id.distance_textView);
-        distance.setText(currentAnnoucement.getDistance());
+        distance.setText("900m");
 
         Button acceptBtn = listItem.findViewById(R.id.accept);
 
@@ -83,6 +86,11 @@ public class HomeBidsAdapter extends ArrayAdapter<Annoucement> {
 
 
 
+    }
+
+    private static double round (double value, int precision) {
+        int scale = (int) Math.pow(10, precision);
+        return (double) Math.round(value * scale) / scale;
     }
 
 

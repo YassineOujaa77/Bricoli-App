@@ -20,6 +20,9 @@ public interface PostulationApi {
     @POST("postulation")
     Call<Postulation> addPostulation(@Body Postulation postulation);
 
+    @GET("postulation/byOfferId/{offerId}")
+    Call<List<Postulation>> getPostulationByOfferId(@Path("offerId") int offerId);
+
 
     @GET("listByWorkerId/{workerId}")
     Call<List<Postulation>> getPostulationsByWorkerId(@Path("workerId") Long workerId);
