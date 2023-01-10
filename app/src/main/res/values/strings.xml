@@ -95,4 +95,5 @@
     <string name="toast_client_home_catgo_desc">Please fill both category and description</string>
     <string name="toast_client_home_add_offer">Offer added </string>
     <string name="toast_client_home_fail_add_offer">Fail</string>
+    <string name="no_postulation_found">No offers</string>
 </resources>

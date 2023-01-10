@@ -104,5 +104,6 @@
     <string name="toast_client_home_catgo_desc">الرجاء ملء كلا التصنيف والوصف</string>
     <string name="toast_client_home_add_offer">تمت إضافة الخدمة</string>
     <string name="toast_client_home_fail_add_offer"> فشل</string>
+    <string name="no_postulation_found">ليست هناك خدمات</string>
 
 </resources>
