@@ -5,6 +5,7 @@ import com.example.bricoli.models.Worker;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
@@ -16,6 +17,9 @@ public interface WorkerApi {
 
     @GET("byId/{workerId}")
     Call<Worker> getWorkerById(@Path("workerId") Long id);
+
+    @DELETE("deleteWorker/{workerId}")
+    Call deleteWorker(@Path("workerId") Long workerId);
 
 
 }

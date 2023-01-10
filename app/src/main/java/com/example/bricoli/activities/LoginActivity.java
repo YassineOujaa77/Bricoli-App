@@ -40,6 +40,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,6 +87,7 @@ public class LoginActivity extends AppCompatActivity {
 
         if (remeberMeCheckbox.equals("true")) {
             if(role.equals("client")){
+
                 Intent intent = new Intent(getApplicationContext(), ClientHomeActivity.class);
                 startActivity(intent);
             }else{
@@ -134,8 +136,14 @@ public class LoginActivity extends AppCompatActivity {
                                     {
                                         if(cl.getPassword().equals(password.getText().toString()))
                                         {
+                                            SharedPreferences preferences = getSharedPreferences("contenu", MODE_PRIVATE);
+                                            SharedPreferences.Editor editor=preferences.edit();
+                                            editor.putString("role","client").commit();
+                                            editor.putLong("IdUser",cl.getUserId()).commit();
                                             //Log.d("test","****************************************"+cl.getFullName());
                                             Intent intent = new Intent(LoginActivity.this, ClientHomeActivity.class);
+                                            //Intent intent = new Intent(LoginActivity.this, ChangeRoleActivity.class);
+                                            //intent.putExtra("client",cl);
                                             startActivity(intent);
                                         }
                                         else
@@ -156,8 +164,14 @@ public class LoginActivity extends AppCompatActivity {
                         {
                             if(worker.getPassword().equals(password.getText().toString()))
                             {
+                                SharedPreferences preferences = getSharedPreferences("contenu", MODE_PRIVATE);
+                                SharedPreferences.Editor editor=preferences.edit();
+                                editor.putString("role","worker").commit();
+                                editor.putLong("IdUser",worker.getUserId()).commit();
                                 //Log.d("test","*****************************"+worker.getFullName());
                                 Intent intent = new Intent(LoginActivity.this, WorkerHomeActivity.class);
+                                //Intent intent = new Intent(LoginActivity.this, ChangeRoleActivity.class);
+                                //intent.putExtra("worker",worker);
                                 startActivity(intent);
                             }
                             else
