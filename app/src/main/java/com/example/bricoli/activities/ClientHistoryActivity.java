@@ -2,12 +2,8 @@ package com.example.bricoli.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.bricoli.R;
-import com.example.bricoli.adapters.ClientHistoryAdapter;
 import com.example.bricoli.adapters.PostulationAdapter;
-import com.example.bricoli.models.Client;
-import com.example.bricoli.models.Offer;
 import com.example.bricoli.models.Postulation;
-import com.example.bricoli.retrofit.OfferApi;
 import com.example.bricoli.retrofit.PostulationApi;
 import com.example.bricoli.retrofit.RetrofitService;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -18,14 +14,11 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,8 +27,8 @@ import retrofit2.Response;
 public class ClientHistoryActivity extends AppCompatActivity {
 
     private ListView listView;
-    private ClientHistoryAdapter clientHistoryAdapter;
     private PostulationAdapter postulationAdapter;
+    ArrayList<Postulation> postulations = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +38,9 @@ public class ClientHistoryActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.history_listview);
         loadPostulations();
 
-        // initialize
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
 
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         // set History Selected
         bottomNavigationView.setSelectedItemId(R.id.history);
 
@@ -78,28 +71,31 @@ public class ClientHistoryActivity extends AppCompatActivity {
     private void loadPostulations() {
         RetrofitService retrofitService2 = new RetrofitService();
         PostulationApi postulationApi = retrofitService2.getRetrofit().create(PostulationApi.class);
-        Call<ArrayList<Postulation>> postulation = postulationApi.getPostulationByClientIdAndState(4L, "0");
-        postulation.enqueue(new Callback<ArrayList<Postulation>>() {
+        Call<List<Postulation>> postulation = postulationApi.getPostulationByClientIdAndState(4L, "0");
+        postulation.enqueue(new Callback<List<Postulation>>() {
             @Override
-            public void onResponse(Call<ArrayList<Postulation>> call, Response<ArrayList<Postulation>> response) {
-                populateListView_postulation(response.body());
+            public void onResponse(Call<List<Postulation>> call, Response<List<Postulation>> response) {
+                List<Postulation> listPostulation = response.body();
+                if (listPostulation.size() > 0 ){
+                    populateListView_postulation(listPostulation);
+                }
+                else {
+                    Toast.makeText(ClientHistoryActivity.this, getResources().getText(R.string.no_postulation_found), Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
-            public void onFailure(Call<ArrayList<Postulation>> call, Throwable t) {
-                Toast.makeText(ClientHistoryActivity.this, "Failed to load postulations", Toast.LENGTH_SHORT).show();
+            public void onFailure(Call<List<Postulation>> call, Throwable t) {
+                Toast.makeText(ClientHistoryActivity.this, getResources().getText(R.string.toast_client_home_fail_add_offer), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-
-    private void populateListView_postulation(ArrayList<Postulation> postulationsList) {
-        postulationAdapter = new PostulationAdapter(this, postulationsList);
+    private void populateListView_postulation(@NonNull List<Postulation> postulationsList) {
+        for(int i=0;i<postulationsList.size();i++){
+            this.postulations.add(postulationsList.get(i));
+        }
+        postulationAdapter = new PostulationAdapter(this, postulations);
         listView.setAdapter(postulationAdapter);
-    }
-
-    public void openActivity() {
-        Intent intent = new Intent(this, HistoryPostDetailsActivity.class);
-        startActivity(intent);
     }
 }

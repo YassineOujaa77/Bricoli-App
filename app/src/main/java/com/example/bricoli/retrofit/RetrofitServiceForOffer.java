@@ -5,13 +5,11 @@ import com.google.gson.Gson;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-
-public class RetrofitServiceForClient
+public class RetrofitServiceForOffer
 {
     private Retrofit retrofit;
 
-    public RetrofitServiceForClient()
-
+    public  RetrofitServiceForOffer()
     {
         initializeRetrofit();
     }
@@ -19,8 +17,7 @@ public class RetrofitServiceForClient
     private void initializeRetrofit()
     {
         retrofit=new Retrofit.Builder()
-
-                .baseUrl("http://10.0.2.2:8080/api/vo/client/")
+                .baseUrl("http://10.0.2.2:8080/api/vo/offer/")
                 .addConverterFactory(GsonConverterFactory.create(new Gson()))
                 .build();
     }
@@ -29,4 +26,6 @@ public class RetrofitServiceForClient
     {
         return retrofit;
     }
+
+
 }

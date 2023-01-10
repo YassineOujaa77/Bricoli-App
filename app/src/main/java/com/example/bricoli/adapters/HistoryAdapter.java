@@ -1,6 +1,9 @@
 package com.example.bricoli.adapters;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +14,9 @@ import android.widget.TextView;
 import com.example.bricoli.R;
 import com.example.bricoli.models.History;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 
@@ -58,7 +64,10 @@ public class HistoryAdapter extends BaseAdapter
 
         imgi1.setImageResource(R.drawable.vector);
         imgi2.setImageResource(R.drawable.star);
-        img.setImageResource(history.getImage());
+        //img.setImageResource(history.getImage());
+        img.setImageURI(Uri.parse(history.getImage()));
+        //img.setImageURI(Uri.fromFile(new File("content://media/external/images/media/37")));
+
         nom.setText(history.getNomComplet());
         ville.setText(history.getVille());
         note.setText(history.getNote());

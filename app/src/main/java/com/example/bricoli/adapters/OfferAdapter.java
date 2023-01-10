@@ -13,6 +13,7 @@ import com.example.bricoli.R;
 import com.example.bricoli.activities.AnnouncementDetailsActivity;
 import com.example.bricoli.models.Offer;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class OfferAdapter extends ArrayAdapter<Offer> {
@@ -36,16 +37,17 @@ public class OfferAdapter extends ArrayAdapter<Offer> {
         fullName.setText(offers.get(position).getClient().getFullName());
 
         TextView city = (TextView) convertView.findViewById(R.id.city);
-        //city.setText(offers.get(position).getClient().getCity());
-        city.setText("city");
+        //distance.setText(offers.get(position).getClient().getDistance());
+        String[] address = offers.get(position).getClient().getAddress().split(",",2);
+        city.setText(address[1]);
 
         TextView rating = (TextView) convertView.findViewById(R.id.rating);
-        rating.setText(offers.get(position).getClient().getSommeRating().toString());
-
+        Long ratingValue = offers.get(position).getClient().getSommeRating() / offers.get(position).getClient().getNumberOfRating();
+        rating.setText(ratingValue +"(" +offers.get(position).getClient().getNumberOfRating().toString()+")");
 
         TextView distance = (TextView) convertView.findViewById(R.id.distance);
-        //distance.setText(offers.get(position).getClient().getDistance());
-        distance.setText("1Km");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd-yyyy");
+        distance.setText(simpleDateFormat.format(offers.get(position).getCreatedAt()).replace('-','/'));
 
         TextView description = (TextView) convertView.findViewById(R.id.description);
         description.setText(offers.get(position).getDescription());

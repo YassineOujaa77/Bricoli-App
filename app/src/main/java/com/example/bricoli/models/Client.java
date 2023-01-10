@@ -19,6 +19,7 @@ public class Client extends User implements Serializable {
         setPhone(phone);
     }
 
+
     public Client( String cin, String password, String address, Long sommeRating, Integer numberOfRating, String photo, String fullName, String workerField, String phone) {
         setCin(cin);
         setPassword(password);
@@ -31,6 +32,10 @@ public class Client extends User implements Serializable {
         setPhone(phone);
     }
 
+
+
+    public Client() {
+    }
 
 
     public Set<Offer> getOffers() {
