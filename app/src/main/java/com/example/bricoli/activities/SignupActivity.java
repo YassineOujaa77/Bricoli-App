@@ -530,6 +530,7 @@ public class SignupActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<Client> call, Response<Client> response) {
                     System.out.println(client.toString() + response.code());
+                    System.out.println("##### "+ clientOrWorker);
 
                 }
 
@@ -545,7 +546,7 @@ public class SignupActivity extends AppCompatActivity {
             call.enqueue(new Callback<Worker>() {
                 @Override
                 public void onResponse(Call<Worker> call, Response<Worker> response) {
-                    System.out.println(worker.toString());
+                    System.out.println(worker.toString() + response.code());
                 }
 
                 @Override

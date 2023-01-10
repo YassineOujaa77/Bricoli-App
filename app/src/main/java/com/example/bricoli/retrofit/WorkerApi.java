@@ -14,7 +14,7 @@ public interface WorkerApi {
     @PUT("updateWorker/{workerId}")
     Call<Worker> updateWorker(@Body Worker worker, @Path("workerId") Long workerId);
 
-    @POST("addWorker")
+    @POST("worker")
     Call<Worker> addWorker(@Body Worker worker);
 
 
