@@ -20,6 +20,9 @@ public class Worker extends User implements Serializable {
         setPhone(phone);
     }
 
+    public Worker() {
+    }
+
     public Set<Job> getJobs() {
         return jobs;
     }
