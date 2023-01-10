@@ -17,12 +17,24 @@ import android.widget.Toast;
 
 import com.example.bricoli.R;
 import com.example.bricoli.fragments.MapFragmentForWorker;
+import com.example.bricoli.models.Client;
+import com.example.bricoli.models.Offer;
+import com.example.bricoli.models.Postulation;
+import com.example.bricoli.models.Worker;
+import com.example.bricoli.retrofit.PostulationApi;
+import com.example.bricoli.retrofit.RetrofitService;
+import com.example.bricoli.retrofit.WorkerApi;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class JobDetailsForWorkerActivity extends AppCompatActivity {
     private static final int CALL_PERMISSION_REQUEST_CODE = 1;
     private Button callbutton;
     private String clientnumber;
     private ImageButton imageButton;
+    public static Offer staticoffre;//should be initialised by an offre
 
     public void openMap(){
         Intent intent=new Intent(this, MapForWorkerActivity.class);
@@ -34,8 +46,12 @@ public class JobDetailsForWorkerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_details_for_worker);
+
+
+        Client client=new Client(2L,"30303030","pass","30/40,Marakech",50L,3,""," mohamed benjeloun","","0658601214","this is a token to get ");
+
         //initialize the number
-        clientnumber="0658601214";
+        clientnumber=client.getPhone();
         callbutton = findViewById(R.id.callbutton);
 
         Fragment fragment= new MapFragmentForWorker();

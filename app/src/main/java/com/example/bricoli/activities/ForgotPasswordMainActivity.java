@@ -23,7 +23,6 @@ import android.widget.Toast;
 import com.example.bricoli.models.Client;
 import com.example.bricoli.models.Worker;
 import com.example.bricoli.retrofit.RetrofitService;
-import com.example.bricoli.retrofit.RetrofitServiceForWorker;
 import com.example.bricoli.retrofit.UserApi;
 
 import java.util.Random;
@@ -53,17 +52,13 @@ public class ForgotPasswordMainActivity extends AppCompatActivity {
 
     }
 
-    public void opensmsactivity(String theusernumbertocheck,Client client,Worker worker,Long idclient){
-            Intent intent = new Intent(this, ForgotpasswordSmsActivity.class);
-            intent.putExtra("client",client);
-            intent.putExtra("worker",worker);
-            String idc=idclient+"";
-            int sms=sendSMS(theusernumbertocheck);
-            intent.putExtra("idclient",idc);
-            intent.putExtra("Codedeverification",sms+"");
-            startActivity(intent);
-
-
+    public void opensmsactivity(String theusernumbertocheck,Client client,Worker worker){
+        Intent intent = new Intent(this, ForgotpasswordSmsActivity.class);
+        intent.putExtra("client",client);
+        intent.putExtra("worker",worker);
+        int sms=sendSMS(theusernumbertocheck);
+        intent.putExtra("Codedeverification",sms+"");
+        startActivity(intent);
     }
 
     @SuppressLint("MissingInflatedId")
@@ -74,9 +69,7 @@ public class ForgotPasswordMainActivity extends AppCompatActivity {
 
 
         ActivityCompat.requestPermissions(ForgotPasswordMainActivity.this, new String[]{Manifest.permission.SEND_SMS, Manifest.permission.READ_SMS}, PackageManager.PERMISSION_GRANTED);
-        phone   = (EditText) findViewById(R.id.Phone);
-
-
+        phone = (EditText) findViewById(R.id.Phone);
         thewrongnumbermessage=(TextView) findViewById(R.id.thewrongnumbermessage);
         tosmsactivity = (Button) findViewById(R.id.tosms);
         tosmsactivity.setOnClickListener(new View.OnClickListener() {
@@ -84,10 +77,11 @@ public class ForgotPasswordMainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 theusernumbertocheck=phone.getText().toString();
+
                 RetrofitService retrofit = new RetrofitService();
                 UserApi ziyad = retrofit.getRetrofit().create(UserApi.class);
                 //retrofitservice for worker
-                RetrofitServiceForWorker workeretrofit = new RetrofitServiceForWorker();
+                RetrofitService workeretrofit = new RetrofitService();
                 UserApi chaymaa = workeretrofit.getRetrofit().create(UserApi.class);
                 Call<Worker> worker=chaymaa.getWorkerByPhoneNumber(theusernumbertocheck);
                 Call<Client> client=ziyad.getClientByPhoneNumber(theusernumbertocheck);
@@ -99,16 +93,31 @@ public class ForgotPasswordMainActivity extends AppCompatActivity {
                         Client myClient = response.body();
                         if(myClient==null)
                         {
-                            thewrongnumbermessage.setVisibility(View.VISIBLE);
+                            ////////////////
+                            worker.enqueue(new Callback<Worker>() {
+                                @Override
+                                public void onResponse(Call<Worker> call, Response<Worker> response) {
+                                    Worker myWorker = response.body();
+                                    if(myWorker==null) {
+                                        thewrongnumbermessage.setVisibility(View.VISIBLE);
+                                    }else {
+                                        opensmsactivity(theusernumbertocheck,null,myWorker);
+
+                                    }
+                                }
+                                @Override
+                                public void onFailure(Call<Worker> call, Throwable t) {
+                                    System.out.println("failed to work with worker");
+
+                                }
+                            });
                             System.out.println("failed to find this client");
 
                         }else {
-
                             System.out.println(myClient.getUserId());
                             System.out.println("**********************************************************************************************************************************");
-                            opensmsactivity(theusernumbertocheck,myClient,null,myClient.getUserId());
+                            opensmsactivity(theusernumbertocheck,myClient,null);
                             System.out.println("found client");
-
                         }
                     }
                     @Override
@@ -116,30 +125,6 @@ public class ForgotPasswordMainActivity extends AppCompatActivity {
                         System.out.println("failed to work with client");
                     }
                 });
-                ////////////////
-                worker.enqueue(new Callback<Worker>() {
-                    @Override
-                    public void onResponse(Call<Worker> call, Response<Worker> response) {
-                        Worker myWorker = response.body();
-                        if(myWorker==null) {
-                            thewrongnumbermessage.setVisibility(View.VISIBLE);
-                        }else {
-                            opensmsactivity(theusernumbertocheck,null,myWorker,1L);
-
-                        }
-                    }
-                    @Override
-                    public void onFailure(Call<Worker> call, Throwable t) {
-                        System.out.println("failed to work with worker");
-
-                    }
-                });
-
-
-
-
-
-
 
             }
         });
@@ -149,6 +134,10 @@ public class ForgotPasswordMainActivity extends AppCompatActivity {
     }
 
 }
+
+
+
+
 
 
 

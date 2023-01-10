@@ -13,7 +13,10 @@ import retrofit2.http.Path;
 
 public interface ClientApi {
 
-    @PUT("updateClient/{clientId}")
+    @PUT("client/updateClient/{clientId}")
     Call<Client> updateClient(@Body Client client, @Path("clientId") Long clientId);
+
+    @GET("client/byId/{id}")
+    Call<Client> getClientById(@Path("id") Long clientId);
 
 }

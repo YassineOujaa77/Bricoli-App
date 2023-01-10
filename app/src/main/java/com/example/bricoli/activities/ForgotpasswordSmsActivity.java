@@ -40,7 +40,7 @@ public class ForgotpasswordSmsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String sms=intent.getStringExtra("Codedeverification");
         Worker myworker = (Worker) getIntent().getSerializableExtra("worker");
-        String idc=intent.getStringExtra("idclient");
+
 
         wrongcodemessage=(TextView) findViewById(R.id.messagewrongcode);
         tochangepass = (Button) findViewById(R.id.changepswd);
@@ -53,9 +53,8 @@ public class ForgotpasswordSmsActivity extends AppCompatActivity {
                     System.out.println(myclient.getUserId()+" "+myclient.getPhone()+" "+myclient.getPassword());
                     System.out.println(sms);
                     System.out.println("sf rah khddam hna");
-                    System.out.println(idc);
                     System.out.println("*********************************");
-                    opentochangepass(myclient,myworker);
+                    opentochangepass(myclient,null);
 
                 }if(Code.equals(sms) && !(myworker==null)){
                     System.out.println("*********************************");
@@ -63,7 +62,7 @@ public class ForgotpasswordSmsActivity extends AppCompatActivity {
                     System.out.println(sms);
                     System.out.println("sf rah khddam hna");
                     System.out.println("*********************************");
-                    opentochangepass(myclient,myworker);
+                    opentochangepass(null,myworker);
 
                 }
                 else{

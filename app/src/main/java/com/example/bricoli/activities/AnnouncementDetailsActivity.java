@@ -56,7 +56,7 @@ public class AnnouncementDetailsActivity extends AppCompatActivity {
                         float price = Float.parseFloat(priceProposed.getText().toString());
                         int duration = Integer.parseInt(durationProposed.getText().toString());
                         //prend l worker from login
-                        Worker worker = new Worker(1L,"cin","pass","adress",10L,1,"ggg","fullName","ggggg","666666");
+                        Worker worker = new Worker(1L,"cin","pass","adress",10L,1,"//:","full name","workerfield","àààààààààà","token");
                         //Date date = formatDate(offer.getCreatedAt());
                         offer.setCreatedAt(null);
                         Postulation postulationToAdd = new Postulation(price,duration, PostulationState.WAITING.toString(),null,worker,offer);

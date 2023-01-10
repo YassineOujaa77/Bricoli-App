@@ -18,7 +18,8 @@ public class Offer implements Serializable {
     private Set<Postulation> postulations = new HashSet<>();
 
 
-    public Offer(String category, Client client, String description, String state, Date createdAt, Set<Postulation> postulations) {
+    public Offer(Long offerId,String category, Client client, String description, String state, Date createdAt, Set<Postulation> postulations) {
+        this.offerId=offerId;
         this.category = category;
         this.client = client;
         this.description = description;

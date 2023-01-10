@@ -38,7 +38,7 @@
             android:name="firebase_analytics_collection_enabled"
             android:value="false" />
         <activity
-        android:name=".activities.MapForWorkerActivity"
+            android:name=".activities.MapForWorkerActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -46,8 +46,13 @@
         </activity>
         <activity
             android:name=".activities.JobDetailsForWorkerActivity"
-            android:exported="false">
-          
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -64,7 +69,11 @@
         </activity>
         <activity
             android:name=".activities.ChangeRoleActivity"
-            android:exported="false" />
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".activities.WorkerProfilForClientActivity"
             android:exported="false" />
@@ -83,7 +92,14 @@
         </activity>
         <activity
             android:name=".activities.ChangePasswordActivity"
-            android:exported="false" /> <!-- Login activity -->
+            android:exported="true" >
+
+        <meta-data
+            android:name="android.app.lib_name"
+            android:value="" />
+        </activity>
+
+        <!-- Login activity -->
         <activity
             android:name=".activities.LoginActivity"
             android:exported="false" /> <!-- Signup Activity -->
@@ -92,19 +108,15 @@
             android:exported="false" /> <!-- Client Home activity -->
         <activity
             android:name=".activities.ClientHomeActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
             <meta-data
                 android:name="preloaded_fonts"
                 android:resource="@array/preloaded_fonts" />
         </activity>
         <activity
             android:name=".activities.splashactivity"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/Theme.splashtheme">
 
 
@@ -137,7 +149,8 @@
         </activity>
         <activity
             android:name=".activities.JobDetailsForClientActivity"
-            android:exported="false">
+            android:exported="true">
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -209,6 +222,8 @@
             android:exported="false"/>
         <activity android:name=".activities.ForgotPasswordChangePassword"
             android:exported="false"/>
+
+
 
 
 
