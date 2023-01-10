@@ -174,7 +174,12 @@ public class CurrentBidsActivity extends AppCompatActivity {
                                     }
                                     else if(btn.getText()=="Accepted")
                                     {
-                                        startActivity(new Intent(CurrentBidsActivity.this,JobDetailsForClientActivity.class));
+/*
+                                        Intent workerIntent = new Intent(CurrentBidsActivity.this, JobDetailsForWorkerActivity.class);
+                                        workerIntent.putExtra("postulation_bids_worker", postulations.get(i));
+                                        startActivity(workerIntent);*/
+                                        startActivity(new Intent(CurrentBidsActivity.this,JobDetailsForWorkerActivity.class));
+
                                     }
 
                                 }

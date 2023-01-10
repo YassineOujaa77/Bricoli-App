@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -125,6 +126,11 @@ public class SettingActivity extends AppCompatActivity {
     private View.OnClickListener onLogOutClick(){
         return new View.OnClickListener(){
             public void onClick(View view){
+                SharedPreferences preferences =getSharedPreferences("contenu",SettingActivity.this.MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.clear();
+                editor.apply();
+                finish();
                 Intent intent = new Intent(SettingActivity.this, LoginActivity.class);
                 startActivity(intent);
             }

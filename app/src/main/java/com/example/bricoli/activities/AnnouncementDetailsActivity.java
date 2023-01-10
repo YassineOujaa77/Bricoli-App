@@ -3,6 +3,7 @@ package com.example.bricoli.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,6 +21,7 @@ import com.example.bricoli.models.Worker;
 import com.example.bricoli.retrofit.OfferApi;
 import com.example.bricoli.retrofit.PostulationApi;
 import com.example.bricoli.retrofit.RetrofitService;
+import com.example.bricoli.retrofit.WorkerApi;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -30,6 +32,15 @@ import retrofit2.Response;
 
 public class AnnouncementDetailsActivity extends AppCompatActivity {
     private Offer offer;
+
+    public Offer getOffer() {
+        return offer;
+    }
+
+    public void setOffer(Offer offer) {
+        this.offer = offer;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,30 +67,52 @@ public class AnnouncementDetailsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 EditText priceProposed = (EditText)findViewById(R.id.price_proposed);
                 EditText durationProposed = (EditText)findViewById(R.id.duration_proposed);
-                try {
                     if(!priceProposed.getText().toString().equals("") && !durationProposed.getText().toString().equals("")){
-                        float price = Float.parseFloat(priceProposed.getText().toString());
-                        int duration = Integer.parseInt(durationProposed.getText().toString());
-                        //prend l worker from login
-                        Worker worker = new Worker(1L,"cin","pass","adress",10L,1,"ggg","fullName","ggggg","666666");
-                        offer.setCreatedAt(null);
-                        Postulation postulationToAdd = new Postulation(price,duration, PostulationState.WAITING.toString(),null,worker,offer);
-                        callAddPostulationApi(postulationToAdd);
-                        if(offer.getState().equals(OfferState.EN_ATTENTE.toString())){
-                            callUpdateOfferApi(offer);
+                        try {
+                            float price = Float.parseFloat(priceProposed.getText().toString());
+                            int duration = Integer.parseInt(durationProposed.getText().toString());
+                            //prend l worker from login
+                            SharedPreferences preferences = getSharedPreferences("contenu", MODE_PRIVATE);
+                            String state=preferences.getString("role","default");
+                            Long idUser=preferences.getLong("IdUser",-1l);
+                            RetrofitService retrofitWorker=new RetrofitService();
+                            WorkerApi workerApi = retrofitWorker.getRetrofit().create(WorkerApi.class);
+                            workerApi.getWorkerById(idUser).enqueue(new Callback<Worker>() {
+                                @Override
+                                public void onResponse(Call<Worker> call, Response<Worker> response) {
+                                    Worker worker = response.body();
+                                    Offer offerSend = getOffer();
+                                    offerSend.setCreatedAt(null);
+                                    Postulation postulationToAdd = new Postulation(price,duration, PostulationState.WAITING.toString(),null,worker,offerSend);
+                                    callAddPostulationApi(postulationToAdd);
+                                    if(offerSend.getState().equals(OfferState.EN_ATTENTE.toString())){
+                                        callUpdateOfferApi(offer);
+                                    }
+                                    Toast.makeText(AnnouncementDetailsActivity.this,getString(R.string.postulation_added),Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(AnnouncementDetailsActivity.this,WorkerHomeActivity.class));
+
+
+
+                                }
+
+                                @Override
+                                public void onFailure(Call<Worker> call, Throwable t) {
+
+                                }
+                            });
+                        }catch (Exception e){
+                            Toast.makeText(AnnouncementDetailsActivity.this,getString(R.string.duration_price_proposed_not_valid),Toast.LENGTH_SHORT).show();
+
+
                         }
-                        Toast.makeText(AnnouncementDetailsActivity.this,getString(R.string.duration_price_proposed_not_inserted),Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(AnnouncementDetailsActivity.this,WorkerHomeActivity.class));
+
 
                     }
                     else{
                         Toast.makeText(getApplicationContext(),getString(R.string.duration_price_proposed_not_inserted),Toast.LENGTH_SHORT).show();
                     }
-                }
-                catch(Exception e){
-                    Toast.makeText(getApplicationContext(),getString(R.string.duration_price_proposed_not_valid),Toast.LENGTH_SHORT).show();
 
-                }
+
             }
         };
     }
